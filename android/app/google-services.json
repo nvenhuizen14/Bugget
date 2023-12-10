@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "439028653682",
+    "project_id": "bugget",
+    "storage_bucket": "bugget.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:439028653682:android:fd28a0aa4399c602ef6ceb",
+        "android_client_info": {
+          "package_name": "com.nvsolutions.bugget"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "439028653682-ud382smg97tucjgf4mof7giu02q511c1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nvsolutions.bugget",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "439028653682-pqhl3mauk4p9bgt1psokou8furotrqlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYe_leb9AqW6lTMbdwtY10Qh7D61g9cy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "439028653682-c6901q47l2ue3ar4iucu65lsc0tvqmja.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "439028653682-qtd3ofokp979q8um5pj5jtb7b3a8qurp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nvsolutions.bugget"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
