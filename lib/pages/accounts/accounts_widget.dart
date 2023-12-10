@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
@@ -16,6 +18,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'accounts_model.dart';
 export 'accounts_model.dart';
+import '../../services/plaid_service.dart';
 
 class AccountsWidget extends StatefulWidget {
   const AccountsWidget({super.key});
@@ -29,7 +32,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
   late AccountsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
+  final PlaidService _plaidService = PlaidService();
   final animationsMap = {
     'accountCardOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -49,7 +52,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
   void initState() {
     super.initState();
     _model = createModel(context, () => AccountsModel());
-
+    _plaidService.initializePlaid(); // Initialize the Plaid Service
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Accounts'});
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -58,8 +61,17 @@ class _AccountsWidgetState extends State<AccountsWidget>
   @override
   void dispose() {
     _model.dispose();
-
+     _plaidService.dispose();
     super.dispose();
+  }
+
+   void openPlaidLink() async {
+    String? linkToken = await _plaidService.fetchLinkToken();
+    if (linkToken != null) {
+      _plaidService.openPlaidLink(linkToken);
+    } else {
+      // Handle the error scenario
+    }
   }
 
   @override
@@ -486,7 +498,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                                   20.0, 20.0, 20.0, 20.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
-                                              print('Button pressed ...');
+                                               openPlaidLink();
                                             },
                                             text: '',
                                             icon: const Icon(
