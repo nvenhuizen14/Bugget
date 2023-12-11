@@ -37,7 +37,6 @@ class PlaidService {
       // Include the client_user_id in the body of the request
       var response = await http.post(
         Uri.parse('https://n8n.nvsolutionss.com/webhook/728916d8-7542-41f6-873a-4ac0f4e9e14a'),
-        headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'client_user_id': userId, // Include the client_user_id
         }),
@@ -96,7 +95,6 @@ class PlaidService {
 
       var response = await http.post(
         Uri.parse('https://n8n.nvsolutionss.com/webhook/591d4bf2-eb71-4d52-939f-596533a7a137'),
-        headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'public_token': publicToken,
           'client_user_id': userId
