@@ -5,6 +5,7 @@ import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
+// ignore: unused_element
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 /// Start Supabase Group Code
