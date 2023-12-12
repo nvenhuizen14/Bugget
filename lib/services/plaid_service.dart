@@ -1,21 +1,15 @@
-
-
-// ignore_for_file: avoid_print
+// ignore_for_file: unused_import, avoid_print
 
 import 'dart:async';
 import 'dart:convert';
-import 'package:bugget/backend/supabase/database/database.dart';
 import 'package:bugget/backend/supabase/supabase.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:plaid_flutter/plaid_flutter.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../auth/supabase_auth/supabase_user_provider.dart';
 
 class PlaidService {
-
-final storage = const FlutterSecureStorage();
-
-  // Initialize Plaid Link with necessary event listeners
 
   LinkConfiguration? _configuration;
   StreamSubscription<LinkEvent>? _streamEvent;
@@ -42,16 +36,12 @@ final storage = const FlutterSecureStorage();
 
       // Include the client_user_id in the body of the request
       var response = await http.post(
-      Uri.parse('https://eqtwspinslicgwdcosnd.supabase.co/functions/v1/PlaidToken_Exchange'),
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': supabasePersistSessionKey ,
-      },
-      body: json.encode({
-        'userId': userId, 
-     }),
-    );
-
+        Uri.parse('https://n8n.nvsolutionss.com/webhook/728916d8-7542-41f6-873a-4ac0f4e9e14a'),
+        headers: {'Content-Type': 'application/json'},
+        body: json.encode({
+          'client_user_id': userId, // Include the client_user_id
+        }),
+      );
 
       if (response.statusCode == 200) {
         var data = json.decode(response.body);
