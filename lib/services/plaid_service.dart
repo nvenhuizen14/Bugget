@@ -48,8 +48,8 @@ final storage = const FlutterSecureStorage();
         'apikey': supabasePersistSessionKey ,
       },
       body: json.encode({
-        'client_user_id': userId, // Include the client_user_id
-      }),
+        'userId': userId, 
+     }),
     );
 
 
