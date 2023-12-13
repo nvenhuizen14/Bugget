@@ -9,15 +9,15 @@ class MyChartWidget extends StatefulWidget {
   const MyChartWidget({super.key});
 
   @override
-  _MyChartWidgetState createState() => _MyChartWidgetState();
+  MyChartWidgetState createState() => MyChartWidgetState();
 }
 
-class _MyChartWidgetState extends State<MyChartWidget> {
+class MyChartWidgetState extends State<MyChartWidget> {
   late MyChartModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

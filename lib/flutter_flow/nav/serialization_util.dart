@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -65,34 +67,34 @@ String? serializeParam(
         return param.toString();
       case ParamType.double:
         return param.toString();
-      case ParamType.String:
+      case ParamType.string:
         return param;
       case ParamType.bool:
         return param ? 'true' : 'false';
-      case ParamType.DateTime:
+      case ParamType.dateTime:
         return (param as DateTime).millisecondsSinceEpoch.toString();
-      case ParamType.DateTimeRange:
+      case ParamType.dateTimeRange:
         return dateTimeRangeToString(param as DateTimeRange);
-      case ParamType.LatLng:
+      case ParamType.latLng:
         return (param as LatLng).serialize();
-      case ParamType.Color:
+      case ParamType.color:
         return (param as Color).toCssString();
-      case ParamType.FFPlace:
+      case ParamType.fFPlace:
         return placeToString(param as FFPlace);
-      case ParamType.FFUploadedFile:
+      case ParamType.fFUploadedFile:
         return uploadedFileToString(param as FFUploadedFile);
-      case ParamType.JSON:
+      case ParamType.jSON:
         return json.encode(param);
-      case ParamType.DocumentReference:
+      case ParamType.documentReference:
         return _serializeDocumentReference(param as DocumentReference);
-      case ParamType.Document:
+      case ParamType.document:
         final reference = (param as FirestoreRecord).reference;
         return _serializeDocumentReference(reference);
 
-      case ParamType.DataStruct:
+      case ParamType.dataStruct:
         return param is BaseStruct ? param.serialize() : null;
 
-      case ParamType.SupabaseRow:
+      case ParamType.supabaseRow:
         return json.encode((param as SupabaseDataRow).data);
 
       default:
@@ -172,19 +174,19 @@ DocumentReference _deserializeDocumentReference(
 enum ParamType {
   int,
   double,
-  String,
+  string,
   bool,
-  DateTime,
-  DateTimeRange,
-  LatLng,
-  Color,
-  FFPlace,
-  FFUploadedFile,
-  JSON,
-  Document,
-  DocumentReference,
-  DataStruct,
-  SupabaseRow,
+  dateTime,
+  dateTimeRange,
+  latLng,
+  color,
+  fFPlace,
+  fFUploadedFile,
+  jSON,
+  document,
+  documentReference,
+  dataStruct,
+  supabaseRow,
 }
 
 dynamic deserializeParam<T>(
@@ -222,70 +224,70 @@ dynamic deserializeParam<T>(
         return int.tryParse(param);
       case ParamType.double:
         return double.tryParse(param);
-      case ParamType.String:
+      case ParamType.string:
         return param;
       case ParamType.bool:
         return param == 'true';
-      case ParamType.DateTime:
+      case ParamType.dateTime:
         final milliseconds = int.tryParse(param);
         return milliseconds != null
             ? DateTime.fromMillisecondsSinceEpoch(milliseconds)
             : null;
-      case ParamType.DateTimeRange:
+      case ParamType.dateTimeRange:
         return dateTimeRangeFromString(param);
-      case ParamType.LatLng:
+      case ParamType.latLng:
         return latLngFromString(param);
-      case ParamType.Color:
+      case ParamType.color:
         return fromCssColor(param);
-      case ParamType.FFPlace:
+      case ParamType.fFPlace:
         return placeFromString(param);
-      case ParamType.FFUploadedFile:
+      case ParamType.fFUploadedFile:
         return uploadedFileFromString(param);
-      case ParamType.JSON:
+      case ParamType.jSON:
         return json.decode(param);
-      case ParamType.DocumentReference:
+      case ParamType.documentReference:
         return _deserializeDocumentReference(param, collectionNamePath ?? []);
 
-      case ParamType.SupabaseRow:
+      case ParamType.supabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
-          case TransactionCategoryViewRow:
+          case const (TransactionCategoryViewRow):
             return TransactionCategoryViewRow(data);
-          case AccountRow:
+          case const (AccountRow):
             return AccountRow(data);
-          case TransactionCategoryRow:
+          case const (TransactionCategoryRow):
             return TransactionCategoryRow(data);
-          case DocumentsRow:
+          case const (DocumentsRow):
             return DocumentsRow(data);
-          case WeeklySpendingRow:
+          case const (WeeklySpendingRow):
             return WeeklySpendingRow(data);
-          case TransactionGroupRow:
+          case TransactionGroupRow _:
             return TransactionGroupRow(data);
-          case TransactionsRow:
+          case TransactionsRow _:
             return TransactionsRow(data);
-          case UserRulesRow:
+          case UserRulesRow _:
             return UserRulesRow(data);
-          case UserRow:
+          case UserRow _:
             return UserRow(data);
-          case DailySpendingRow:
+          case DailySpendingRow _:
             return DailySpendingRow(data);
-          case UserCombinedRow:
+          case UserCombinedRow _:
             return UserCombinedRow(data);
-          case BudgetingRow:
+          case BudgetingRow _:
             return BudgetingRow(data);
-          case NormalizedTransactionsRow:
+          case NormalizedTransactionsRow _:
             return NormalizedTransactionsRow(data);
-          case BudgetRow:
+          case BudgetRow _:
             return BudgetRow(data);
-          case ItemRow:
+          case ItemRow _:
             return ItemRow(data);
-          case InstitutionRow:
+          case InstitutionRow _:
             return InstitutionRow(data);
           default:
             return null;
         }
 
-      case ParamType.DataStruct:
+      case ParamType.dataStruct:
         final data = json.decode(param) as Map<String, dynamic>? ?? {};
         return structBuilder != null ? structBuilder(data) : null;
 

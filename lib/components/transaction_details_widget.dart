@@ -43,16 +43,16 @@ class TransactionDetailsWidget extends StatefulWidget {
   final String columnView;
 
   @override
-  _TransactionDetailsWidgetState createState() =>
-      _TransactionDetailsWidgetState();
+  TransactionDetailsWidgetState createState() =>
+      TransactionDetailsWidgetState();
 }
 
-class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
+class TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
   late TransactionDetailsModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

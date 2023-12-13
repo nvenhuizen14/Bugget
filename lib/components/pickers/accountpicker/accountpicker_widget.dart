@@ -20,15 +20,15 @@ class AccountpickerWidget extends StatefulWidget {
   final String currentAccount;
 
   @override
-  _AccountpickerWidgetState createState() => _AccountpickerWidgetState();
+  AccountpickerWidgetState createState() => AccountpickerWidgetState();
 }
 
-class _AccountpickerWidgetState extends State<AccountpickerWidget> {
+class AccountpickerWidgetState extends State<AccountpickerWidget> {
   late AccountpickerModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 
@@ -129,7 +129,7 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                                 'ACCOUNTPICKER_Container_5glhj8o7_ON_TAP');
                             logFirebaseEvent('Container_backend_call');
                             _model.newAccount =
-                                await TransactionsTable().update(
+                                (await TransactionsTable().update(
                               data: {
                                 'account_name': 'null',
                               },
@@ -141,7 +141,7 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                                 ),
                               ),
                               returnRows: true,
-                            );
+                            )).cast<TransactionsRow>();
                             logFirebaseEvent(
                                 'Container_update_component_state');
                             _model.updatePage(() {

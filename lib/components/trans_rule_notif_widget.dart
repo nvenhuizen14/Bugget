@@ -10,15 +10,15 @@ class TransRuleNotifWidget extends StatefulWidget {
   const TransRuleNotifWidget({super.key});
 
   @override
-  _TransRuleNotifWidgetState createState() => _TransRuleNotifWidgetState();
+  TransRuleNotifWidgetState createState() => TransRuleNotifWidgetState();
 }
 
-class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
+class TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
   late TransRuleNotifModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

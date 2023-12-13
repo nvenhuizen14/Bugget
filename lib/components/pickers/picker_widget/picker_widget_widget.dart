@@ -22,15 +22,15 @@ class PickerWidgetWidget extends StatefulWidget {
   final String columnView;
 
   @override
-  _PickerWidgetWidgetState createState() => _PickerWidgetWidgetState();
+  PickerWidgetWidgetState createState() => PickerWidgetWidgetState();
 }
 
-class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
+class PickerWidgetWidgetState extends State<PickerWidgetWidget> {
   late PickerWidgetModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 
@@ -132,7 +132,7 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                                 'PICKER_WIDGET_Container_0pp3t46d_ON_TAP');
                             logFirebaseEvent('Container_backend_call');
                             _model.newCategory =
-                                await TransactionsTable().update(
+                                (await TransactionsTable().update(
                               data: {
                                 'category': valueOrDefault<String>(
                                   listViewTransactionCategoryRow.name,
@@ -147,7 +147,7 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                                 ),
                               ),
                               returnRows: true,
-                            );
+                            )).cast<TransactionsRow>();
                             logFirebaseEvent(
                                 'Container_update_component_state');
                             _model.updatePage(() {
@@ -156,10 +156,6 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                               _model.currentCategory =
                                   listViewTransactionCategoryRow.name;
                             });
-                            logFirebaseEvent('Container_bottom_sheet');
-                            Navigator.pop(context);
-                            logFirebaseEvent('Container_bottom_sheet');
-                            Navigator.pop(context);
 
                             setState(() {});
                           },

@@ -10,17 +10,17 @@ class TransactionsdatePickerWidget extends StatefulWidget {
   const TransactionsdatePickerWidget({super.key});
 
   @override
-  _TransactionsdatePickerWidgetState createState() =>
-      _TransactionsdatePickerWidgetState();
+  TransactionsdatePickerWidgetState createState() =>
+      TransactionsdatePickerWidgetState();
 }
 
-class _TransactionsdatePickerWidgetState
+class TransactionsdatePickerWidgetState
     extends State<TransactionsdatePickerWidget> {
   late TransactionsdatePickerModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

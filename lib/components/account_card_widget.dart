@@ -31,15 +31,15 @@ class AccountCardWidget extends StatefulWidget {
   final Color borderColor;
 
   @override
-  _AccountCardWidgetState createState() => _AccountCardWidgetState();
+  AccountCardWidgetState createState() => AccountCardWidgetState();
 }
 
-class _AccountCardWidgetState extends State<AccountCardWidget> {
+class AccountCardWidgetState extends State<AccountCardWidget> {
   late AccountCardModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 
@@ -324,7 +324,6 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                 size: 20.0,
                               ),
                               onPressed: () {
-                                print('IconButton pressed ...');
                               },
                             ),
                           ),

@@ -32,10 +32,10 @@ class BudgetListTileWidget extends StatefulWidget {
   final String budgetGroup;
 
   @override
-  _BudgetListTileWidgetState createState() => _BudgetListTileWidgetState();
+  BudgetListTileWidgetState createState() => BudgetListTileWidgetState();
 }
 
-class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
+class BudgetListTileWidgetState extends State<BudgetListTileWidget>
     with TickerProviderStateMixin {
   late BudgetListTileModel _model;
 
@@ -63,8 +63,8 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
   };
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'dart:convert';
 
 import '/flutter_flow/flutter_flow_util.dart';
@@ -5,7 +7,7 @@ import 'api_manager.dart';
 
 export 'api_manager.dart' show ApiCallResponse;
 
-// ignore: unused_element
+
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
 /// Start Supabase Group Code

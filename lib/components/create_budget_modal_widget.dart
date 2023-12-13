@@ -30,16 +30,16 @@ class CreateBudgetModalWidget extends StatefulWidget {
   final String recurring;
 
   @override
-  _CreateBudgetModalWidgetState createState() =>
-      _CreateBudgetModalWidgetState();
+  CreateBudgetModalWidgetState createState() =>
+      CreateBudgetModalWidgetState();
 }
 
-class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
+class CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
   late CreateBudgetModalModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

@@ -19,17 +19,17 @@ class TotalBudgetSpentGraphWidget extends StatefulWidget {
   final double budget;
 
   @override
-  _TotalBudgetSpentGraphWidgetState createState() =>
-      _TotalBudgetSpentGraphWidgetState();
+  TotalBudgetSpentGraphWidgetState createState() =>
+      TotalBudgetSpentGraphWidgetState();
 }
 
-class _TotalBudgetSpentGraphWidgetState
+class TotalBudgetSpentGraphWidgetState
     extends State<TotalBudgetSpentGraphWidget> {
   late TotalBudgetSpentGraphModel _model;
 
   @override
-  void setState(VoidCallback callback) {
-    super.setState(callback);
+  void setState(VoidCallback fn) {
+    super.setState(fn);
     _model.onUpdate();
   }
 

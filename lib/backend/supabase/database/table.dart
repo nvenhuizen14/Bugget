@@ -1,43 +1,62 @@
-import 'database.dart';
+// ignore_for_file: avoid_print
+
+import 'dart:async';
+
+import 'package:bugget/backend/supabase/database/database.dart';
+// ignore: unnecessary_import
+import 'package:supabase/supabase.dart';
 
 abstract class SupabaseTable<T extends SupabaseDataRow> {
   String get tableName;
   T createRow(Map<String, dynamic> data);
 
-  PostgrestFilterBuilder<T> _select<T>() =>
-      SupaFlow.client.from(tableName).select<T>();
+  // Correct the _select method
+  PostgrestFilterBuilder _select() => SupaFlow.client.from(tableName).select();
 
+  // Merged queryRows method
   Future<List<T>> queryRows({
-    required PostgrestTransformBuilder Function(PostgrestFilterBuilder) queryFn,
+    required Function(PostgrestFilterBuilder<dynamic>) queryFn,
     int? limit,
   }) {
-    final select = _select<PostgrestList>();
+    final select = _select();
     var query = queryFn(select);
     query = limit != null ? query.limit(limit) : query;
     return query
-        .select<PostgrestList>()
+        .select()
+        .then((response) => response.map((data) => createRow(data as Map<String, dynamic>)).toList());
+  }
+
+  future<List> ({
+    required PostgrestTransformBuilder Function(PostgrestFilterBuilder) queryFn,
+    int? limit,
+  }) {
+    final select = _select();
+    var query = queryFn(select);
+    query = limit != null ? query.limit(limit) : query;
+    return query
+        .select()
         .then((rows) => rows.map(createRow).toList());
   }
 
   Future<List<T>> querySingleRow({
     required PostgrestTransformBuilder Function(PostgrestFilterBuilder) queryFn,
   }) =>
-      queryFn(_select<PostgrestMap>())
+      queryFn(_select())
           .limit(1)
-          .select<PostgrestMap?>()
+          .select()
           .maybeSingle()
           .catchError((e) => print('Error querying row: $e'))
           .then((r) => [if (r != null) createRow(r)]);
 
-  Future<T> insert(Map<String, dynamic> data) => SupaFlow.client
+  Future insert(Map<String, dynamic> data) => SupaFlow.client
       .from(tableName)
       .insert(data)
-      .select<PostgrestMap>()
+      .select()
       .limit(1)
       .single()
-      .then(createRow);
+      .then(createRow as FutureOr Function(dynamic value));
 
-  Future<List<T>> update({
+  Future<List> update({
     required Map<String, dynamic> data,
     required PostgrestTransformBuilder Function(PostgrestFilterBuilder)
         matchingRows,
@@ -49,7 +68,7 @@ abstract class SupabaseTable<T extends SupabaseDataRow> {
       return [];
     }
     return update
-        .select<PostgrestList>()
+        .select()
         .then((rows) => rows.map(createRow).toList());
   }
 
@@ -64,10 +83,11 @@ abstract class SupabaseTable<T extends SupabaseDataRow> {
       return [];
     }
     return delete
-        .select<PostgrestList>()
+        .select()
         .then((rows) => rows.map(createRow).toList());
   }
 }
+
 
 class PostgresTime {
   PostgresTime(this.time);
