@@ -22,27 +22,27 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
   final unfocusNode = FocusNode();
   // Models for accountCard dynamic component.
   late FlutterFlowDynamicModels<AccountCardModel> accountCardModels;
-  // Model for NavBarFloting component.
-  late NavBarFlotingModel navBarFlotingModel;
   // Models for transactionRow dynamic component.
   late FlutterFlowDynamicModels<TransactionRowModel> transactionRowModels;
+  // Model for NavBarFloting component.
+  late NavBarFlotingModel navBarFlotingModel;
 
   /// Initialization and disposal methods.
 
   @override
   void initState(BuildContext context) {
     accountCardModels = FlutterFlowDynamicModels(() => AccountCardModel());
-    navBarFlotingModel = createModel(context, () => NavBarFlotingModel());
     transactionRowModels =
         FlutterFlowDynamicModels(() => TransactionRowModel());
+    navBarFlotingModel = createModel(context, () => NavBarFlotingModel());
   }
 
   @override
   void dispose() {
     unfocusNode.dispose();
     accountCardModels.dispose();
-    navBarFlotingModel.dispose();
     transactionRowModels.dispose();
+    navBarFlotingModel.dispose();
   }
 
   /// Action blocks are added here.
