@@ -104,7 +104,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -152,8 +152,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                 options: FFButtonOptions(
                                   width: double.infinity,
                                   height: 80.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: const EdgeInsets.all(0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: FlutterFlowTheme.of(context).gray600,
@@ -213,7 +212,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(-1.00, 1.00),
+                              alignment: const AlignmentDirectional(-1.0, 1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 15.0),
@@ -241,7 +240,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(1.00, 0.00),
+                              alignment: const AlignmentDirectional(1.0, 0.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 20.0, 20.0),

@@ -49,39 +49,50 @@ class SELECTALLFROMTransactioncategoryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: true,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic categoryNames(dynamic response) => getJsonField(
+  List<String>? categoryNames(dynamic response) => (getJsonField(
         response,
         r'''$[:].name''',
         true,
-      );
-  dynamic categoryTypes(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
+  List<String>? categoryTypes(dynamic response) => (getJsonField(
         response,
         r'''$[:].type''',
         true,
-      );
-  dynamic categoryShow(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
+  List? categoryShow(dynamic response) => getJsonField(
         response,
         r'''$[:].show''',
         true,
-      );
-  dynamic categoryId(dynamic response) => getJsonField(
+      ) as List?;
+  List<int>? categoryId(dynamic response) => (getJsonField(
         response,
         r'''$[:].id''',
         true,
-      );
-  dynamic categoryRelatedGroupID(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<int>();
+  List<int>? categoryRelatedGroupID(dynamic response) => (getJsonField(
         response,
         r'''$[:].group_id''',
         true,
-      );
-  dynamic categoryName1(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<int>();
+  List<String>? categoryName1(dynamic response) => (getJsonField(
         response,
         r'''$[0].name''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 class TransactionCategoryForeginKeytransactionGroupCall {
@@ -102,24 +113,29 @@ class TransactionCategoryForeginKeytransactionGroupCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  dynamic groupid(dynamic response) => getJsonField(
+  List<int>? groupid(dynamic response) => (getJsonField(
         response,
         r'''$[:].group_id''',
         true,
-      );
-  dynamic transactionGroup(dynamic response) => getJsonField(
+      ) as List?)
+          ?.withoutNulls
+          .cast<int>();
+  List? transactionGroup(dynamic response) => getJsonField(
         response,
         r'''$[:].transaction_group''',
         true,
-      );
-  dynamic transactionGroupName(dynamic response) => getJsonField(
+      ) as List?;
+  List<String>? transactionGroupName(dynamic response) => (getJsonField(
         response,
         r'''$[:].transaction_group.name''',
         true,
-      );
+      ) as List?)
+          ?.withoutNulls
+          .cast<String>();
 }
 
 /// End Supabase Group Code
@@ -635,6 +651,7 @@ class AssetReportCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -673,6 +690,7 @@ class AssetReportGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -708,6 +726,7 @@ class AssetReportPdfGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -754,6 +773,7 @@ class AssetReportRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -789,6 +809,7 @@ class AssetReportFilterCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -821,6 +842,7 @@ class AssetReportRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -854,6 +876,7 @@ class AssetReportAuditCopyCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -886,6 +909,7 @@ class AssetReportAuditCopyGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -918,6 +942,7 @@ class AssetReportAuditCopyRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -950,6 +975,7 @@ class BaseReportGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -985,6 +1011,7 @@ class CreditAuditCopyTokenUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1017,6 +1044,7 @@ class CraBankIncomeGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1049,6 +1077,7 @@ class StatementsListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1082,6 +1111,7 @@ class StatementsDownloadCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1116,6 +1146,7 @@ class ItemActivityListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1148,6 +1179,7 @@ class ItemApplicationListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1204,6 +1236,7 @@ class ItemApplicationScopesUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1236,6 +1269,7 @@ class ApplicationGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1268,6 +1302,7 @@ class ItemGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1305,6 +1340,7 @@ class AuthGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1350,6 +1386,7 @@ class TransactionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1382,6 +1419,7 @@ class TransactionsRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1420,6 +1458,7 @@ class TransactionsRecurringGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1459,6 +1498,7 @@ class TransactionsSyncCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1516,6 +1556,7 @@ class TransactionsEnrichCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1564,6 +1605,7 @@ class InstitutionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1612,6 +1654,7 @@ class InstitutionsSearchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1653,6 +1696,7 @@ class InstitutionsGetByIdCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1685,6 +1729,7 @@ class ItemRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1722,6 +1767,7 @@ class AccountsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1742,6 +1788,7 @@ class CategoriesGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1778,6 +1825,7 @@ class SandboxProcessorTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1831,6 +1879,7 @@ class SandboxPublicTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1865,6 +1914,7 @@ class SandboxItemFireWebhookCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1903,6 +1953,7 @@ class AccountsBalanceGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1940,6 +1991,7 @@ class IdentityGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -1983,6 +2035,7 @@ class IdentityMatchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2015,6 +2068,7 @@ class IdentityRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2047,6 +2101,7 @@ class DashboardUserGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2079,6 +2134,7 @@ class DashboardUserListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2137,6 +2193,7 @@ class IdentityVerificationCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2169,6 +2226,7 @@ class IdentityVerificationGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2203,6 +2261,7 @@ class IdentityVerificationListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2264,6 +2323,7 @@ class IdentityVerificationRetryCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2305,6 +2365,7 @@ class WatchlistScreeningEntityCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2337,6 +2398,7 @@ class WatchlistScreeningEntityGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2371,6 +2433,7 @@ class WatchlistScreeningEntityHistoryListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2404,6 +2467,7 @@ class WatchlistScreeningEntityHitListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2440,6 +2504,7 @@ class WatchlistScreeningEntityListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2473,6 +2538,7 @@ class WatchlistScreeningEntityProgramGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2506,6 +2572,7 @@ class WatchlistScreeningEntityProgramListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2546,6 +2613,7 @@ class WatchlistScreeningEntityReviewCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2580,6 +2648,7 @@ class WatchlistScreeningEntityReviewListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2627,6 +2696,7 @@ class WatchlistScreeningEntityUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2667,6 +2737,7 @@ class WatchlistScreeningIndividualCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2699,6 +2770,7 @@ class WatchlistScreeningIndividualGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2733,6 +2805,7 @@ class WatchlistScreeningIndividualHistoryListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2767,6 +2840,7 @@ class WatchlistScreeningIndividualHitListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2803,6 +2877,7 @@ class WatchlistScreeningIndividualListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2836,6 +2911,7 @@ class WatchlistScreeningIndividualProgramGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2869,6 +2945,7 @@ class WatchlistScreeningIndividualProgramListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2909,6 +2986,7 @@ class WatchlistScreeningIndividualReviewCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2943,6 +3021,7 @@ class WatchlistScreeningIndividualReviewListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -2989,6 +3068,7 @@ class WatchlistScreeningIndividualUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3052,6 +3132,7 @@ class BeaconUserCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3084,6 +3165,7 @@ class BeaconUserGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3122,6 +3204,7 @@ class BeaconReportCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3155,6 +3238,7 @@ class BeaconReportListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3188,6 +3272,7 @@ class BeaconReportSyndicationListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3220,6 +3305,7 @@ class ProcessorAuthGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3252,6 +3338,7 @@ class ProcessorAccountGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3297,6 +3384,7 @@ class ProcessorTransactionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3336,6 +3424,7 @@ class ProcessorTransactionsSyncCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3368,6 +3457,7 @@ class ProcessorTransactionsRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3404,6 +3494,7 @@ class ProcessorTransactionsRecurringGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3464,6 +3555,7 @@ class ProcessorSignalEvaluateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3502,6 +3594,7 @@ class ProcessorSignalDecisionReportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3537,6 +3630,7 @@ class ProcessorSignalReturnReportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3584,6 +3678,7 @@ class ProcessorBankTransferCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3616,6 +3711,7 @@ class ProcessorIdentityGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3654,6 +3750,7 @@ class ProcessorIdentityMatchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3689,6 +3786,7 @@ class ProcessorBalanceGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3722,6 +3820,7 @@ class ItemWebhookUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3754,6 +3853,7 @@ class ItemAccessTokenInvalidateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3786,6 +3886,7 @@ class WebhookVerificationKeyGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3823,6 +3924,7 @@ class LiabilitiesGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3865,6 +3967,7 @@ class PaymentInitiationRecipientCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3900,6 +4003,7 @@ class PaymentInitiationPaymentReverseCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3932,6 +4036,7 @@ class PaymentInitiationRecipientGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -3963,6 +4068,7 @@ class PaymentInitiationRecipientListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4007,6 +4113,7 @@ class PaymentInitiationPaymentCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4040,6 +4147,7 @@ class CreatePaymentTokenCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4095,6 +4203,7 @@ class PaymentInitiationConsentCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4127,6 +4236,7 @@ class PaymentInitiationConsentGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4159,6 +4269,7 @@ class PaymentInitiationConsentRevokeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4197,6 +4308,7 @@ class PaymentInitiationConsentPaymentExecuteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4229,6 +4341,7 @@ class SandboxItemResetLoginCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4264,6 +4377,7 @@ class SandboxItemSetVerificationStatusCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4296,6 +4410,7 @@ class ItemPublicTokenExchangeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4328,6 +4443,7 @@ class ItemCreatePublicTokenCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4377,6 +4493,7 @@ class UserCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4426,6 +4543,7 @@ class UserUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4458,6 +4576,7 @@ class CreditSessionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4490,6 +4609,7 @@ class PaymentInitiationPaymentGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4524,6 +4644,7 @@ class PaymentInitiationPaymentListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4561,6 +4682,7 @@ class InvestmentsHoldingsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4603,6 +4725,7 @@ class InvestmentsTransactionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4635,6 +4758,7 @@ class InvestmentsRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4672,6 +4796,7 @@ class InvestmentsAuthGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4706,6 +4831,7 @@ class ProcessorTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4741,6 +4867,7 @@ class ProcessorTokenPermissionsSetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4773,6 +4900,7 @@ class ProcessorTokenPermissionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4806,6 +4934,7 @@ class ProcessorTokenWebhookUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4840,6 +4969,7 @@ class ProcessorStripeBankAccountTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4874,6 +5004,7 @@ class ProcessorApexProcessorTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4914,6 +5045,7 @@ class DepositSwitchCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4955,6 +5087,7 @@ class ItemImportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -4987,6 +5120,7 @@ class DepositSwitchTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5173,6 +5307,7 @@ class LinkTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5205,6 +5340,7 @@ class LinkTokenGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5237,6 +5373,7 @@ class LinkOauthCorrelationIdExchangeCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5269,6 +5406,7 @@ class DepositSwitchGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5302,6 +5440,7 @@ class TransferGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5334,6 +5473,7 @@ class TransferRecurringGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5366,6 +5506,7 @@ class BankTransferGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5430,6 +5571,7 @@ class TransferAuthorizationCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5463,6 +5605,7 @@ class TransferBalanceGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5497,6 +5640,7 @@ class TransferCapabilitiesGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5529,6 +5673,7 @@ class TransferConfigurationGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5561,6 +5706,7 @@ class TransferLedgerGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5598,6 +5744,7 @@ class TransferLedgerDepositCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5635,6 +5782,7 @@ class TransferLedgerWithdrawCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5672,6 +5820,7 @@ class TransferOriginatorFundingAccountUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5704,6 +5853,7 @@ class TransferMetricsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5761,6 +5911,7 @@ class TransferCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5827,6 +5978,7 @@ class TransferRecurringCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5875,6 +6027,7 @@ class BankTransferCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5913,6 +6066,7 @@ class TransferListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5949,6 +6103,7 @@ class TransferRecurringListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -5986,6 +6141,7 @@ class BankTransferListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6019,6 +6175,7 @@ class TransferCancelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6051,6 +6208,7 @@ class TransferRecurringCancelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6083,6 +6241,7 @@ class BankTransferCancelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6128,6 +6287,7 @@ class TransferEventListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6171,6 +6331,7 @@ class BankTransferEventListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6204,6 +6365,7 @@ class TransferEventSyncCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6237,6 +6399,7 @@ class BankTransferEventSyncCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6269,6 +6432,7 @@ class TransferSweepGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6301,6 +6465,7 @@ class BankTransferSweepGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6342,6 +6507,7 @@ class TransferSweepListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6377,6 +6543,7 @@ class BankTransferSweepListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6409,6 +6576,7 @@ class BankTransferBalanceGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6444,6 +6612,7 @@ class BankTransferMigrateAccountCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6479,6 +6648,7 @@ class TransferMigrateAccountCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6533,6 +6703,7 @@ class TransferIntentCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6565,6 +6736,7 @@ class TransferIntentGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6600,6 +6772,7 @@ class TransferRepaymentListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6634,6 +6807,7 @@ class TransferRepaymentReturnListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6666,6 +6840,7 @@ class TransferOriginatorCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6699,6 +6874,7 @@ class TransferQuestionnaireCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6766,6 +6942,7 @@ class TransferDiligenceSubmitCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6798,6 +6975,7 @@ class TransferDiligenceDocumentUploadCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6830,6 +7008,7 @@ class TransferOriginatorGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6863,6 +7042,7 @@ class TransferOriginatorListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6897,6 +7077,7 @@ class TransferRefundCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6929,6 +7110,7 @@ class TransferRefundGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6961,6 +7143,7 @@ class TransferRefundCancelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -6998,6 +7181,7 @@ class SandboxBankTransferSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7030,6 +7214,7 @@ class SandboxTransferSweepSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7068,6 +7253,7 @@ class SandboxTransferSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7106,6 +7292,7 @@ class SandboxTransferRefundSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7139,6 +7326,7 @@ class SandboxTransferLedgerSimulateAvailableCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7177,6 +7365,7 @@ class SandboxTransferLedgerDepositSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7215,6 +7404,7 @@ class SandboxTransferLedgerWithdrawSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7246,6 +7436,7 @@ class SandboxTransferRepaymentSimulateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7278,6 +7469,7 @@ class SandboxTransferFireWebhookCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7310,6 +7502,7 @@ class SandboxTransferTestClockCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7343,6 +7536,7 @@ class SandboxTransferTestClockAdvanceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7375,6 +7569,7 @@ class SandboxTransferTestClockGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7410,6 +7605,7 @@ class SandboxTransferTestClockListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7442,6 +7638,7 @@ class SandboxPaymentProfileResetLoginCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7477,6 +7674,7 @@ class EmployersSearchCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7515,6 +7713,7 @@ class IncomeVerificationCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7548,6 +7747,7 @@ class IncomeVerificationPaystubsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7583,6 +7783,7 @@ class IncomeVerificationDocumentsDownloadCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7616,6 +7817,7 @@ class IncomeVerificationTaxformsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7676,6 +7878,7 @@ class IncomeVerificationPrecheckCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7708,6 +7911,7 @@ class EmploymentVerificationGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7766,6 +7970,7 @@ class DepositSwitchAltCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7800,6 +8005,7 @@ class CreditAuditCopyTokenCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7832,6 +8038,7 @@ class CreditReportAuditCopyRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7864,6 +8071,7 @@ class CreditAssetReportFreddieMacGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7896,6 +8104,7 @@ class CreditFreddieMacReportsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7928,6 +8137,7 @@ class CreditBankEmploymentGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7963,6 +8173,7 @@ class CreditBankIncomeGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -7995,6 +8206,7 @@ class CreditBankIncomePdfGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8030,6 +8242,7 @@ class CreditBankIncomeRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8063,6 +8276,7 @@ class CreditBankIncomeWebhookUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8100,6 +8314,7 @@ class CreditPayrollIncomeParsingConfigUpdateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8132,6 +8347,7 @@ class CreditBankStatementsUploadsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8164,6 +8380,7 @@ class CreditPayrollIncomeGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8197,6 +8414,7 @@ class CreditPayrollIncomeRiskSignalsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8245,6 +8463,7 @@ class CreditPayrollIncomePrecheckCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8277,6 +8496,7 @@ class CreditEmploymentGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8315,6 +8535,7 @@ class CreditPayrollIncomeRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8351,6 +8572,7 @@ class CreditRelayCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8384,6 +8606,7 @@ class CreditRelayGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8417,6 +8640,7 @@ class CreditRelayPdfGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8451,6 +8675,7 @@ class CreditRelayRefreshCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8483,6 +8708,7 @@ class CreditRelayRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8515,6 +8741,7 @@ class SandboxBankTransferFireWebhookCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8550,6 +8777,7 @@ class SandboxIncomeFireWebhookCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8587,6 +8815,7 @@ class SandboxBankIncomeFireWebhookCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8620,6 +8849,7 @@ class SandboxOauthSelectAccountsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8681,6 +8911,7 @@ class SignalEvaluateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8718,6 +8949,7 @@ class SignalDecisionReportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8752,6 +8984,7 @@ class SignalReturnReportCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8784,6 +9017,7 @@ class SignalPrepareCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8816,6 +9050,7 @@ class WalletCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8848,6 +9083,7 @@ class WalletGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8882,6 +9118,7 @@ class WalletListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8938,6 +9175,7 @@ class WalletTransactionExecuteCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -8970,6 +9208,7 @@ class WalletTransactionGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9008,6 +9247,7 @@ class WalletTransactionListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9048,6 +9288,7 @@ class TransactionsEnhanceCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9086,6 +9327,7 @@ class TransactionsRulesCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9118,6 +9360,7 @@ class TransactionsRulesListCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9151,6 +9394,7 @@ class TransactionsRulesRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9184,6 +9428,7 @@ class TransactionsUserInsightsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9215,6 +9460,7 @@ class PaymentProfileCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9247,6 +9493,7 @@ class PaymentProfileGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9279,6 +9526,7 @@ class PaymentProfileRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9307,6 +9555,7 @@ class PartnerCustomerCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9335,6 +9584,7 @@ class PartnerCustomerGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9363,6 +9613,7 @@ class PartnerCustomerEnableCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9391,6 +9642,7 @@ class PartnerCustomerRemoveCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9420,6 +9672,7 @@ class PartnerCustomerOauthInstitutionsGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9463,6 +9716,7 @@ class LinkDeliveryCreateCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9495,6 +9749,7 @@ class LinkDeliveryGetCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9566,6 +9821,7 @@ class FdxNotificationsCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9586,6 +9842,7 @@ class AllTransactionsCopyCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 }
@@ -9603,6 +9860,7 @@ class TrainModelCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
@@ -9635,24 +9893,25 @@ class GetCategoryAmountThisMonthCall {
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      alwaysAllowBody: false,
     );
   }
 
-  static dynamic all(dynamic response) => getJsonField(
+  static List? all(dynamic response) => getJsonField(
         response,
         r'''$''',
         true,
-      );
-  static dynamic labels(dynamic response) => getJsonField(
+      ) as List?;
+  static List? labels(dynamic response) => getJsonField(
         response,
         r'''$[:].labels''',
         true,
-      );
-  static dynamic data(dynamic response) => getJsonField(
+      ) as List?;
+  static List? data(dynamic response) => getJsonField(
         response,
         r'''$[:].data''',
         true,
-      );
+      ) as List?;
 }
 
 class ApiPagingParams {

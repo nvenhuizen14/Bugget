@@ -95,7 +95,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(-1.00, 0.00),
+      alignment: const AlignmentDirectional(-1.0, 0.0),
       child: SizedBox(
         width: MediaQuery.sizeOf(context).width * 0.446,
         height: MediaQuery.sizeOf(context).height * 0.186,
@@ -113,10 +113,9 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                 ),
               ),
               child: Align(
-                alignment: const AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Padding(
-                  padding:
-                      const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: FFButtonWidget(
                     onPressed: () async {
                       logFirebaseEvent(
@@ -129,8 +128,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                     options: FFButtonOptions(
                       width: 100.0,
                       height: 80.0,
-                      padding:
-                          const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      padding: const EdgeInsets.all(0.0),
                       iconPadding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                       color: FlutterFlowTheme.of(context).dukeBlue,
@@ -160,7 +158,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Card(
                 clipBehavior: Clip.antiAliasWithSaveLayer,
                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -169,7 +167,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Material(
                     color: Colors.transparent,
                     elevation: 3.0,
@@ -210,7 +208,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                         child: Stack(
                           children: [
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FFButtonWidget(
                                 onPressed: () async {
                                   logFirebaseEvent(
@@ -229,8 +227,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                 options: FFButtonOptions(
                                   width: 370.0,
                                   height: 168.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: const EdgeInsets.all(0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Colors.transparent,
@@ -256,7 +253,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, -1.00),
+                              alignment: const AlignmentDirectional(0.0, -1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 20.0, 0.0, 0.0),
@@ -283,7 +280,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.00),
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: Row(
                                 mainAxisSize: MainAxisSize.max,
                                 mainAxisAlignment:
@@ -291,7 +288,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Align(
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 30.0, 0.0, 0.0),
@@ -320,8 +317,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                   ),
                                   Expanded(
                                     child: Align(
-                                      alignment:
-                                          const AlignmentDirectional(1.00, 0.00),
+                                      alignment: const AlignmentDirectional(1.0, 0.0),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 30.0, 0.0, 0.0),
@@ -362,7 +358,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 1.00),
+                              alignment: const AlignmentDirectional(0.0, 1.0),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 30.0),

@@ -119,7 +119,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
               actions: const [],
               flexibleSpace: FlexibleSpaceBar(
                 title: Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: AutoSizeText(
                     'Accounts',
                     style: FlutterFlowTheme.of(context).headlineMedium.override(
@@ -141,7 +141,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
             body: SafeArea(
               top: true,
               child: Align(
-                alignment: const AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: SizedBox(
                   width: MediaQuery.sizeOf(context).width * 1.0,
                   height: MediaQuery.sizeOf(context).height * 1.0,
@@ -181,16 +181,16 @@ class _AccountsWidgetState extends State<AccountsWidget>
                             end: const AlignmentDirectional(-0.03, 1.0),
                           ),
                         ),
-                        alignment: const AlignmentDirectional(-1.00, -1.00),
+                        alignment: const AlignmentDirectional(-1.0, -1.0),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Expanded(
                               child: Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: Container(
                                   constraints: BoxConstraints(
                                     maxWidth:
@@ -241,7 +241,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                                     listViewIndex];
                                             return Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -335,7 +335,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: wrapWithModel(
                           model: _model.navBarFlotingModel,
                           updateCallback: () => setState(() {}),
@@ -343,7 +343,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(0.00, 0.00),
+                        alignment: const AlignmentDirectional(0.0, 0.0),
                         child: Padding(
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 100.0, 0.0, 0.0),
@@ -365,8 +365,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                 children: [
                                   if (_model.recentTransactionsClicked == true)
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child:
                                           FutureBuilder<List<TransactionsRow>>(
                                         future: TransactionsTable().queryRows(
@@ -493,9 +492,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                       scrollDirection: Axis.vertical,
                                       children: [
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 20.0, 20.0, 20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
                                                openPlaidLink();
@@ -544,9 +541,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 20.0, 20.0, 20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: FFButtonWidget(
                                             onPressed: () async {
                                               logFirebaseEvent(
@@ -603,9 +598,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 20.0, 20.0, 20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
                                               print('Button pressed ...');
@@ -654,9 +647,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                           ),
                                         ),
                                         Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  20.0, 20.0, 20.0, 20.0),
+                                          padding: const EdgeInsets.all(20.0),
                                           child: FFButtonWidget(
                                             onPressed: () {
                                               print('Button pressed ...');
@@ -710,7 +701,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                       ),
                       if (_model.recentTransactionsClicked == true)
                         Align(
-                          alignment: const AlignmentDirectional(-0.97, -0.40),
+                          alignment: const AlignmentDirectional(-0.97, -0.4),
                           child: FlutterFlowIconButton(
                             borderColor: FlutterFlowTheme.of(context).black,
                             borderRadius: 30.0,

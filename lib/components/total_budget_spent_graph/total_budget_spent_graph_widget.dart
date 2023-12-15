@@ -53,7 +53,7 @@ class _TotalBudgetSpentGraphWidgetState
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, -1.00),
+      alignment: const AlignmentDirectional(0.0, -1.0),
       child: SizedBox(
         width: MediaQuery.sizeOf(context).width * 0.95,
         height: MediaQuery.sizeOf(context).height * 0.25,
@@ -72,7 +72,7 @@ class _TotalBudgetSpentGraphWidgetState
                     child: Stack(
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Material(
                             color: Colors.transparent,
                             elevation: 0.0,
@@ -90,7 +90,7 @@ class _TotalBudgetSpentGraphWidgetState
                           ),
                         ),
                         Align(
-                          alignment: const AlignmentDirectional(0.00, -1.00),
+                          alignment: const AlignmentDirectional(0.0, -1.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 38.0, 0.0, 0.0),
@@ -131,7 +131,7 @@ class _TotalBudgetSpentGraphWidgetState
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(300.0, 0.0, 0.0, 0.0),
                 child: Column(
@@ -140,7 +140,7 @@ class _TotalBudgetSpentGraphWidgetState
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.05, 0.40),
+                      alignment: const AlignmentDirectional(0.05, 0.4),
                       child: Text(
                         valueOrDefault<String>(
                           formatNumber(
@@ -166,7 +166,7 @@ class _TotalBudgetSpentGraphWidgetState
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Total Budget',
                         textAlign: TextAlign.center,
@@ -187,7 +187,7 @@ class _TotalBudgetSpentGraphWidgetState
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 300.0, 0.0),
                 child: Column(
@@ -216,7 +216,7 @@ class _TotalBudgetSpentGraphWidgetState
                           ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: Text(
                         'Spent so far',
                         textAlign: TextAlign.center,

@@ -49,7 +49,7 @@ class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Align(
-        alignment: const AlignmentDirectional(0.00, 0.00),
+        alignment: const AlignmentDirectional(0.0, 0.0),
         child: Text(
           'Transaction Rule Saved!',
           textAlign: TextAlign.center,
