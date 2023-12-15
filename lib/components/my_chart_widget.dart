@@ -41,7 +41,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, 0.00),
+      alignment: const AlignmentDirectional(0.0, 0.0),
       child: ClipRRect(
         child: Container(
           width: MediaQuery.sizeOf(context).width * 0.899,
@@ -68,7 +68,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -96,7 +96,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -124,7 +124,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -152,7 +152,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -180,7 +180,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -208,7 +208,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,
@@ -236,7 +236,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
                   children: [
                     Flexible(
                       child: Align(
-                        alignment: const AlignmentDirectional(0.00, 1.00),
+                        alignment: const AlignmentDirectional(0.0, 1.0),
                         child: Container(
                           width: MediaQuery.sizeOf(context).width * 0.06,
                           height: MediaQuery.sizeOf(context).height * 0.2,

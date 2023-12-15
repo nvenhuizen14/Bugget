@@ -150,8 +150,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     ),
                                   ),
                                   child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        2.0, 2.0, 2.0, 2.0),
+                                    padding: const EdgeInsets.all(2.0),
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(40.0),
                                       child: Image.network(
@@ -188,7 +187,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 25.0),
+                                25.0, 16.0, 25.0, 25.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 1.0,
@@ -207,8 +206,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                   ),
                                 ),
                                 child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      16.0, 16.0, 16.0, 16.0),
+                                  padding: const EdgeInsets.all(16.0),
                                   child: Column(
                                     mainAxisSize: MainAxisSize.max,
                                     crossAxisAlignment:
@@ -354,7 +352,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                          0.0, -1.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -501,7 +499,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                          0.0, -1.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -530,7 +528,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 25.0),
+                                25.0, 16.0, 25.0, 25.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 1.0,
@@ -551,7 +549,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 25.0),
+                                      25.0, 0.0, 25.0, 25.0),
                                   child: Stack(
                                     children: [
                                       Padding(
@@ -642,12 +640,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   children: [
                                                     Padding(
                                                       padding:
-                                                          const EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  12.0,
-                                                                  12.0,
-                                                                  12.0,
-                                                                  12.0),
+                                                          const EdgeInsets.all(12.0),
                                                       child: Container(
                                                         width: double.infinity,
                                                         height: 73.0,
@@ -692,8 +685,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 ),
                                                                 alignment:
                                                                     const AlignmentDirectional(
-                                                                        0.00,
-                                                                        0.00),
+                                                                        0.0,
+                                                                        0.0),
                                                                 child: Text(
                                                                   'A',
                                                                   style: FlutterFlowTheme.of(
@@ -766,10 +759,10 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                             ),
                           ),
                           Align(
-                            alignment: const AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 16.0, 16.0, 25.0),
+                                  25.0, 16.0, 25.0, 25.0),
                               child: Material(
                                 color: Colors.transparent,
                                 elevation: 1.0,
@@ -807,13 +800,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         width: 3.0,
                                       ),
                                     ),
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            16.0, 16.0, 16.0, 16.0),
+                                        padding: const EdgeInsets.all(16.0),
                                         child: Column(
                                           mainAxisSize: MainAxisSize.min,
                                           mainAxisAlignment:
@@ -859,7 +850,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           10.0),
                                                 ),
                                                 alignment: const AlignmentDirectional(
-                                                    0.00, 0.00),
+                                                    0.0, 0.0),
                                                 child: ListView(
                                                   padding: EdgeInsets.zero,
                                                   scrollDirection:
@@ -868,7 +859,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              0.00, -1.00),
+                                                              0.0, -1.0),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
@@ -902,7 +893,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                           child: Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    0.00, 0.00),
+                                                                    0.0, 0.0),
                                                             child: Padding(
                                                               padding:
                                                                   const EdgeInsetsDirectional
@@ -933,8 +924,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                     ),
                                                                     alignment:
                                                                         const AlignmentDirectional(
-                                                                            0.00,
-                                                                            0.00),
+                                                                            0.0,
+                                                                            0.0),
                                                                     child: Text(
                                                                       'A',
                                                                       style: FlutterFlowTheme.of(
@@ -969,8 +960,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                   Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
-                                                                            1.00,
-                                                                            0.00),
+                                                                            1.0,
+                                                                            0.0),
                                                                     child:
                                                                         Column(
                                                                       mainAxisSize:
@@ -984,7 +975,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           child:
                                                                               Align(
                                                                             alignment:
-                                                                                const AlignmentDirectional(1.00, -1.00),
+                                                                                const AlignmentDirectional(1.0, -1.0),
                                                                             child:
                                                                                 Text(
                                                                               'Spent',
@@ -994,8 +985,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                         ),
                                                                         Align(
                                                                           alignment: const AlignmentDirectional(
-                                                                              1.00,
-                                                                              1.00),
+                                                                              1.0,
+                                                                              1.0),
                                                                           child:
                                                                               AutoSizeText(
                                                                             '\$10.00',
@@ -1028,7 +1019,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 25.0),
+                                25.0, 16.0, 25.0, 25.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 1.0,
@@ -1053,7 +1044,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child:
                                             FutureBuilder<List<BudgetingRow>>(
                                           future: BudgetingTable().queryRows(
@@ -1096,9 +1087,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     gridViewBudgetingRowList[
                                                         gridViewIndex];
                                                 return Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 5.0, 5.0, 5.0),
+                                                  padding: const EdgeInsets.all(5.0),
                                                   child: BudgetListTileWidget(
                                                     key: Key(
                                                         'Keygvw_${gridViewIndex}_of_${gridViewBudgetingRowList.length}'),
@@ -1147,7 +1136,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 25.0),
+                                25.0, 16.0, 25.0, 25.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 1.0,
@@ -1176,7 +1165,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                           ),
                           Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
-                                16.0, 16.0, 16.0, 0.0),
+                                25.0, 16.0, 25.0, 0.0),
                             child: Material(
                               color: Colors.transparent,
                               elevation: 1.0,
@@ -1205,7 +1194,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.00, 1.00),
+                      alignment: const AlignmentDirectional(0.0, 1.0),
                       child: wrapWithModel(
                         model: _model.navBarFlotingModel,
                         updateCallback: () => setState(() {}),

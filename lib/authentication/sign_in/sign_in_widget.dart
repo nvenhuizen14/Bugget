@@ -117,7 +117,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.00, 0.00),
+                    alignment: const AlignmentDirectional(0.0, 0.0),
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 75.0, 24.0, 0.0),
@@ -207,7 +207,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                               mainAxisSize: MainAxisSize.max,
                               children: [
                                 Align(
-                                  alignment: const AlignmentDirectional(0.00, -0.05),
+                                  alignment: const AlignmentDirectional(0.0, -0.05),
                                   child: Padding(
                                     padding: const EdgeInsetsDirectional.fromSTEB(
                                         0.0, 10.0, 0.0, 0.0),
@@ -694,8 +694,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
                                         borderRadius: 30.0,
@@ -715,8 +714,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          8.0, 8.0, 8.0, 8.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: FlutterFlowIconButton(
                                         borderColor: Colors.transparent,
                                         borderRadius: 30.0,

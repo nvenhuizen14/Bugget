@@ -130,12 +130,12 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                       controller: _model.tabBarController,
                       children: [
                         Align(
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Stack(
                             alignment: const AlignmentDirectional(0.0, 0.0),
                             children: [
                               Align(
-                                alignment: const AlignmentDirectional(0.00, -1.00),
+                                alignment: const AlignmentDirectional(0.0, -1.0),
                                 child: SizedBox(
                                   width: MediaQuery.sizeOf(context).width * 2.0,
                                   height:
@@ -144,7 +144,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, -1.00),
+                                            const AlignmentDirectional(0.0, -1.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -177,7 +177,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                     Align(
                                                       alignment:
                                                           const AlignmentDirectional(
-                                                              -1.00, -1.00),
+                                                              -1.0, -1.0),
                                                       child: Padding(
                                                         padding:
                                                             const EdgeInsetsDirectional
@@ -244,8 +244,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                           Align(
                                                             alignment:
                                                                 const AlignmentDirectional(
-                                                                    -1.00,
-                                                                    -1.00),
+                                                                    -1.0, -1.0),
                                                             child: Text(
                                                               'Status:',
                                                               style: FlutterFlowTheme
@@ -269,8 +268,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                             child: Align(
                                                               alignment:
                                                                   const AlignmentDirectional(
-                                                                      -1.00,
-                                                                      -1.00),
+                                                                      -1.0,
+                                                                      -1.0),
                                                               child: Padding(
                                                                 padding:
                                                                     const EdgeInsetsDirectional
@@ -623,7 +622,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.00, 0.80),
+                                alignment: const AlignmentDirectional(0.0, 0.8),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
@@ -709,7 +708,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                 ),
                               ),
                               Align(
-                                alignment: const AlignmentDirectional(0.00, 0.00),
+                                alignment: const AlignmentDirectional(0.0, 0.0),
                                 child: Padding(
                                   padding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 300.0, 0.0, 0.0),
@@ -734,14 +733,14 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                         children: [
                                           Align(
                                             alignment: const AlignmentDirectional(
-                                                -1.00, -1.00),
+                                                -1.0, -1.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.min,
                                               children: [
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          -1.00, -1.00),
+                                                          -1.0, -1.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -763,7 +762,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                   Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            -1.00, -1.00),
+                                                            -1.0, -1.0),
                                                     child: Padding(
                                                       padding:
                                                           const EdgeInsetsDirectional
@@ -844,7 +843,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Column(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -861,7 +860,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                         FlutterFlowTheme.of(context).lineColor,
                                   ),
                                   child: Align(
-                                    alignment: const AlignmentDirectional(0.00, 0.00),
+                                    alignment: const AlignmentDirectional(0.0, 0.0),
                                     child: Text(
                                       'Create rules to help the AI categorize your transactions',
                                       textAlign: TextAlign.center,
@@ -981,7 +980,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.00, -1.00),
+                                            const AlignmentDirectional(1.0, -1.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -1073,7 +1072,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(-1.00, 1.00),
+                                            const AlignmentDirectional(-1.0, 1.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -1165,7 +1164,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(1.00, 1.00),
+                                            const AlignmentDirectional(1.0, 1.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -1283,7 +1282,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                 child: Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                          0.0, -1.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -1893,7 +1892,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.00, -1.00),
+                                                            0.0, -1.0),
                                                     child: Text(
                                                       'With Account',
                                                       style:
@@ -2078,7 +2077,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                             Expanded(
                                               child: Align(
                                                 alignment: const AlignmentDirectional(
-                                                    0.00, 0.56),
+                                                    0.0, 0.56),
                                                 child: Padding(
                                                   padding: const EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2184,12 +2183,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                         borderWidth: 2.0,
                                                         borderRadius: 8.0,
                                                         margin:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0,
-                                                                    0.0),
+                                                            const EdgeInsets.all(0.0),
                                                         hidesUnderline: true,
                                                         isSearchable: false,
                                                         isMultiSelect: false,
