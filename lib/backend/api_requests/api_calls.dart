@@ -1,4 +1,4 @@
-import 'dart:convert';
+
 
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
@@ -9671,20 +9671,4 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
-String _serializeList(List? list) {
-  list ??= <String>[];
-  try {
-    return json.encode(list);
-  } catch (_) {
-    return '[]';
-  }
-}
 
-String _serializeJson(dynamic jsonVar, [bool isList = false]) {
-  jsonVar ??= (isList ? [] : {});
-  try {
-    return json.encode(jsonVar);
-  } catch (_) {
-    return isList ? '[]' : '{}';
-  }
-}
