@@ -19,15 +19,15 @@ class GrouppickerWidget extends StatefulWidget {
   final String currentGroup;
 
   @override
-  GrouppickerWidgetState createState() => GrouppickerWidgetState();
+  _GrouppickerWidgetState createState() => _GrouppickerWidgetState();
 }
 
-class GrouppickerWidgetState extends State<GrouppickerWidget> {
+class _GrouppickerWidgetState extends State<GrouppickerWidget> {
   late GrouppickerModel _model;
 
   @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
+  void setState(VoidCallback callback) {
+    super.setState(callback);
     _model.onUpdate();
   }
 
@@ -128,7 +128,7 @@ class GrouppickerWidgetState extends State<GrouppickerWidget> {
                             logFirebaseEvent(
                                 'GROUPPICKER_Container_2xid05u5_ON_TAP');
                             logFirebaseEvent('Container_backend_call');
-                            _model.newGroup = (await TransactionsTable().update(
+                            _model.newGroup = await TransactionsTable().update(
                               data: {
                                 'group_name': listViewTransactionGroupRow.name,
                               },
@@ -140,7 +140,7 @@ class GrouppickerWidgetState extends State<GrouppickerWidget> {
                                 ),
                               ),
                               returnRows: true,
-                            )).cast<TransactionsRow>();
+                            );
                             logFirebaseEvent(
                                 'Container_update_component_state');
                             _model.updatePage(() {
@@ -149,16 +149,11 @@ class GrouppickerWidgetState extends State<GrouppickerWidget> {
                               _model.currentGroup =
                                   listViewTransactionGroupRow.name;
                             });
-                           logFirebaseEvent('Container_bottom_sheet');
-                            if (Navigator.canPop(context)) {
-                                Navigator.pop(context);
-                            }
+                            logFirebaseEvent('Container_bottom_sheet');
+                            Navigator.pop(context);
+                            logFirebaseEvent('Container_bottom_sheet');
+                            Navigator.pop(context);
 
-                            // Check again before attempting to pop the second time
-                            if (Navigator.canPop(context)) {
-                                logFirebaseEvent('Container_bottom_sheet');
-                                Navigator.pop(context);
-}
                             setState(() {});
                           },
                           child: ClipRRect(

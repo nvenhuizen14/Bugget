@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 
-import '../base_auth_user_provider.dart';
 import '/backend/supabase/supabase.dart';
+import '../base_auth_user_provider.dart';
 
 export '../base_auth_user_provider.dart';
 

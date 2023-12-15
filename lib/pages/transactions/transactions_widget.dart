@@ -21,10 +21,10 @@ class TransactionsWidget extends StatefulWidget {
   const TransactionsWidget({super.key});
 
   @override
-  TransactionsWidgetState createState() => TransactionsWidgetState();
+  _TransactionsWidgetState createState() => _TransactionsWidgetState();
 }
 
-class TransactionsWidgetState extends State<TransactionsWidget>
+class _TransactionsWidgetState extends State<TransactionsWidget>
     with TickerProviderStateMixin {
   late TransactionsModel _model;
 

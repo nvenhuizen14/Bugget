@@ -14,10 +14,10 @@ class Home17CalendarWidget extends StatefulWidget {
   const Home17CalendarWidget({super.key});
 
   @override
-  Home17CalendarWidgetState createState() => Home17CalendarWidgetState();
+  _Home17CalendarWidgetState createState() => _Home17CalendarWidgetState();
 }
 
-class Home17CalendarWidgetState extends State<Home17CalendarWidget>
+class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
     with TickerProviderStateMixin {
   late Home17CalendarModel _model;
 
@@ -90,6 +90,13 @@ class Home17CalendarWidgetState extends State<Home17CalendarWidget>
                           ),
                     ),
                     showBadge: true,
+                    shape: badges.BadgeShape.circle,
+                    badgeColor: FlutterFlowTheme.of(context).primary,
+                    elevation: 4.0,
+                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    position: badges.BadgePosition.topEnd(),
+                    animationType: badges.BadgeAnimationType.scale,
+                    toAnimate: true,
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 0.0),

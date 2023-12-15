@@ -17,10 +17,10 @@ class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
 
   @override
-  SignInWidgetState createState() => SignInWidgetState();
+  _SignInWidgetState createState() => _SignInWidgetState();
 }
 
-class SignInWidgetState extends State<SignInWidget> {
+class _SignInWidgetState extends State<SignInWidget> {
   late SignInModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

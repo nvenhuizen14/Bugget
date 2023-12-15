@@ -15,10 +15,10 @@ class CreateAccountWidget extends StatefulWidget {
   const CreateAccountWidget({super.key});
 
   @override
-  CreateAccountWidgetState createState() => CreateAccountWidgetState();
+  _CreateAccountWidgetState createState() => _CreateAccountWidgetState();
 }
 
-class CreateAccountWidgetState extends State<CreateAccountWidget> {
+class _CreateAccountWidgetState extends State<CreateAccountWidget> {
   late CreateAccountModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

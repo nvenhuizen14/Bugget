@@ -1,5 +1,3 @@
-// ignore_for_file: unused_element
-
 import 'package:flutter/material.dart';
 import '/backend/backend.dart';
 import 'backend/supabase/supabase.dart';

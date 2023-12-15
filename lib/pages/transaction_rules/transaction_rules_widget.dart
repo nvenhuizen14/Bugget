@@ -1,5 +1,3 @@
-// ignore_for_file: use_build_context_synchronously
-
 import '/backend/api_requests/api_calls.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/trans_rule_notif_widget.dart';
@@ -26,10 +24,10 @@ class TransactionRulesWidget extends StatefulWidget {
   const TransactionRulesWidget({super.key});
 
   @override
-  TransactionRulesWidgetState createState() => TransactionRulesWidgetState();
+  _TransactionRulesWidgetState createState() => _TransactionRulesWidgetState();
 }
 
-class TransactionRulesWidgetState extends State<TransactionRulesWidget>
+class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
     with TickerProviderStateMixin {
   late TransactionRulesModel _model;
 

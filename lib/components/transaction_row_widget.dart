@@ -45,15 +45,15 @@ class TransactionRowWidget extends StatefulWidget {
   final double parameter13;
 
   @override
-  TransactionRowWidgetState createState() => TransactionRowWidgetState();
+  _TransactionRowWidgetState createState() => _TransactionRowWidgetState();
 }
 
-class TransactionRowWidgetState extends State<TransactionRowWidget> {
+class _TransactionRowWidgetState extends State<TransactionRowWidget> {
   late TransactionRowModel _model;
 
   @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
+  void setState(VoidCallback callback) {
+    super.setState(callback);
     _model.onUpdate();
   }
 

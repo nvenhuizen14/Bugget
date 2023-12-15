@@ -1,5 +1,3 @@
-// ignore_for_file: avoid_function_literals_in_foreach_calls
-
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -92,42 +90,42 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
   FlutterFlowDynamicModels(this.defaultBuilder);
 
   final T Function() defaultBuilder;
-  final Map<String, T> childrenModels = {};
-  final Map<String, int> childrenIndexes = {};
+  final Map<String, T> _childrenModels = {};
+  final Map<String, int> _childrenIndexes = {};
   Set<String>? _activeKeys;
 
   T getModel(String uniqueKey, int index) {
-    updateActiveKeys(uniqueKey);
-    childrenIndexes[uniqueKey] = index;
-    return childrenModels[uniqueKey] ??= defaultBuilder();
+    _updateActiveKeys(uniqueKey);
+    _childrenIndexes[uniqueKey] = index;
+    return _childrenModels[uniqueKey] ??= defaultBuilder();
   }
 
   List<S> getValues<S>(S? Function(T) getValue) {
-    return childrenIndexes.entries
+    return _childrenIndexes.entries
         // Sort keys by index.
         .sorted((a, b) => a.value.compareTo(b.value))
-        .where((e) => childrenModels[e.key] != null)
+        .where((e) => _childrenModels[e.key] != null)
         // Map each model to the desired value and return as list. In order
         // to preserve index order, rather than removing null values we provide
         // default values (for types with reasonable defaults).
-        .map((e) => getValue(childrenModels[e.key]!) ?? _getDefaultValue<S>()!)
+        .map((e) => getValue(_childrenModels[e.key]!) ?? _getDefaultValue<S>()!)
         .toList();
   }
 
   S? getValueAtIndex<S>(int index, S? Function(T) getValue) {
     final uniqueKey =
-        childrenIndexes.entries.firstWhereOrNull((e) => e.value == index)?.key;
+        _childrenIndexes.entries.firstWhereOrNull((e) => e.value == index)?.key;
     return getValueForKey(uniqueKey, getValue);
   }
 
   S? getValueForKey<S>(String? uniqueKey, S? Function(T) getValue) {
-    final model = childrenModels[uniqueKey];
+    final model = _childrenModels[uniqueKey];
     return model != null ? getValue(model) : null;
   }
 
-  void dispose() => childrenModels.values.forEach((model) => model.dispose());
+  void dispose() => _childrenModels.values.forEach((model) => model.dispose());
 
-  void updateActiveKeys(String uniqueKey) {
+  void _updateActiveKeys(String uniqueKey) {
     final shouldResetActiveKeys = _activeKeys == null;
     _activeKeys ??= {};
     _activeKeys!.add(uniqueKey);
@@ -137,13 +135,13 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
       // we're done building, then reset `_activeKeys` to null so we know to do
       // this again next build.
       SchedulerBinding.instance.addPostFrameCallback((_) {
-        childrenIndexes.removeWhere((k, _) => !_activeKeys!.contains(k));
-        childrenModels.keys
+        _childrenIndexes.removeWhere((k, _) => !_activeKeys!.contains(k));
+        _childrenModels.keys
             .toSet()
             .difference(_activeKeys!)
             // Remove and dispose of unused models since they are  not being used
             // elsewhere and would not otherwise be disposed.
-            .forEach((k) => childrenModels.remove(k)?.dispose());
+            .forEach((k) => _childrenModels.remove(k)?.dispose());
         _activeKeys = null;
       });
     }
@@ -152,9 +150,9 @@ class FlutterFlowDynamicModels<T extends FlutterFlowModel> {
 
 T? _getDefaultValue<T>() {
   switch (T) {
-    case int :
+    case int:
       return 0 as T;
-    case double :
+    case double:
       return 0.0 as T;
     case String:
       return '' as T;

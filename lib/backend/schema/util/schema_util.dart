@@ -78,7 +78,7 @@ T? castToType<T>(dynamic value) {
     return null;
   }
   switch (T) {
-    case double :
+    case double:
       // Doubles may be stored as ints in some cases.
       return value.toDouble() as T;
     case int:

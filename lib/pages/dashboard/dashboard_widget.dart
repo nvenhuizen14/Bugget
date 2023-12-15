@@ -21,10 +21,10 @@ class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
 
   @override
-  DashboardWidgetState createState() => DashboardWidgetState();
+  _DashboardWidgetState createState() => _DashboardWidgetState();
 }
 
-class DashboardWidgetState extends State<DashboardWidget> {
+class _DashboardWidgetState extends State<DashboardWidget> {
   late DashboardModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();

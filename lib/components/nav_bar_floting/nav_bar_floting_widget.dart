@@ -12,15 +12,15 @@ class NavBarFlotingWidget extends StatefulWidget {
   const NavBarFlotingWidget({super.key});
 
   @override
-  NavBarFlotingWidgetState createState() => NavBarFlotingWidgetState();
+  _NavBarFlotingWidgetState createState() => _NavBarFlotingWidgetState();
 }
 
-class NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
+class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
   late NavBarFlotingModel _model;
 
   @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
+  void setState(VoidCallback callback) {
+    super.setState(callback);
     _model.onUpdate();
   }
 
@@ -95,7 +95,7 @@ class NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                       hoverIconColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
                       icon: FaIcon(
-                        FontAwesomeIcons.house,
+                        FontAwesomeIcons.home,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         size: 25.0,
                       ),

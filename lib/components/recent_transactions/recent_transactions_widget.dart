@@ -11,16 +11,16 @@ class RecentTransactionsWidget extends StatefulWidget {
   const RecentTransactionsWidget({super.key});
 
   @override
-  RecentTransactionsWidgetState createState() =>
-      RecentTransactionsWidgetState();
+  _RecentTransactionsWidgetState createState() =>
+      _RecentTransactionsWidgetState();
 }
 
-class RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
+class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
   late RecentTransactionsModel _model;
 
   @override
-  void setState(VoidCallback fn) {
-    super.setState(fn);
+  void setState(VoidCallback callback) {
+    super.setState(callback);
     _model.onUpdate();
   }
 

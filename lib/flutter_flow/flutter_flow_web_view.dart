@@ -32,10 +32,10 @@ class FlutterFlowWebView extends StatefulWidget {
   final bool html;
 
   @override
-  FlutterFlowWebViewState createState() => FlutterFlowWebViewState();
+  _FlutterFlowWebViewState createState() => _FlutterFlowWebViewState();
 }
 
-class FlutterFlowWebViewState extends State<FlutterFlowWebView> {
+class _FlutterFlowWebViewState extends State<FlutterFlowWebView> {
   @override
   Widget build(BuildContext context) => WebViewX(
         key: webviewKey,

@@ -20,10 +20,10 @@ class BudgetsWidget extends StatefulWidget {
   const BudgetsWidget({super.key});
 
   @override
-  BudgetsWidgetState createState() => BudgetsWidgetState();
+  _BudgetsWidgetState createState() => _BudgetsWidgetState();
 }
 
-class BudgetsWidgetState extends State<BudgetsWidget>
+class _BudgetsWidgetState extends State<BudgetsWidget>
     with TickerProviderStateMixin {
   late BudgetsModel _model;
 
