@@ -2,7 +2,6 @@ import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/components/transaction_row_widget.dart';
-import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,7 +9,6 @@ import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -24,26 +22,10 @@ class AccountsWidget extends StatefulWidget {
   _AccountsWidgetState createState() => _AccountsWidgetState();
 }
 
-class _AccountsWidgetState extends State<AccountsWidget>
-    with TickerProviderStateMixin {
+class _AccountsWidgetState extends State<AccountsWidget> {
   late AccountsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'accountCardOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        MoveEffect(
-          curve: Curves.bounceOut,
-          delay: 0.ms,
-          duration: 980.ms,
-          begin: const Offset(0.0, -100.0),
-          end: const Offset(0.0, -29.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -51,7 +33,6 @@ class _AccountsWidgetState extends State<AccountsWidget>
     _model = createModel(context, () => AccountsModel());
 
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Accounts'});
-
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -128,61 +109,60 @@ class _AccountsWidgetState extends State<AccountsWidget>
             ),
             body: SafeArea(
               top: true,
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width * 1.0,
-                height: MediaQuery.sizeOf(context).height * 1.002,
-                child: Stack(
-                  children: [
-                    Container(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: MediaQuery.sizeOf(context).height * 0.738,
-                      constraints: BoxConstraints(
-                        maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-                        maxHeight: MediaQuery.sizeOf(context).height * 1.0,
-                      ),
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.contain,
-                          image: Image.asset(
-                            'assets/images/DALLE_2023-06-18_07.03.40_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png',
-                          ).image,
-                        ),
-                        boxShadow: const [
-                          BoxShadow(
-                            blurRadius: 4.0,
-                            color: Color(0x33000000),
-                            offset: Offset(0.0, 2.0),
-                          )
-                        ],
-                        gradient: LinearGradient(
-                          colors: [
-                            FlutterFlowTheme.of(context).customColor4,
-                            FlutterFlowTheme.of(context).secondary,
-                            Colors.black,
-                            FlutterFlowTheme.of(context).secondaryBackground,
-                            const Color(0xFF0C170D)
-                          ],
-                          stops: const [0.2, 0.4, 0.7, 0.8, 0.9],
-                          begin: const AlignmentDirectional(0.03, -1.0),
-                          end: const AlignmentDirectional(-0.03, 1.0),
-                        ),
-                      ),
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Container(
-                            constraints: BoxConstraints(
-                              maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-                              maxHeight:
-                                  MediaQuery.sizeOf(context).height * 0.25,
+              child: Align(
+                alignment: const AlignmentDirectional(0.0, 0.0),
+                child: SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 1.0,
+                  height: MediaQuery.sizeOf(context).height * 1.002,
+                  child: Stack(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    children: [
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Container(
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+                            maxHeight: MediaQuery.sizeOf(context).height * 1.0,
+                          ),
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.contain,
+                              image: Image.asset(
+                                'assets/images/DALLE_2023-06-18_07.03.40_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png',
+                              ).image,
                             ),
-                            decoration: const BoxDecoration(),
-                            child: Padding(
-                              padding: const EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 10.0, 0.0, 0.0),
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            gradient: LinearGradient(
+                              colors: [
+                                FlutterFlowTheme.of(context).customColor4,
+                                FlutterFlowTheme.of(context).secondary,
+                                Colors.black,
+                                FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                const Color(0xFF0C170D)
+                              ],
+                              stops: const [0.2, 0.4, 0.7, 0.8, 0.9],
+                              begin: const AlignmentDirectional(0.03, -1.0),
+                              end: const AlignmentDirectional(-0.03, 1.0),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
                               child: FutureBuilder<List<AccountRow>>(
                                 future: AccountTable().queryRows(
                                   queryFn: (q) => q,
@@ -206,478 +186,540 @@ class _AccountsWidgetState extends State<AccountsWidget>
                                       snapshot.data!;
                                   return ListView.separated(
                                     padding:
-                                        const EdgeInsets.symmetric(horizontal: 20.0),
+                                        const EdgeInsets.symmetric(horizontal: 30.0),
                                     scrollDirection: Axis.horizontal,
                                     itemCount: listViewAccountRowList.length,
                                     separatorBuilder: (_, __) =>
-                                        const SizedBox(width: 20.0),
+                                        const SizedBox(width: 30.0),
                                     itemBuilder: (context, listViewIndex) {
                                       final listViewAccountRow =
                                           listViewAccountRowList[listViewIndex];
                                       return Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
-                                        child: Container(
-                                          key: ValueKey(
-                                              listViewAccountRow.accountId),
-                                          child: InkWell(
-                                            splashColor: Colors.transparent,
-                                            focusColor: Colors.transparent,
-                                            hoverColor: Colors.transparent,
-                                            highlightColor: Colors.transparent,
-                                            onTap: () async {
-                                              logFirebaseEvent(
-                                                  'ACCOUNTS_PAGE_Container_qi2jvhr6_ON_TAP');
-                                              logFirebaseEvent(
-                                                  'accountCard_update_page_state');
-                                              setState(() {
-                                                _model.currentAccount =
-                                                    listViewAccountRow;
-                                                _model.selectedCardId =
-                                                    listViewAccountRow
-                                                        .accountId;
-                                              });
-                                            },
-                                            child: wrapWithModel(
-                                              model: _model.accountCardModels
-                                                  .getModel(
-                                                listViewAccountRow.accountId,
-                                                listViewIndex,
+                                            0.0, 0.0, 0.0, 50.0),
+                                        child: InkWell(
+                                          splashColor: Colors.transparent,
+                                          focusColor: Colors.transparent,
+                                          hoverColor: Colors.transparent,
+                                          highlightColor: Colors.transparent,
+                                          onTap: () async {
+                                            logFirebaseEvent(
+                                                'ACCOUNTS_PAGE_Container_esh41kft_ON_TAP');
+                                            logFirebaseEvent(
+                                                'accountCard_update_page_state');
+                                            setState(() {
+                                              _model.selectedCardId =
+                                                  listViewAccountRow.accountId;
+                                              _model.currentAccount =
+                                                  listViewAccountRow;
+                                            });
+                                          },
+                                          child: wrapWithModel(
+                                            model: _model.accountCardModels
+                                                .getModel(
+                                              listViewAccountRow.accountId,
+                                              listViewIndex,
+                                            ),
+                                            updateCallback: () =>
+                                                setState(() {}),
+                                            updateOnChange: true,
+                                            child: AccountCardWidget(
+                                              key: Key(
+                                                'Keyesh_${listViewAccountRow.accountId}',
                                               ),
-                                              updateCallback: () =>
-                                                  setState(() {}),
-                                              updateOnChange: true,
-                                              child: AccountCardWidget(
-                                                key: Key(
-                                                  'Keyqi2_${listViewAccountRow.accountId}',
-                                                ),
-                                                name: listViewAccountRow.name,
-                                                balance:
-                                                    listViewAccountRow.balance,
-                                                type: listViewAccountRow.type,
-                                                institutionName:
-                                                    listViewAccountRow
-                                                        .institutionName,
-                                                lastUpdate: listViewAccountRow
-                                                    .lastUpdated!,
-                                                accountid: listViewAccountRow
-                                                    .accountId,
-                                                borderColor:
-                                                    valueOrDefault<Color>(
+                                              name: listViewAccountRow.name,
+                                              balance:
+                                                  listViewAccountRow.balance,
+                                              type: listViewAccountRow.type,
+                                              institutionName:
                                                   listViewAccountRow
-                                                              .accountId ==
-                                                          _model.selectedCardId
-                                                      ? const Color(0xD527AA9A)
-                                                      : const Color(0x5ADBE2E7),
-                                                  const Color(0x5ADBE2E7),
-                                                ),
+                                                      .institutionName,
+                                              accountid:
+                                                  listViewAccountRow.accountId,
+                                              borderColor:
+                                                  valueOrDefault<Color>(
+                                                listViewAccountRow.accountId ==
+                                                        valueOrDefault<String>(
+                                                          _model.selectedCardId,
+                                                          'null',
+                                                        )
+                                                    ? FlutterFlowTheme.of(
+                                                            context)
+                                                        .tertiary400
+                                                    : FlutterFlowTheme.of(
+                                                            context)
+                                                        .lineColor,
+                                                FlutterFlowTheme.of(context)
+                                                    .lineColor,
                                               ),
+                                              lastUpdate: listViewAccountRow
+                                                  .lastUpdated!,
                                             ),
                                           ),
-                                        ).animateOnPageLoad(animationsMap[
-                                            'accountCardOnPageLoadAnimation']!),
+                                        ),
                                       );
                                     },
                                   );
                                 },
                               ),
                             ),
-                          ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(0.0, 1.0),
-                          child: ClipRRect(
-                            child: Container(
-                              width: MediaQuery.sizeOf(context).width * 1.084,
-                              height: MediaQuery.sizeOf(context).height * 0.991,
-                              constraints: BoxConstraints(
-                                minWidth:
-                                    MediaQuery.sizeOf(context).width * 0.7,
-                                minHeight: 20.0,
-                                maxWidth:
-                                    MediaQuery.sizeOf(context).width * 0.9,
-                                maxHeight:
-                                    MediaQuery.sizeOf(context).height * 0.43,
-                              ),
-                              decoration: const BoxDecoration(),
-                              child: Stack(
-                                children: [
-                                  if (_model.recentTransactionsClicked == true)
-                                    Align(
-                                      alignment: const AlignmentDirectional(0.0, 0.0),
-                                      child:
-                                          FutureBuilder<List<TransactionsRow>>(
-                                        future: TransactionsTable().queryRows(
-                                          queryFn: (q) => q
-                                              .eq(
-                                                'account_id',
-                                                valueOrDefault<String>(
-                                                  _model.currentAccount
-                                                      ?.accountId,
-                                                  'null',
-                                                ),
-                                              )
-                                              .order('date'),
-                                          limit: 10,
-                                        ),
-                                        builder: (context, snapshot) {
-                                          // Customize what your widget looks like when it's loading.
-                                          if (!snapshot.hasData) {
-                                            return Center(
-                                              child: SizedBox(
-                                                width: 50.0,
-                                                height: 50.0,
-                                                child: SpinKitDualRing(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary400,
-                                                  size: 50.0,
-                                                ),
-                                              ),
-                                            );
-                                          }
-                                          List<TransactionsRow>
-                                              listViewTransactionsRowList =
-                                              snapshot.data!;
-                                          return ListView.builder(
-                                            padding: EdgeInsets.zero,
-                                            primary: false,
-                                            scrollDirection: Axis.vertical,
-                                            itemCount:
-                                                listViewTransactionsRowList
-                                                    .length,
-                                            itemBuilder:
-                                                (context, listViewIndex) {
-                                              final listViewTransactionsRow =
-                                                  listViewTransactionsRowList[
-                                                      listViewIndex];
-                                              return wrapWithModel(
-                                                model: _model
-                                                    .transactionRowModels
-                                                    .getModel(
-                                                  listViewTransactionsRow
-                                                      .transactionId,
-                                                  listViewIndex,
-                                                ),
-                                                updateCallback: () =>
-                                                    setState(() {}),
-                                                updateOnChange: true,
-                                                child: TransactionRowWidget(
-                                                  key: Key(
-                                                    'Key4d7_${listViewTransactionsRow.transactionId}',
+                            Align(
+                              alignment: const AlignmentDirectional(0.0, 1.0),
+                              child: ClipRRect(
+                                child: Container(
+                                  width:
+                                      MediaQuery.sizeOf(context).width * 1.084,
+                                  height:
+                                      MediaQuery.sizeOf(context).height * 0.99,
+                                  constraints: BoxConstraints(
+                                    minWidth:
+                                        MediaQuery.sizeOf(context).width * 0.7,
+                                    minHeight: 20.0,
+                                    maxWidth:
+                                        MediaQuery.sizeOf(context).width * 0.9,
+                                    maxHeight:
+                                        MediaQuery.sizeOf(context).height *
+                                            0.43,
+                                  ),
+                                  decoration: const BoxDecoration(),
+                                  child: Stack(
+                                    children: [
+                                      if (_model.recentTransactionsClicked ==
+                                          true)
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, 0.0),
+                                          child: FutureBuilder<
+                                              List<TransactionsRow>>(
+                                            future:
+                                                TransactionsTable().queryRows(
+                                              queryFn: (q) => q
+                                                  .eq(
+                                                    'account_id',
+                                                    valueOrDefault<String>(
+                                                      _model.currentAccount
+                                                          ?.accountId,
+                                                      'null',
+                                                    ),
+                                                  )
+                                                  .order('date'),
+                                              limit: 10,
+                                            ),
+                                            builder: (context, snapshot) {
+                                              // Customize what your widget looks like when it's loading.
+                                              if (!snapshot.hasData) {
+                                                return Center(
+                                                  child: SizedBox(
+                                                    width: 50.0,
+                                                    height: 50.0,
+                                                    child: SpinKitDualRing(
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .tertiary400,
+                                                      size: 50.0,
+                                                    ),
                                                   ),
-                                                  parameter1:
-                                                      listViewTransactionsRow
-                                                          .category,
-                                                  parameter3:
-                                                      listViewTransactionsRow
-                                                          .category,
-                                                  parameter4:
-                                                      listViewTransactionsRow
-                                                          .groupName,
-                                                  parameter5:
-                                                      listViewTransactionsRow
-                                                          .accountName,
-                                                  parameter6:
-                                                      listViewTransactionsRow
-                                                          .amount,
-                                                  parameter7:
-                                                      listViewTransactionsRow
-                                                          .merchantName,
-                                                  parameter8:
-                                                      listViewTransactionsRow
-                                                          .accountId,
-                                                  parameter10:
+                                                );
+                                              }
+                                              List<TransactionsRow>
+                                                  listViewTransactionsRowList =
+                                                  snapshot.data!;
+                                              return ListView.builder(
+                                                padding: EdgeInsets.zero,
+                                                primary: false,
+                                                scrollDirection: Axis.vertical,
+                                                itemCount:
+                                                    listViewTransactionsRowList
+                                                        .length,
+                                                itemBuilder:
+                                                    (context, listViewIndex) {
+                                                  final listViewTransactionsRow =
+                                                      listViewTransactionsRowList[
+                                                          listViewIndex];
+                                                  return wrapWithModel(
+                                                    model: _model
+                                                        .transactionRowModels
+                                                        .getModel(
                                                       listViewTransactionsRow
                                                           .transactionId,
-                                                  parameter11:
-                                                      listViewTransactionsRow
-                                                          .date!,
-                                                  parameter12:
-                                                      valueOrDefault<String>(
-                                                    listViewTransactionsRow
-                                                        .description,
-                                                    'null',
-                                                  ),
-                                                  parameter13:
-                                                      valueOrDefault<double>(
-                                                    listViewTransactionsRow
-                                                        .amount,
-                                                    1.0,
-                                                  ),
-                                                  parameter2:
-                                                      listViewTransactionsRow
-                                                          .date,
-                                                  parameter9:
-                                                      listViewTransactionsRow,
-                                                ),
+                                                      listViewIndex,
+                                                    ),
+                                                    updateCallback: () =>
+                                                        setState(() {}),
+                                                    updateOnChange: true,
+                                                    child: TransactionRowWidget(
+                                                      key: Key(
+                                                        'Key4d7_${listViewTransactionsRow.transactionId}',
+                                                      ),
+                                                      parameter1:
+                                                          listViewTransactionsRow
+                                                              .category,
+                                                      parameter3:
+                                                          listViewTransactionsRow
+                                                              .category,
+                                                      parameter4:
+                                                          listViewTransactionsRow
+                                                              .groupName,
+                                                      parameter5:
+                                                          listViewTransactionsRow
+                                                              .accountName,
+                                                      parameter6:
+                                                          listViewTransactionsRow
+                                                              .amount,
+                                                      parameter7:
+                                                          listViewTransactionsRow
+                                                              .merchantName,
+                                                      parameter8:
+                                                          listViewTransactionsRow
+                                                              .accountId,
+                                                      parameter10:
+                                                          listViewTransactionsRow
+                                                              .transactionId,
+                                                      parameter11:
+                                                          listViewTransactionsRow
+                                                              .date!,
+                                                      parameter12:
+                                                          valueOrDefault<
+                                                              String>(
+                                                        listViewTransactionsRow
+                                                            .description,
+                                                        'null',
+                                                      ),
+                                                      parameter13:
+                                                          valueOrDefault<
+                                                              double>(
+                                                        listViewTransactionsRow
+                                                            .amount,
+                                                        1.0,
+                                                      ),
+                                                      parameter2:
+                                                          listViewTransactionsRow
+                                                              .date,
+                                                      parameter9:
+                                                          listViewTransactionsRow,
+                                                    ),
+                                                  );
+                                                },
                                               );
                                             },
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  if (!_model.recentTransactionsClicked)
-                                    Padding(
-                                      padding: const EdgeInsets.all(2.0),
-                                      child: GridView(
-                                        padding: EdgeInsets.zero,
-                                        gridDelegate:
-                                            const SliverGridDelegateWithFixedCrossAxisCount(
-                                          crossAxisCount: 2,
-                                          crossAxisSpacing: 40.0,
-                                          mainAxisSpacing: 50.0,
-                                          childAspectRatio: 1.0,
+                                          ),
                                         ),
-                                        shrinkWrap: true,
-                                        scrollDirection: Axis.vertical,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: '',
-                                              icon: const Icon(
-                                                Icons.account_circle,
-                                                size: 60.0,
+                                      if (!_model.recentTransactionsClicked)
+                                        Align(
+                                          alignment:
+                                              const AlignmentDirectional(0.0, -20.0),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(16.0),
+                                            child: GridView(
+                                              padding: EdgeInsets.zero,
+                                              gridDelegate:
+                                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 2,
+                                                crossAxisSpacing: 40.0,
+                                                mainAxisSpacing: 50.0,
+                                                childAspectRatio: 1.0,
                                               ),
-                                              options: FFButtonOptions(
-                                                height: 206.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0x62550F04),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Oswald',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 24.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .lineColor,
-                                                  width: 6.0,
+                                              shrinkWrap: true,
+                                              scrollDirection: Axis.vertical,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets.all(20.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Button pressed ...');
+                                                    },
+                                                    text: '',
+                                                    icon: const Icon(
+                                                      Icons.account_circle,
+                                                      size: 60.0,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      height: 206.0,
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: const Color(0x62550F04),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Oswald',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 24.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        width: 6.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                      hoverColor:
+                                                          const Color(0x7930686E),
+                                                    ),
+                                                  ),
                                                 ),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                                hoverColor: const Color(0x7930686E),
-                                              ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(20.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () async {
+                                                      logFirebaseEvent(
+                                                          'ACCOUNTS_PAGE__BTN_ON_TAP');
+                                                      logFirebaseEvent(
+                                                          'Button_update_page_state');
+                                                      setState(() {
+                                                        _model.recentTransactionsClicked =
+                                                            !_model
+                                                                .recentTransactionsClicked;
+                                                      });
+                                                    },
+                                                    text: '',
+                                                    icon: const Icon(
+                                                      Icons
+                                                          .receipt_long_rounded,
+                                                      size: 60.0,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: const Color(0x62550F04),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Oswald',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 24.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        width: 6.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                      hoverColor:
+                                                          const Color(0x7930686E),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(20.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Button pressed ...');
+                                                    },
+                                                    text: '',
+                                                    icon: const Icon(
+                                                      Icons.mode_edit,
+                                                      size: 60.0,
+                                                    ),
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: const Color(0x62550F04),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Oswald',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 24.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        width: 6.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                      hoverColor:
+                                                          const Color(0x7930686E),
+                                                    ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(20.0),
+                                                  child: FFButtonWidget(
+                                                    onPressed: () {
+                                                      print(
+                                                          'Button pressed ...');
+                                                    },
+                                                    text: '',
+                                                    options: FFButtonOptions(
+                                                      height: 40.0,
+                                                      padding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  24.0,
+                                                                  0.0,
+                                                                  24.0,
+                                                                  0.0),
+                                                      iconPadding:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      color: const Color(0x62550F04),
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .titleSmall
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Oswald',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryText,
+                                                                fontSize: 24.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .titleSmallFamily),
+                                                              ),
+                                                      elevation: 3.0,
+                                                      borderSide: BorderSide(
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .lineColor,
+                                                        width: 6.0,
+                                                      ),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              15.0),
+                                                      hoverColor:
+                                                          const Color(0x7930686E),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () async {
-                                                logFirebaseEvent(
-                                                    'ACCOUNTS_PAGE__BTN_ON_TAP');
-                                                logFirebaseEvent(
-                                                    'Button_update_page_state');
-                                                setState(() {
-                                                  _model.recentTransactionsClicked =
-                                                      !_model
-                                                          .recentTransactionsClicked;
-                                                });
-                                              },
-                                              text: '',
-                                              icon: const Icon(
-                                                Icons.receipt_long_rounded,
-                                                size: 60.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0x62550F04),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Oswald',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 24.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .lineColor,
-                                                  width: 6.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                                hoverColor: const Color(0x7930686E),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: '',
-                                              icon: const Icon(
-                                                Icons.mode_edit,
-                                                size: 60.0,
-                                              ),
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0x62550F04),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Oswald',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 24.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .lineColor,
-                                                  width: 6.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                                hoverColor: const Color(0x7930686E),
-                                              ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding: const EdgeInsets.all(20.0),
-                                            child: FFButtonWidget(
-                                              onPressed: () {
-                                                print('Button pressed ...');
-                                              },
-                                              text: '',
-                                              options: FFButtonOptions(
-                                                height: 40.0,
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        24.0, 0.0, 24.0, 0.0),
-                                                iconPadding:
-                                                    const EdgeInsetsDirectional
-                                                        .fromSTEB(
-                                                            0.0, 0.0, 0.0, 0.0),
-                                                color: const Color(0x62550F04),
-                                                textStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .titleSmall
-                                                        .override(
-                                                          fontFamily: 'Oswald',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryText,
-                                                          fontSize: 24.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleSmallFamily),
-                                                        ),
-                                                elevation: 3.0,
-                                                borderSide: BorderSide(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .lineColor,
-                                                  width: 6.0,
-                                                ),
-                                                borderRadius:
-                                                    BorderRadius.circular(15.0),
-                                                hoverColor: const Color(0x7930686E),
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                ],
+                                        ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                        ),
-                        wrapWithModel(
-                          model: _model.navBarFlotingModel,
-                          updateCallback: () => setState(() {}),
-                          updateOnChange: true,
-                          child: const NavBarFlotingWidget(),
-                        ),
-                      ].divide(const SizedBox(height: 10.0)),
-                    ),
-                    if (_model.recentTransactionsClicked == true)
-                      Align(
-                        alignment: const AlignmentDirectional(-0.97, -0.4),
-                        child: FlutterFlowIconButton(
-                          borderColor: FlutterFlowTheme.of(context).black,
-                          borderRadius: 30.0,
-                          borderWidth: 5.0,
-                          buttonSize: MediaQuery.sizeOf(context).width * 0.08,
-                          fillColor: FlutterFlowTheme.of(context).secondary,
-                          hoverColor: FlutterFlowTheme.of(context).primary,
-                          icon: Icon(
-                            Icons.chevron_left_outlined,
-                            color: FlutterFlowTheme.of(context).black,
-                            size: 20.0,
-                          ),
-                          onPressed: () async {
-                            logFirebaseEvent(
-                                'ACCOUNTS_chevron_left_outlined_ICN_ON_TA');
-                            logFirebaseEvent('IconButton_update_page_state');
-                            setState(() {
-                              _model.recentTransactionsClicked = false;
-                            });
-                          },
+                            wrapWithModel(
+                              model: _model.navBarFlotingModel,
+                              updateCallback: () => setState(() {}),
+                              updateOnChange: true,
+                              child: const NavBarFlotingWidget(),
+                            ),
+                          ].divide(const SizedBox(height: 10.0)),
                         ),
                       ),
-                  ],
+                      if (_model.recentTransactionsClicked == true)
+                        Align(
+                          alignment: const AlignmentDirectional(-0.97, -0.4),
+                          child: FlutterFlowIconButton(
+                            borderColor: FlutterFlowTheme.of(context).black,
+                            borderRadius: 30.0,
+                            borderWidth: 5.0,
+                            buttonSize: MediaQuery.sizeOf(context).width * 0.08,
+                            fillColor: FlutterFlowTheme.of(context).secondary,
+                            hoverColor: FlutterFlowTheme.of(context).primary,
+                            icon: Icon(
+                              Icons.chevron_left_outlined,
+                              color: FlutterFlowTheme.of(context).black,
+                              size: 20.0,
+                            ),
+                            onPressed: () async {
+                              logFirebaseEvent(
+                                  'ACCOUNTS_chevron_left_outlined_ICN_ON_TA');
+                              logFirebaseEvent('IconButton_update_page_state');
+                              setState(() {
+                                _model.recentTransactionsClicked = false;
+                              });
+                            },
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ),
