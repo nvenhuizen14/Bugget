@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 
 import '/backend/backend.dart';
-
+import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 
 import '../../flutter_flow/place.dart';
@@ -91,6 +91,9 @@ String? serializeParam(
 
       case ParamType.DataStruct:
         return param is BaseStruct ? param.serialize() : null;
+
+      case ParamType.Enum:
+        return (param is Enum) ? param.serialize() : null;
 
       case ParamType.SupabaseRow:
         return json.encode((param as SupabaseDataRow).data);
@@ -184,6 +187,7 @@ enum ParamType {
   Document,
   DocumentReference,
   DataStruct,
+  Enum,
   SupabaseRow,
 }
 
@@ -249,38 +253,38 @@ dynamic deserializeParam<T>(
       case ParamType.SupabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
-          case TransactionCategoryViewRow:
-            return TransactionCategoryViewRow(data);
-          case AccountRow:
-            return AccountRow(data);
-          case TransactionCategoryRow:
-            return TransactionCategoryRow(data);
-          case DocumentsRow:
-            return DocumentsRow(data);
-          case WeeklySpendingRow:
-            return WeeklySpendingRow(data);
-          case TransactionGroupRow:
-            return TransactionGroupRow(data);
           case TransactionsRow:
             return TransactionsRow(data);
+          case BudgetingRow:
+            return BudgetingRow(data);
+          case ItemRow:
+            return ItemRow(data);
+          case UserCombinedRow:
+            return UserCombinedRow(data);
           case UserRulesRow:
             return UserRulesRow(data);
           case UserRow:
             return UserRow(data);
-          case DailySpendingRow:
-            return DailySpendingRow(data);
-          case UserCombinedRow:
-            return UserCombinedRow(data);
-          case BudgetingRow:
-            return BudgetingRow(data);
-          case NormalizedTransactionsRow:
-            return NormalizedTransactionsRow(data);
-          case BudgetRow:
-            return BudgetRow(data);
-          case ItemRow:
-            return ItemRow(data);
           case InstitutionRow:
             return InstitutionRow(data);
+          case AccountRow:
+            return AccountRow(data);
+          case BudgetRow:
+            return BudgetRow(data);
+          case PlaidRequestsRow:
+            return PlaidRequestsRow(data);
+          case WeeklySpendingRow:
+            return WeeklySpendingRow(data);
+          case DailySpendingRow:
+            return DailySpendingRow(data);
+          case GroupSummaryRow:
+            return GroupSummaryRow(data);
+          case TransactionCategoryRow:
+            return TransactionCategoryRow(data);
+          case TransactionGroupRow:
+            return TransactionGroupRow(data);
+          case TransactionCategoryViewRow:
+            return TransactionCategoryViewRow(data);
           default:
             return null;
         }
@@ -288,6 +292,9 @@ dynamic deserializeParam<T>(
       case ParamType.DataStruct:
         final data = json.decode(param) as Map<String, dynamic>? ?? {};
         return structBuilder != null ? structBuilder(data) : null;
+
+      case ParamType.Enum:
+        return deserializeEnum<T>(param);
 
       default:
         return null;

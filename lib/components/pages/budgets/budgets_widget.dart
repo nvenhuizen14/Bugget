@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -166,354 +167,400 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 ).image,
                                               ),
                                             ),
-                                          ),
-                                        ),
-                                      ),
-                                      Align(
-                                        alignment:
-                                            const AlignmentDirectional(0.0, 1.0),
-                                        child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 90.0),
-                                          child: Container(
-                                            width: MediaQuery.sizeOf(context)
-                                                    .width *
-                                                0.95,
-                                            height: MediaQuery.sizeOf(context)
-                                                    .height *
-                                                0.35,
-                                            decoration: BoxDecoration(
-                                              color: const Color(0xD0262D34),
-                                              border: Border.all(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondary,
-                                                width: 4.0,
-                                              ),
-                                            ),
-                                            child: Stack(
-                                              children: [
-                                                Align(
+                                            child: Align(
+                                              alignment: const AlignmentDirectional(
+                                                  0.0, 1.0),
+                                              child: ClipRRect(
+                                                child: Container(
+                                                  constraints: BoxConstraints(
+                                                    maxWidth: MediaQuery.sizeOf(
+                                                                context)
+                                                            .width *
+                                                        1.0,
+                                                    maxHeight:
+                                                        MediaQuery.sizeOf(
+                                                                    context)
+                                                                .height *
+                                                            0.45,
+                                                  ),
+                                                  decoration: BoxDecoration(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .overlay,
+                                                  ),
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.0, -1.0),
-                                                  child: Row(
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Align(
-                                                          alignment:
-                                                              const AlignmentDirectional(
-                                                                  0.0, -1.0),
-                                                          child: Padding(
-                                                            padding:
-                                                                const EdgeInsetsDirectional
-                                                                    .fromSTEB(
-                                                                        0.0,
-                                                                        60.0,
-                                                                        0.0,
-                                                                        0.0),
-                                                            child: Container(
-                                                              width: MediaQuery
-                                                                          .sizeOf(
-                                                                              context)
-                                                                      .width *
-                                                                  0.95,
-                                                              height: 5.0,
-                                                              decoration:
-                                                                  const BoxDecoration(
-                                                                color: Color(
-                                                                    0x3A000000),
-                                                              ),
+                                                          0.0, 1.0),
+                                                  child: FutureBuilder<
+                                                      List<GroupSummaryRow>>(
+                                                    future: GroupSummaryTable()
+                                                        .queryRows(
+                                                      queryFn: (q) => q,
+                                                    ),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      // Customize what your widget looks like when it's loading.
+                                                      if (!snapshot.hasData) {
+                                                        return Center(
+                                                          child: SizedBox(
+                                                            width: 50.0,
+                                                            height: 50.0,
+                                                            child:
+                                                                SpinKitDualRing(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .tertiary400,
+                                                              size: 50.0,
                                                             ),
                                                           ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.0, 0.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 75.0,
-                                                                0.0, 0.0),
-                                                    child: FutureBuilder<
-                                                        List<BudgetingRow>>(
-                                                      future: BudgetingTable()
-                                                          .queryRows(
-                                                        queryFn: (q) => q,
-                                                      ),
-                                                      builder:
-                                                          (context, snapshot) {
-                                                        // Customize what your widget looks like when it's loading.
-                                                        if (!snapshot.hasData) {
-                                                          return Center(
-                                                            child: SizedBox(
-                                                              width: 50.0,
-                                                              height: 50.0,
+                                                        );
+                                                      }
+                                                      List<GroupSummaryRow>
+                                                          listViewGroupSummaryRowList =
+                                                          snapshot.data!;
+                                                      return ListView.builder(
+                                                        padding:
+                                                            EdgeInsets.zero,
+                                                        scrollDirection:
+                                                            Axis.vertical,
+                                                        itemCount:
+                                                            listViewGroupSummaryRowList
+                                                                .length,
+                                                        itemBuilder: (context,
+                                                            listViewIndex) {
+                                                          final listViewGroupSummaryRow =
+                                                              listViewGroupSummaryRowList[
+                                                                  listViewIndex];
+                                                          return Container(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.98,
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .overlay,
+                                                            child:
+                                                                ExpandableNotifier(
                                                               child:
-                                                                  SpinKitDualRing(
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .tertiary400,
-                                                                size: 50.0,
+                                                                  ExpandablePanel(
+                                                                header: Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          0.0,
+                                                                          0.0),
+                                                                  child: Column(
+                                                                    mainAxisSize:
+                                                                        MainAxisSize
+                                                                            .max,
+                                                                    children: [
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Text(
+                                                                            valueOrDefault<String>(
+                                                                              listViewGroupSummaryRow.groupName,
+                                                                              'null',
+                                                                            ),
+                                                                            style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
+                                                                                  color: FlutterFlowTheme.of(context).primaryText,
+                                                                                  fontSize: 24.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                                ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Row(
+                                                                        mainAxisSize:
+                                                                            MainAxisSize.max,
+                                                                        children: [
+                                                                          Expanded(
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  formatNumber(
+                                                                                    listViewGroupSummaryRow.groupBudgetActual,
+                                                                                    formatType: FormatType.decimal,
+                                                                                    decimalType: DecimalType.automatic,
+                                                                                    currency: '\$',
+                                                                                  ),
+                                                                                  '1',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                          LinearPercentIndicator(
+                                                                            percent:
+                                                                                valueOrDefault<double>(
+                                                                              listViewGroupSummaryRow.groupBudgetPercentage,
+                                                                              1.0,
+                                                                            ),
+                                                                            width:
+                                                                                MediaQuery.sizeOf(context).width * 0.5,
+                                                                            lineHeight:
+                                                                                18.0,
+                                                                            animation:
+                                                                                true,
+                                                                            animateFromLastPercent:
+                                                                                true,
+                                                                            progressColor:
+                                                                                FlutterFlowTheme.of(context).primary,
+                                                                            backgroundColor:
+                                                                                FlutterFlowTheme.of(context).accent4,
+                                                                            center:
+                                                                                Text(
+                                                                              '50%',
+                                                                              style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).headlineSmallFamily,
+                                                                                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                    fontSize: 16.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
+                                                                                  ),
+                                                                            ),
+                                                                            barRadius:
+                                                                                const Radius.circular(16.0),
+                                                                            padding:
+                                                                                EdgeInsets.zero,
+                                                                          ),
+                                                                          Expanded(
+                                                                            child:
+                                                                                Align(
+                                                                              alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                              child: Text(
+                                                                                valueOrDefault<String>(
+                                                                                  formatNumber(
+                                                                                    listViewGroupSummaryRow.groupBudgetLimit,
+                                                                                    formatType: FormatType.decimal,
+                                                                                    decimalType: DecimalType.automatic,
+                                                                                    currency: '\$',
+                                                                                  ),
+                                                                                  '1',
+                                                                                ),
+                                                                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              ),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                      Divider(
+                                                                        thickness:
+                                                                            1.0,
+                                                                        color: FlutterFlowTheme.of(context)
+                                                                            .accent4,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                                collapsed:
+                                                                    Container(),
+                                                                expanded: Align(
+                                                                  alignment:
+                                                                      const AlignmentDirectional(
+                                                                          1.0,
+                                                                          0.0),
+                                                                  child:
+                                                                      Container(
+                                                                    constraints:
+                                                                        BoxConstraints(
+                                                                      maxWidth:
+                                                                          MediaQuery.sizeOf(context).width *
+                                                                              0.9,
+                                                                      maxHeight:
+                                                                          MediaQuery.sizeOf(context).height *
+                                                                              0.2,
+                                                                    ),
+                                                                    decoration:
+                                                                        const BoxDecoration(),
+                                                                    child: FutureBuilder<
+                                                                        List<
+                                                                            BudgetingRow>>(
+                                                                      future: BudgetingTable()
+                                                                          .queryRows(
+                                                                        queryFn:
+                                                                            (q) =>
+                                                                                q.eq(
+                                                                          'group',
+                                                                          listViewGroupSummaryRow
+                                                                              .groupName,
+                                                                        ),
+                                                                      ),
+                                                                      builder:
+                                                                          (context,
+                                                                              snapshot) {
+                                                                        // Customize what your widget looks like when it's loading.
+                                                                        if (!snapshot
+                                                                            .hasData) {
+                                                                          return Center(
+                                                                            child:
+                                                                                SizedBox(
+                                                                              width: 50.0,
+                                                                              height: 50.0,
+                                                                              child: SpinKitDualRing(
+                                                                                color: FlutterFlowTheme.of(context).tertiary400,
+                                                                                size: 50.0,
+                                                                              ),
+                                                                            ),
+                                                                          );
+                                                                        }
+                                                                        List<BudgetingRow>
+                                                                            listViewBudgetingRowList =
+                                                                            snapshot.data!;
+                                                                        return ListView
+                                                                            .builder(
+                                                                          padding:
+                                                                              EdgeInsets.zero,
+                                                                          scrollDirection:
+                                                                              Axis.vertical,
+                                                                          itemCount:
+                                                                              listViewBudgetingRowList.length,
+                                                                          itemBuilder:
+                                                                              (context, listViewIndex) {
+                                                                            final listViewBudgetingRow =
+                                                                                listViewBudgetingRowList[listViewIndex];
+                                                                            return Align(
+                                                                              alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                              child: Column(
+                                                                                mainAxisSize: MainAxisSize.max,
+                                                                                children: [
+                                                                                  Column(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Align(
+                                                                                        alignment: const AlignmentDirectional(-1.0, -1.0),
+                                                                                        child: Row(
+                                                                                          mainAxisSize: MainAxisSize.min,
+                                                                                          children: [
+                                                                                            Text(
+                                                                                              valueOrDefault<String>(
+                                                                                                listViewBudgetingRow.budgetItem,
+                                                                                                'null',
+                                                                                              ),
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                    fontSize: 18.0,
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                  ),
+                                                                                            ),
+                                                                                          ],
+                                                                                        ),
+                                                                                      ),
+                                                                                      Divider(
+                                                                                        thickness: 1.0,
+                                                                                        endIndent: 250.0,
+                                                                                        color: FlutterFlowTheme.of(context).accent4,
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                  Row(
+                                                                                    mainAxisSize: MainAxisSize.max,
+                                                                                    children: [
+                                                                                      Expanded(
+                                                                                        child: Align(
+                                                                                          alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                                          child: Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              formatNumber(
+                                                                                                listViewBudgetingRow.budgetActual,
+                                                                                                formatType: FormatType.decimal,
+                                                                                                decimalType: DecimalType.automatic,
+                                                                                                currency: '\$',
+                                                                                              ),
+                                                                                              '1',
+                                                                                            ),
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                      LinearPercentIndicator(
+                                                                                        percent: valueOrDefault<double>(
+                                                                                          listViewBudgetingRow.budgetPercentage,
+                                                                                          1.0,
+                                                                                        ),
+                                                                                        width: MediaQuery.sizeOf(context).width * 0.45,
+                                                                                        lineHeight: 18.0,
+                                                                                        animation: true,
+                                                                                        animateFromLastPercent: true,
+                                                                                        progressColor: FlutterFlowTheme.of(context).primary,
+                                                                                        backgroundColor: FlutterFlowTheme.of(context).accent4,
+                                                                                        center: Text(
+                                                                                          '50%',
+                                                                                          style: FlutterFlowTheme.of(context).headlineSmall.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).headlineSmallFamily,
+                                                                                                color: FlutterFlowTheme.of(context).primaryBtnText,
+                                                                                                fontSize: 16.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                        barRadius: const Radius.circular(16.0),
+                                                                                        padding: EdgeInsets.zero,
+                                                                                      ),
+                                                                                      Expanded(
+                                                                                        child: Align(
+                                                                                          alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                                          child: Text(
+                                                                                            valueOrDefault<String>(
+                                                                                              formatNumber(
+                                                                                                listViewBudgetingRow.budgetLimit,
+                                                                                                formatType: FormatType.decimal,
+                                                                                                decimalType: DecimalType.automatic,
+                                                                                                currency: '\$',
+                                                                                              ),
+                                                                                              '1',
+                                                                                            ),
+                                                                                            style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                          ),
+                                                                                        ),
+                                                                                      ),
+                                                                                    ],
+                                                                                  ),
+                                                                                  Divider(
+                                                                                    thickness: 1.0,
+                                                                                    color: FlutterFlowTheme.of(context).accent4,
+                                                                                  ),
+                                                                                ],
+                                                                              ),
+                                                                            );
+                                                                          },
+                                                                        );
+                                                                      },
+                                                                    ),
+                                                                  ),
+                                                                ),
+                                                                theme:
+                                                                    const ExpandableThemeData(
+                                                                  tapHeaderToExpand:
+                                                                      true,
+                                                                  tapBodyToExpand:
+                                                                      false,
+                                                                  tapBodyToCollapse:
+                                                                      true,
+                                                                  headerAlignment:
+                                                                      ExpandablePanelHeaderAlignment
+                                                                          .center,
+                                                                  hasIcon:
+                                                                      false,
+                                                                ),
                                                               ),
                                                             ),
                                                           );
-                                                        }
-                                                        List<BudgetingRow>
-                                                            listViewBudgetingRowList =
-                                                            snapshot.data!;
-                                                        return ListView.builder(
-                                                          padding:
-                                                              EdgeInsets.zero,
-                                                          scrollDirection:
-                                                              Axis.vertical,
-                                                          itemCount:
-                                                              listViewBudgetingRowList
-                                                                  .length,
-                                                          itemBuilder: (context,
-                                                              listViewIndex) {
-                                                            final listViewBudgetingRow =
-                                                                listViewBudgetingRowList[
-                                                                    listViewIndex];
-                                                            return Padding(
-                                                              padding:
-                                                                  const EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          0.0,
-                                                                          0.0,
-                                                                          0.0,
-                                                                          10.0),
-                                                              child: Row(
-                                                                mainAxisSize:
-                                                                    MainAxisSize
-                                                                        .max,
-                                                                mainAxisAlignment:
-                                                                    MainAxisAlignment
-                                                                        .start,
-                                                                crossAxisAlignment:
-                                                                    CrossAxisAlignment
-                                                                        .center,
-                                                                children: [
-                                                                  Expanded(
-                                                                    flex: 2,
-                                                                    child:
-                                                                        Align(
-                                                                      alignment: const AlignmentDirectional(
-                                                                          -1.0,
-                                                                          -0.05),
-                                                                      child:
-                                                                          Text(
-                                                                        listViewBudgetingRow
-                                                                            .budgetItem!,
-                                                                        textAlign:
-                                                                            TextAlign.start,
-                                                                        maxLines:
-                                                                            2,
-                                                                        style: FlutterFlowTheme.of(context)
-                                                                            .bodyMedium
-                                                                            .override(
-                                                                              fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                              fontSize: 14.0,
-                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                            ),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    flex: 1,
-                                                                    child: Text(
-                                                                      valueOrDefault<
-                                                                          String>(
-                                                                        formatNumber(
-                                                                          listViewBudgetingRow
-                                                                              .budgetActual,
-                                                                          formatType:
-                                                                              FormatType.decimal,
-                                                                          decimalType:
-                                                                              DecimalType.automatic,
-                                                                          currency:
-                                                                              '\$',
-                                                                        ),
-                                                                        '\$1',
-                                                                      ),
-                                                                      style: FlutterFlowTheme.of(
-                                                                              context)
-                                                                          .bodyMedium
-                                                                          .override(
-                                                                            fontFamily:
-                                                                                FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                            color:
-                                                                                colorFromCssString(
-                                                                              listViewBudgetingRow.budgetActual! > listViewBudgetingRow.budgetLimit! ? 'Red' : 'White',
-                                                                              defaultColor: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                            ),
-                                                                            fontSize:
-                                                                                14.0,
-                                                                            useGoogleFonts:
-                                                                                GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                          ),
-                                                                    ),
-                                                                  ),
-                                                                  Expanded(
-                                                                    flex: 2,
-                                                                    child:
-                                                                        Align(
-                                                                      alignment: const AlignmentDirectional(
-                                                                          -0.1,
-                                                                          -1.0),
-                                                                      child:
-                                                                          LinearPercentIndicator(
-                                                                        percent:
-                                                                            valueOrDefault<double>(
-                                                                          listViewBudgetingRow
-                                                                              .budgetPercentage,
-                                                                          50.0,
-                                                                        ),
-                                                                        width: MediaQuery.sizeOf(context).width *
-                                                                            0.3,
-                                                                        lineHeight:
-                                                                            13.0,
-                                                                        animation:
-                                                                            true,
-                                                                        animateFromLastPercent:
-                                                                            true,
-                                                                        progressColor:
-                                                                            FlutterFlowTheme.of(context).tertiary400,
-                                                                        backgroundColor:
-                                                                            const Color(0xFFF1F4F8),
-                                                                        center:
-                                                                            Text(
-                                                                          valueOrDefault<
-                                                                              String>(
-                                                                            formatNumber(
-                                                                              listViewBudgetingRow.budgetPercentage,
-                                                                              formatType: FormatType.percent,
-                                                                            ),
-                                                                            '1%',
-                                                                          ),
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          style: FlutterFlowTheme.of(context)
-                                                                              .bodyMedium
-                                                                              .override(
-                                                                                fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                color: FlutterFlowTheme.of(context).black600,
-                                                                                fontSize: 12.0,
-                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                              ),
-                                                                        ),
-                                                                        barRadius:
-                                                                            const Radius.circular(50.0),
-                                                                        padding:
-                                                                            EdgeInsets.zero,
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                  Text(
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      formatNumber(
-                                                                        listViewBudgetingRow
-                                                                            .budgetLimit,
-                                                                        formatType:
-                                                                            FormatType.decimal,
-                                                                        decimalType:
-                                                                            DecimalType.automatic,
-                                                                        currency:
-                                                                            '\$',
-                                                                      ),
-                                                                      '1000',
-                                                                    ),
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyMedium
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                          fontSize:
-                                                                              14.0,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                        ),
-                                                                  ),
-                                                                ],
-                                                              ),
-                                                            );
-                                                          },
-                                                        );
-                                                      },
-                                                    ),
+                                                        },
+                                                      );
+                                                    },
                                                   ),
                                                 ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          1.0, -1.0),
-                                                  child: Padding(
-                                                    padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 30.0,
-                                                                5.0, 0.0),
-                                                    child: Text(
-                                                      'Budget',
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMediumFamily,
-                                                                fontSize: 20.0,
-                                                                useGoogleFonts: GoogleFonts
-                                                                        .asMap()
-                                                                    .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsetsDirectional
-                                                      .fromSTEB(150.0, 30.0,
-                                                          0.0, 0.0),
-                                                  child: Text(
-                                                    'Spent',
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMediumFamily,
-                                                          fontSize: 20.0,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
-                                                  ),
-                                                ),
-                                              ],
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.0, 0.0),
+                                            const AlignmentDirectional(-0.02, -0.2),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
