@@ -6,7 +6,7 @@ import 'package:flutter_web_plugins/url_strategy.dart';
 
 import 'auth/supabase_auth/supabase_user_provider.dart';
 import 'auth/supabase_auth/auth_util.dart';
-
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import '/backend/supabase/supabase.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'flutter_flow/flutter_flow_theme.dart';
@@ -19,7 +19,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   usePathUrlStrategy();
   await initFirebase();
-
+  injectSpeedInsights();
   await SupaFlow.initialize();
 
   await FlutterFlowTheme.initialize();
