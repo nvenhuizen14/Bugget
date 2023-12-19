@@ -49,14 +49,14 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
       scrollDirection: Axis.vertical,
       children: [
         Align(
-          alignment: const AlignmentDirectional(0.00, -0.05),
+          alignment: const AlignmentDirectional(0.0, -0.05),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Align(
-                alignment: const AlignmentDirectional(0.10, 0.10),
+                alignment: const AlignmentDirectional(0.1, 0.1),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 95.0, 0.0),
                   child: Text(
@@ -99,14 +99,14 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.05, 0.10),
+          alignment: const AlignmentDirectional(0.05, 0.1),
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Align(
-                alignment: const AlignmentDirectional(-0.95, -0.10),
+                alignment: const AlignmentDirectional(-0.95, -0.1),
                 child: Icon(
                   Icons.blur_on_rounded,
                   color: FlutterFlowTheme.of(context).tertiary400,
@@ -114,7 +114,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1.00, -0.05),
+                alignment: const AlignmentDirectional(-1.0, -0.05),
                 child: Padding(
                   padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                   child: Text(
@@ -126,7 +126,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(0.00, 0.00),
+                alignment: const AlignmentDirectional(0.0, 0.0),
                 child: Text(
                   '\$200',
                   style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -139,7 +139,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-0.10, -1.00),
+                alignment: const AlignmentDirectional(-0.1, -1.0),
                 child: LinearPercentIndicator(
                   percent: 0.4,
                   width: 100.0,
@@ -181,7 +181,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.10, 0.10),
+          alignment: const AlignmentDirectional(0.1, 0.1),
           child: Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: Row(
@@ -189,7 +189,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const Align(
-                  alignment: AlignmentDirectional(-0.95, -0.10),
+                  alignment: AlignmentDirectional(-0.95, -0.1),
                   child: Icon(
                     Icons.blur_on_rounded,
                     color: Color(0xFF18F404),
@@ -197,7 +197,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1.00, -0.05),
+                  alignment: const AlignmentDirectional(-1.0, -0.05),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                     child: Text(
@@ -209,7 +209,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     '\$200',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -222,7 +222,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-0.10, -1.00),
+                  alignment: const AlignmentDirectional(-0.1, -1.0),
                   child: LinearPercentIndicator(
                     percent: 0.4,
                     width: 100.0,
@@ -265,7 +265,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
           ),
         ),
         Align(
-          alignment: const AlignmentDirectional(0.05, 0.10),
+          alignment: const AlignmentDirectional(0.05, 0.1),
           child: Padding(
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
             child: Row(
@@ -273,7 +273,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 const Align(
-                  alignment: AlignmentDirectional(-0.95, -0.10),
+                  alignment: AlignmentDirectional(-0.95, -0.1),
                   child: Icon(
                     Icons.blur_on_rounded,
                     color: Color(0xFFEDE411),
@@ -281,7 +281,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-1.00, -0.05),
+                  alignment: const AlignmentDirectional(-1.0, -0.05),
                   child: Padding(
                     padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 5.0, 0.0),
                     child: Text(
@@ -293,7 +293,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Text(
                     '\$200',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -306,7 +306,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                   ),
                 ),
                 Align(
-                  alignment: const AlignmentDirectional(-0.10, -1.00),
+                  alignment: const AlignmentDirectional(-0.1, -1.0),
                   child: LinearPercentIndicator(
                     percent: 0.4,
                     width: 100.0,

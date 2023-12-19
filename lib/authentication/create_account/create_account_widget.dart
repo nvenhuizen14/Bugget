@@ -83,7 +83,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                 child: Stack(
                   children: [
                     Align(
-                      alignment: const AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: InkWell(
                         splashColor: Colors.transparent,
                         focusColor: Colors.transparent,
@@ -122,7 +122,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                       ),
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.00, 0.00),
+                      alignment: const AlignmentDirectional(0.0, 0.0),
                       child: SizedBox(
                         width: double.infinity,
                         height: 600.0,
@@ -142,7 +142,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                   children: [
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(0.00, -1.00),
+                                          const AlignmentDirectional(0.0, -1.0),
                                       child: Text(
                                         'Get Started',
                                         textAlign: TextAlign.center,
@@ -163,8 +163,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                       ),
                                     ),
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 0.0, 15.0),
@@ -779,7 +778,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                     ),
                                     Align(
                                       alignment:
-                                          const AlignmentDirectional(-0.05, 0.00),
+                                          const AlignmentDirectional(-0.05, 0.0),
                                       child: Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
                                             0.0, 24.0, 0.0, 0.0),
@@ -791,7 +790,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                             Expanded(
                                               child: Align(
                                                 alignment: const AlignmentDirectional(
-                                                    0.00, 0.05),
+                                                    0.0, 0.05),
                                                 child: FFButtonWidget(
                                                   onPressed: () async {
                                                     logFirebaseEvent(

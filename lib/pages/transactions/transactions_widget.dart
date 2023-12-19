@@ -161,7 +161,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(-1.00, -1.00),
+                        alignment: const AlignmentDirectional(-1.0, -1.0),
                         child: Container(
                           constraints: BoxConstraints(
                             minWidth: MediaQuery.sizeOf(context).width * 0.5,
@@ -170,9 +170,9 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                           decoration: const BoxDecoration(
                             color: Colors.transparent,
                           ),
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Align(
-                            alignment: const AlignmentDirectional(0.00, 0.00),
+                            alignment: const AlignmentDirectional(0.0, 0.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   15.0, 0.0, 5.0, 0.0),
@@ -214,8 +214,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                                 options: FFButtonOptions(
                                   width: 235.0,
                                   height: 40.0,
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
+                                  padding: const EdgeInsets.all(0.0),
                                   iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 0.0, 0.0),
                                   color: Colors.transparent,
@@ -249,7 +248,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                       ),
                       Expanded(
                         child: Align(
-                          alignment: const AlignmentDirectional(0.00, 0.00),
+                          alignment: const AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: const EdgeInsetsDirectional.fromSTEB(
                                 5.0, 0.0, 15.0, 0.0),
@@ -291,8 +290,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                               options: FFButtonOptions(
                                 width: 235.0,
                                 height: 40.0,
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 0.0),
+                                padding: const EdgeInsets.all(0.0),
                                 iconPadding: const EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 color: Colors.transparent,
@@ -459,7 +457,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.00, 1.00),
+                    alignment: const AlignmentDirectional(0.0, 1.0),
                     child: wrapWithModel(
                       model: _model.navBarFlotingModel,
                       updateCallback: () => setState(() {}),

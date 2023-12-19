@@ -114,7 +114,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Align(
-                            alignment: const AlignmentDirectional(-1.00, -1.00),
+                            alignment: const AlignmentDirectional(-1.0, -1.0),
                             child: Padding(
                               padding: const EdgeInsetsDirectional.fromSTEB(
                                   20.0, 0.0, 0.0, 0.0),
@@ -146,7 +146,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                         ],
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(-1.00, 0.00),
+                        alignment: const AlignmentDirectional(-1.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -210,8 +210,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Align(
-                                    alignment:
-                                        const AlignmentDirectional(-1.00, 0.00),
+                                    alignment: const AlignmentDirectional(-1.0, 0.0),
                                     child: Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
                                           0.0, 15.0, 0.0, 0.0),
@@ -478,7 +477,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.22),
+                              alignment: const AlignmentDirectional(0.0, 0.22),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 20.0),
@@ -521,7 +520,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.22),
+                              alignment: const AlignmentDirectional(0.0, 0.22),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 20.0),
@@ -666,7 +665,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               ),
                             ),
                             Align(
-                              alignment: const AlignmentDirectional(0.00, 0.22),
+                              alignment: const AlignmentDirectional(0.0, 0.22),
                               child: Padding(
                                 padding: const EdgeInsetsDirectional.fromSTEB(
                                     20.0, 0.0, 0.0, 0.0),

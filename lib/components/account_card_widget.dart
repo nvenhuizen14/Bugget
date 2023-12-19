@@ -56,7 +56,7 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
         _model.currentAccount = _model.currentAccount;
         _model.borderColor = valueOrDefault<Color>(
           _model.borderColor,
-          Colors.transparent,
+          FlutterFlowTheme.of(context).tertiary400,
         );
       });
     });
@@ -76,94 +76,207 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
     context.watch<FFAppState>();
 
     return Align(
-      alignment: const AlignmentDirectional(0.00, 0.00),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(8.0),
-          child: AnimatedContainer(
-            duration: const Duration(milliseconds: 860),
-            curve: Curves.bounceOut,
-            width: MediaQuery.sizeOf(context).width * 0.881,
-            height: MediaQuery.sizeOf(context).height * 0.216,
-            constraints: BoxConstraints(
-              maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-              maxHeight: MediaQuery.sizeOf(context).height * 1.0,
+      alignment: const AlignmentDirectional(0.0, 0.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 860),
+          curve: Curves.bounceOut,
+          width: MediaQuery.sizeOf(context).width * 0.9,
+          height: MediaQuery.sizeOf(context).height * 0.23,
+          constraints: BoxConstraints(
+            maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+            maxHeight: MediaQuery.sizeOf(context).height * 1.0,
+          ),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                FlutterFlowTheme.of(context).gray600,
+                const Color(0x5ADBE2E7),
+                FlutterFlowTheme.of(context).btnText
+              ],
+              stops: const [0.0, 0.0, 1.0],
+              begin: const AlignmentDirectional(1.0, 0.0),
+              end: const AlignmentDirectional(-1.0, 0),
             ),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [
-                  FlutterFlowTheme.of(context).gray600,
-                  const Color(0x5ADBE2E7),
-                  FlutterFlowTheme.of(context).btnText
-                ],
-                stops: const [0.0, 0.0, 1.0],
-                begin: const AlignmentDirectional(1.0, 0.0),
-                end: const AlignmentDirectional(-1.0, 0),
+            borderRadius: BorderRadius.circular(8.0),
+            shape: BoxShape.rectangle,
+            border: Border.all(
+              color: valueOrDefault<Color>(
+                widget.borderColor,
+                FlutterFlowTheme.of(context).grayIcon,
               ),
-              borderRadius: BorderRadius.circular(8.0),
+              width: 4.0,
             ),
-            child: Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8.0),
-                child: BackdropFilter(
-                  filter: ImageFilter.blur(
-                    sigmaX: 10.0,
-                    sigmaY: 10.0,
-                  ),
-                  child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width * 1.0,
-                    height: MediaQuery.sizeOf(context).height * 1.0,
-                    child: Stack(
-                      children: [
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Container(
-                            width: MediaQuery.sizeOf(context).width * 1.0,
-                            height: MediaQuery.sizeOf(context).height * 1.0,
-                            constraints: BoxConstraints(
-                              maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-                              maxHeight:
-                                  MediaQuery.sizeOf(context).height * 1.0,
-                            ),
-                            decoration: BoxDecoration(
-                              boxShadow: const [
-                                BoxShadow(
-                                  blurRadius: 4.0,
-                                  color: Color(0x33000000),
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(8.0),
-                              border: Border.all(
-                                color: valueOrDefault<Color>(
-                                  widget.borderColor,
-                                  const Color(0x5ADBE2E7),
-                                ),
-                                width: 4.0,
+          ),
+          child: Align(
+            alignment: const AlignmentDirectional(0.0, 0.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(8.0),
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 10.0,
+                  sigmaY: 10.0,
+                ),
+                child: Stack(
+                  children: [
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, -1.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(8.0),
+                        child: Container(
+                          constraints: BoxConstraints(
+                            maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+                            maxHeight: MediaQuery.sizeOf(context).height * 1.0,
+                          ),
+                          decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(8.0),
+                            shape: BoxShape.rectangle,
+                            border: Border.all(
+                              color: valueOrDefault<Color>(
+                                widget.borderColor,
+                                const Color(0x5ADBE2E7),
                               ),
                             ),
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(
-                              20.0, 20.0, 20.0, 20.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Align(
-                                alignment: const AlignmentDirectional(-1.00, -1.00),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(22.0),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            flex: 1,
+                            child: Align(
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
+                              child: Text(
+                                valueOrDefault<String>(
+                                  widget.name,
+                                  'null',
+                                ),
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Plus Jakarta Sans',
+                                      color: FlutterFlowTheme.of(context).black,
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Align(
+                              alignment: const AlignmentDirectional(-1.0, -1.0),
+                              child: Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 10.0, 0.0, 0.0),
                                 child: Text(
                                   valueOrDefault<String>(
-                                    widget.name,
+                                    formatNumber(
+                                      widget.balance,
+                                      formatType: FormatType.decimal,
+                                      decimalType: DecimalType.automatic,
+                                      currency: '\$',
+                                    ),
+                                    '\$1',
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .displaySmall
+                                      .override(
+                                        fontFamily: 'Outfit',
+                                        color:
+                                            FlutterFlowTheme.of(context).black,
+                                        fontSize: 32.0,
+                                        fontWeight: FontWeight.w600,
+                                        useGoogleFonts: GoogleFonts.asMap()
+                                            .containsKey(
+                                                FlutterFlowTheme.of(context)
+                                                    .displaySmallFamily),
+                                      ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: Align(
+                              alignment: const AlignmentDirectional(1.0, -1.0),
+                              child: Text(
+                                'Last Updated',
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: FlutterFlowTheme.of(context)
+                                          .bodyMediumFamily,
+                                      color: FlutterFlowTheme.of(context).black,
+                                      useGoogleFonts: GoogleFonts.asMap()
+                                          .containsKey(
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyMediumFamily),
+                                    ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 4.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  flex: 2,
+                                  child: Text(
+                                    valueOrDefault<String>(
+                                      widget.type,
+                                      'null',
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Roboto Mono',
+                                          color: FlutterFlowTheme.of(context)
+                                              .black,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w500,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMediumFamily),
+                                        ),
+                                  ),
+                                ),
+                                Text(
+                                  valueOrDefault<String>(
+                                    dateTimeFormat(
+                                      'M/d h:mm a',
+                                      widget.lastUpdate,
+                                      locale: FFLocalizations.of(context)
+                                          .languageCode,
+                                    ),
                                     'null',
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
-                                        fontFamily: 'Plus Jakarta Sans',
+                                        fontFamily: 'Roboto Mono',
                                         color:
                                             FlutterFlowTheme.of(context).black,
                                         fontSize: 14.0,
@@ -174,42 +287,19 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                                     .bodyMediumFamily),
                                       ),
                                 ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(-1.00, -1.00),
-                                child: Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Text(
-                                    valueOrDefault<String>(
-                                      formatNumber(
-                                        widget.balance,
-                                        formatType: FormatType.decimal,
-                                        decimalType: DecimalType.automatic,
-                                        currency: '\$',
-                                      ),
-                                      '\$1',
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .displaySmall
-                                        .override(
-                                          fontFamily: 'Outfit',
-                                          color: FlutterFlowTheme.of(context)
-                                              .black,
-                                          fontSize: 32.0,
-                                          fontWeight: FontWeight.w600,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .displaySmallFamily),
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Align(
-                                alignment: const AlignmentDirectional(1.00, -1.00),
+                              ],
+                            ),
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Expanded(
+                                flex: 1,
                                 child: Text(
-                                  'Last Updated',
+                                  valueOrDefault<String>(
+                                    widget.institutionName,
+                                    'null',
+                                  ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -224,114 +314,33 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                       ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 0.0, 4.0),
-                                child: Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      valueOrDefault<String>(
-                                        widget.type,
-                                        'null',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: FlutterFlowTheme.of(context)
-                                                .black,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
-                                    Text(
-                                      valueOrDefault<String>(
-                                        dateTimeFormat(
-                                          'M/d h:mm a',
-                                          widget.lastUpdate,
-                                          locale: FFLocalizations.of(context)
-                                              .languageCode,
-                                        ),
-                                        'null',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Roboto Mono',
-                                            color: FlutterFlowTheme.of(context)
-                                                .black,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Row(
-                                mainAxisSize: MainAxisSize.max,
-                                children: [
-                                  Expanded(
-                                    child: Text(
-                                      valueOrDefault<String>(
-                                        widget.institutionName,
-                                        'null',
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily,
-                                            color: FlutterFlowTheme.of(context)
-                                                .black,
-                                            useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
-                                          ),
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ],
                           ),
-                        ),
-                        Align(
-                          alignment: const AlignmentDirectional(1.00, -1.00),
-                          child: Padding(
-                            padding: const EdgeInsetsDirectional.fromSTEB(
-                                0.0, 10.0, 10.0, 0.0),
-                            child: FlutterFlowIconButton(
-                              borderColor: Colors.transparent,
-                              borderRadius: 20.0,
-                              borderWidth: 0.0,
-                              fillColor: Colors.transparent,
-                              icon: Icon(
-                                Icons.settings,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                size: 20.0,
-                              ),
-                              onPressed: () {
-                                print('IconButton pressed ...');
-                              },
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
+                    Align(
+                      alignment: const AlignmentDirectional(1.0, -1.0),
+                      child: Padding(
+                        padding: const EdgeInsetsDirectional.fromSTEB(
+                            0.0, 10.0, 10.0, 0.0),
+                        child: FlutterFlowIconButton(
+                          borderColor: Colors.transparent,
+                          borderRadius: 20.0,
+                          borderWidth: 0.0,
+                          fillColor: Colors.transparent,
+                          icon: Icon(
+                            Icons.settings,
+                            color: FlutterFlowTheme.of(context).primaryBtnText,
+                            size: 20.0,
+                          ),
+                          onPressed: () {
+                            print('IconButton pressed ...');
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

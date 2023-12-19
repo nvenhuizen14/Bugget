@@ -93,7 +93,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                     shape: badges.BadgeShape.circle,
                     badgeColor: FlutterFlowTheme.of(context).primary,
                     elevation: 4.0,
-                    padding: const EdgeInsetsDirectional.fromSTEB(8.0, 8.0, 8.0, 8.0),
+                    padding: const EdgeInsets.all(8.0),
                     position: badges.BadgePosition.topEnd(),
                     animationType: badges.BadgeAnimationType.scale,
                     toAnimate: true,
@@ -260,9 +260,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                        const EdgeInsets.all(8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -383,7 +381,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                           ),
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .add_photo_alternate_outlined,
@@ -446,9 +444,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                        const EdgeInsets.all(8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -569,7 +565,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                           ),
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .add_photo_alternate_outlined,
@@ -754,9 +750,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                        const EdgeInsets.all(8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -889,7 +883,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                           ),
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .add_photo_alternate_outlined,
@@ -967,9 +961,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                   ),
                                                   child: Padding(
                                                     padding:
-                                                        const EdgeInsetsDirectional
-                                                            .fromSTEB(8.0, 8.0,
-                                                                8.0, 8.0),
+                                                        const EdgeInsets.all(8.0),
                                                     child: Row(
                                                       mainAxisSize:
                                                           MainAxisSize.max,
@@ -1102,7 +1094,7 @@ class _Home17CalendarWidgetState extends State<Home17CalendarWidget>
                                                           ),
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.00, 0.00),
+                                                                  0.0, 0.0),
                                                           child: Icon(
                                                             Icons
                                                                 .add_photo_alternate_outlined,

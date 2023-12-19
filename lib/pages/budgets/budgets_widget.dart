@@ -126,7 +126,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                     children: [
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: ClipRRect(
                                           child: Container(
                                             width: MediaQuery.sizeOf(context)
@@ -171,7 +171,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 1.00),
+                                            const AlignmentDirectional(0.0, 1.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -197,7 +197,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.00, -1.00),
+                                                          0.0, -1.0),
                                                   child: Row(
                                                     mainAxisSize:
                                                         MainAxisSize.min,
@@ -206,7 +206,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                         child: Align(
                                                           alignment:
                                                               const AlignmentDirectional(
-                                                                  0.00, -1.00),
+                                                                  0.0, -1.0),
                                                           child: Padding(
                                                             padding:
                                                                 const EdgeInsetsDirectional
@@ -237,7 +237,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          0.00, 0.00),
+                                                          0.0, 0.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -307,7 +307,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment: const AlignmentDirectional(
-                                                                          -1.00,
+                                                                          -1.0,
                                                                           -0.05),
                                                                       child:
                                                                           Text(
@@ -367,8 +367,8 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                     child:
                                                                         Align(
                                                                       alignment: const AlignmentDirectional(
-                                                                          -0.10,
-                                                                          -1.00),
+                                                                          -0.1,
+                                                                          -1.0),
                                                                       child:
                                                                           LinearPercentIndicator(
                                                                         percent:
@@ -456,7 +456,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 Align(
                                                   alignment:
                                                       const AlignmentDirectional(
-                                                          1.00, -1.00),
+                                                          1.0, -1.0),
                                                   child: Padding(
                                                     padding:
                                                         const EdgeInsetsDirectional
@@ -513,7 +513,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                       ),
                                       Align(
                                         alignment:
-                                            const AlignmentDirectional(0.00, 0.00),
+                                            const AlignmentDirectional(0.0, 0.0),
                                         child: Padding(
                                           padding:
                                               const EdgeInsetsDirectional.fromSTEB(
@@ -580,7 +580,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                           items: [
                                             Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.00, -1.00),
+                                                  0.0, -1.0),
                                               child: Padding(
                                                 padding: const EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -610,7 +610,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                   child: Align(
                                                     alignment:
                                                         const AlignmentDirectional(
-                                                            0.00, 0.00),
+                                                            0.0, 0.0),
                                                     child: wrapWithModel(
                                                       model: _model
                                                           .totalBudgetSpentGraphModel,
@@ -664,7 +664,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                       ],
                     ),
                     Align(
-                      alignment: const AlignmentDirectional(0.15, 1.00),
+                      alignment: const AlignmentDirectional(0.15, 1.0),
                       child: wrapWithModel(
                         model: _model.navBarFlotingModel,
                         updateCallback: () => setState(() {}),

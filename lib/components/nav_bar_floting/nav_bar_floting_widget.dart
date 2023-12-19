@@ -44,7 +44,7 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
     context.watch<FFAppState>();
 
     return Padding(
-      padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
         width: double.infinity,
         height: 70.0,
@@ -83,7 +83,7 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(10.0, 10.0, 10.0, 10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -95,7 +95,7 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                       hoverIconColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
                       icon: FaIcon(
-                        FontAwesomeIcons.home,
+                        FontAwesomeIcons.house,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         size: 25.0,
                       ),

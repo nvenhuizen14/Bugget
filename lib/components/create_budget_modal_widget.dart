@@ -125,7 +125,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, -1.00),
+              alignment: const AlignmentDirectional(0.0, -1.0),
               child: Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                 child: Text(
@@ -149,9 +149,9 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
               ),
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, 0.00),
+              alignment: const AlignmentDirectional(0.0, 0.0),
               child: Padding(
-                padding: const EdgeInsetsDirectional.fromSTEB(20.0, 20.0, 20.0, 20.0),
+                padding: const EdgeInsets.all(20.0),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -218,11 +218,9 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                 child: Stack(
                                   children: [
                                     Align(
-                                      alignment:
-                                          const AlignmentDirectional(0.00, 0.00),
+                                      alignment: const AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            5.0, 5.0, 5.0, 5.0),
+                                        padding: const EdgeInsets.all(5.0),
                                         child: FFButtonWidget(
                                           onPressed: () {
                                             print('Button pressed ...');
@@ -231,9 +229,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                           options: FFButtonOptions(
                                             width: double.infinity,
                                             height: double.infinity,
-                                            padding:
-                                                const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 0.0, 0.0),
+                                            padding: const EdgeInsets.all(0.0),
                                             iconPadding:
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 0.0, 0.0),
@@ -280,8 +276,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                       ),
                                     ),
                                     Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 5.0),
+                                      padding: const EdgeInsets.all(5.0),
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
@@ -292,7 +287,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                           Expanded(
                                             child: Align(
                                               alignment: const AlignmentDirectional(
-                                                  0.00, 0.00),
+                                                  0.0, 0.0),
                                               child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 mainAxisAlignment:
@@ -510,7 +505,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
             Stack(
               children: [
                 Align(
-                  alignment: const AlignmentDirectional(0.00, 0.00),
+                  alignment: const AlignmentDirectional(0.0, 0.0),
                   child: Row(
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -577,7 +572,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                         ),
                       ),
                       Align(
-                        alignment: const AlignmentDirectional(1.00, 0.00),
+                        alignment: const AlignmentDirectional(1.0, 0.0),
                         child: FlutterFlowDropDown<String>(
                           controller: _model.dropDown2ValueController ??=
                               FormFieldController<String>(
@@ -646,14 +641,14 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
               ],
             ),
             Align(
-              alignment: const AlignmentDirectional(0.00, 1.00),
+              alignment: const AlignmentDirectional(0.0, 1.0),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Align(
-                    alignment: const AlignmentDirectional(0.00, -1.00),
+                    alignment: const AlignmentDirectional(0.0, -1.0),
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
