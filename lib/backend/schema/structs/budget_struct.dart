@@ -10,62 +10,80 @@ import '/flutter_flow/flutter_flow_util.dart';
 
 class BudgetStruct extends FFFirebaseStruct {
   BudgetStruct({
-    int? amount,
-    int? limit,
+    String? group,
+    double? limit,
+    String? item,
     FirestoreUtilData firestoreUtilData = const FirestoreUtilData(),
-  })  : _amount = amount,
+  })  : _group = group,
         _limit = limit,
+        _item = item,
         super(firestoreUtilData);
 
-  // "amount" field.
-  int? _amount;
-  int get amount => _amount ?? 0;
-  set amount(int? val) => _amount = val;
-  void incrementAmount(int amount) => _amount = amount + amount;
-  bool hasAmount() => _amount != null;
+  // "group" field.
+  String? _group;
+  String get group => _group ?? 'null';
+  set group(String? val) => _group = val;
+  bool hasGroup() => _group != null;
 
   // "limit" field.
-  int? _limit;
-  int get limit => _limit ?? 0;
-  set limit(int? val) => _limit = val;
-  void incrementLimit(int amount) => _limit = limit + amount;
+  double? _limit;
+  double get limit => _limit ?? 0.0;
+  set limit(double? val) => _limit = val;
+  void incrementLimit(double amount) => _limit = limit + amount;
   bool hasLimit() => _limit != null;
 
+  // "item" field.
+  String? _item;
+  String get item => _item ?? '';
+  set item(String? val) => _item = val;
+  bool hasItem() => _item != null;
+
   static BudgetStruct fromMap(Map<String, dynamic> data) => BudgetStruct(
-        amount: castToType<int>(data['amount']),
-        limit: castToType<int>(data['limit']),
+        group: data['group'] as String?,
+        limit: castToType<double>(data['limit']),
+        item: data['item'] as String?,
       );
 
   static BudgetStruct? maybeFromMap(dynamic data) =>
       data is Map<String, dynamic> ? BudgetStruct.fromMap(data) : null;
 
   Map<String, dynamic> toMap() => {
-        'amount': _amount,
+        'group': _group,
         'limit': _limit,
+        'item': _item,
       }.withoutNulls;
 
   @override
   Map<String, dynamic> toSerializableMap() => {
-        'amount': serializeParam(
-          _amount,
-          ParamType.int,
+        'group': serializeParam(
+          _group,
+          ParamType.String,
         ),
         'limit': serializeParam(
           _limit,
-          ParamType.int,
+          ParamType.double,
+        ),
+        'item': serializeParam(
+          _item,
+          ParamType.String,
         ),
       }.withoutNulls;
 
   static BudgetStruct fromSerializableMap(Map<String, dynamic> data) =>
       BudgetStruct(
-        amount: deserializeParam(
-          data['amount'],
-          ParamType.int,
+        group: deserializeParam(
+          data['group'],
+          ParamType.String,
           false,
         ),
         limit: deserializeParam(
           data['limit'],
-          ParamType.int,
+          ParamType.double,
+          false,
+        ),
+        item: deserializeParam(
+          data['item'],
+          ParamType.String,
           false,
         ),
       );
@@ -76,25 +94,28 @@ class BudgetStruct extends FFFirebaseStruct {
   @override
   bool operator ==(Object other) {
     return other is BudgetStruct &&
-        amount == other.amount &&
-        limit == other.limit;
+        group == other.group &&
+        limit == other.limit &&
+        item == other.item;
   }
 
   @override
-  int get hashCode => const ListEquality().hash([amount, limit]);
+  int get hashCode => const ListEquality().hash([group, limit, item]);
 }
 
 BudgetStruct createBudgetStruct({
-  int? amount,
-  int? limit,
+  String? group,
+  double? limit,
+  String? item,
   Map<String, dynamic> fieldValues = const {},
   bool clearUnsetFields = true,
   bool create = false,
   bool delete = false,
 }) =>
     BudgetStruct(
-      amount: amount,
+      group: group,
       limit: limit,
+      item: item,
       firestoreUtilData: FirestoreUtilData(
         clearUnsetFields: clearUnsetFields,
         create: create,
