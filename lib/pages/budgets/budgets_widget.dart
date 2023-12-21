@@ -218,7 +218,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                       List<GroupSummaryRow>
                                                           listViewGroupSummaryRowList =
                                                           snapshot.data!;
-                                                      return ListView.builder(
+                                                      return ListView.separated(
                                                         padding:
                                                             EdgeInsets.zero,
                                                         scrollDirection:
@@ -226,6 +226,9 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                         itemCount:
                                                             listViewGroupSummaryRowList
                                                                 .length,
+                                                        separatorBuilder:
+                                                            (_, __) => const SizedBox(
+                                                                height: 10.0),
                                                         itemBuilder: (context,
                                                             listViewIndex) {
                                                           final listViewGroupSummaryRow =
