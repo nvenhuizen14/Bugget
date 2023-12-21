@@ -90,6 +90,7 @@ class _BudgetListWidgetState extends State<BudgetListWidget> {
           scrollDirection: Axis.vertical,
           itemCount: listViewGroupSummaryRowList.length,
           itemBuilder: (context, listViewIndex) {
+            // ignore: unused_local_variable
             final listViewGroupSummaryRow =
                 listViewGroupSummaryRowList[listViewIndex];
             return Container(
@@ -234,6 +235,7 @@ class _BudgetListWidgetState extends State<BudgetListWidget> {
                             scrollDirection: Axis.vertical,
                             itemCount: listViewBudgetingRowList.length,
                             itemBuilder: (context, listViewIndex) {
+                              // ignore: unused_local_variable
                               final listViewBudgetingRow =
                                   listViewBudgetingRowList[listViewIndex];
                               return Align(

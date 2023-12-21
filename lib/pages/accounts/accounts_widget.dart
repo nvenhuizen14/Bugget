@@ -158,7 +158,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                           image: DecorationImage(
                             fit: BoxFit.contain,
                             image: Image.asset(
-                              'assets/images/DALLE_2023-06-18_07.03.40_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png',
+                              'assets\images\dalleaccountspunk.png',
                             ).image,
                           ),
                           boxShadow: const [
