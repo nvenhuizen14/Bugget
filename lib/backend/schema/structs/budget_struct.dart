@@ -45,7 +45,7 @@ class BudgetStruct extends FFFirebaseStruct {
       );
 
   static BudgetStruct? maybeFromMap(dynamic data) =>
-      data is Map<String, dynamic> ? BudgetStruct.fromMap(data) : null;
+      data is Map ? BudgetStruct.fromMap(data.cast<String, dynamic>()) : null;
 
   Map<String, dynamic> toMap() => {
         'group': _group,
