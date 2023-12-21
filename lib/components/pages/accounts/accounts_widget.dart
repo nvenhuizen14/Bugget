@@ -107,62 +107,68 @@ class _AccountsWidgetState extends State<AccountsWidget> {
               ),
               elevation: 0.0,
             ),
-            body: SafeArea(
-              top: true,
-              child: Align(
-                alignment: const AlignmentDirectional(0.0, 0.0),
-                child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width * 1.0,
-                  height: MediaQuery.sizeOf(context).height * 1.002,
-                  child: Stack(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+            body: SizedBox(
+              width: MediaQuery.sizeOf(context).width * 1.0,
+              height: MediaQuery.sizeOf(context).height * 1.008,
+              child: Stack(
+                children: [
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 1.0,
+                    height: MediaQuery.sizeOf(context).height * 0.905,
+                    constraints: BoxConstraints(
+                      maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+                      maxHeight: MediaQuery.sizeOf(context).height * 1.0,
+                    ),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.contain,
+                        image: Image.asset(
+                          Theme.of(context).brightness == Brightness.dark
+                              ? 'assets/images/accountbackground.png'
+                              : 'assets/images/accountbackground.png',
+                        ).image,
+                      ),
+                      boxShadow: const [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(0.0, 2.0),
+                        )
+                      ],
+                      gradient: LinearGradient(
+                        colors: [
+                          FlutterFlowTheme.of(context).customColor4,
+                          FlutterFlowTheme.of(context).secondary,
+                          Colors.black,
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                          const Color(0xFF0C170D)
+                        ],
+                        stops: const [0.2, 0.4, 0.7, 0.8, 0.9],
+                        begin: const AlignmentDirectional(0.03, -1.0),
+                        end: const AlignmentDirectional(-0.03, 1.0),
+                      ),
+                    ),
+                  ),
+                  Column(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Container(
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: MediaQuery.sizeOf(context).height * 1.0,
-                          constraints: BoxConstraints(
-                            maxWidth: MediaQuery.sizeOf(context).width * 1.0,
-                            maxHeight: MediaQuery.sizeOf(context).height * 1.0,
-                          ),
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              fit: BoxFit.contain,
-                              image: Image.asset(
-                                'assets/images/DALLE_2023-06-18_07.03.40_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png',
-                              ).image,
+                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        child: Padding(
+                          padding: const EdgeInsetsDirectional.fromSTEB(
+                              0.0, 20.0, 0.0, 0.0),
+                          child: Container(
+                            width: MediaQuery.sizeOf(context).width * 0.974,
+                            height: MediaQuery.sizeOf(context).height * 0.454,
+                            constraints: BoxConstraints(
+                              maxWidth: MediaQuery.sizeOf(context).width * 1.0,
+                              maxHeight:
+                                  MediaQuery.sizeOf(context).height * 0.3,
                             ),
-                            boxShadow: const [
-                              BoxShadow(
-                                blurRadius: 4.0,
-                                color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
-                              )
-                            ],
-                            gradient: LinearGradient(
-                              colors: [
-                                FlutterFlowTheme.of(context).customColor4,
-                                FlutterFlowTheme.of(context).secondary,
-                                Colors.black,
-                                FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                const Color(0xFF0C170D)
-                              ],
-                              stops: const [0.2, 0.4, 0.7, 0.8, 0.9],
-                              begin: const AlignmentDirectional(0.03, -1.0),
-                              end: const AlignmentDirectional(-0.03, 1.0),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Align(
-                        alignment: const AlignmentDirectional(0.0, 0.0),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
+                            decoration: const BoxDecoration(),
+                            child: Align(
+                              alignment: const AlignmentDirectional(0.0, 0.0),
                               child: FutureBuilder<List<AccountRow>>(
                                 future: AccountTable().queryRows(
                                   queryFn: (q) => q,
@@ -194,66 +200,75 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                     itemBuilder: (context, listViewIndex) {
                                       final listViewAccountRow =
                                           listViewAccountRowList[listViewIndex];
-                                      return Padding(
-                                        padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 50.0),
-                                        child: InkWell(
-                                          splashColor: Colors.transparent,
-                                          focusColor: Colors.transparent,
-                                          hoverColor: Colors.transparent,
-                                          highlightColor: Colors.transparent,
-                                          onTap: () async {
-                                            logFirebaseEvent(
-                                                'ACCOUNTS_PAGE_Container_esh41kft_ON_TAP');
-                                            logFirebaseEvent(
-                                                'accountCard_update_page_state');
-                                            setState(() {
-                                              _model.selectedCardId =
-                                                  listViewAccountRow.accountId;
-                                              _model.currentAccount =
-                                                  listViewAccountRow;
-                                            });
-                                          },
-                                          child: wrapWithModel(
-                                            model: _model.accountCardModels
-                                                .getModel(
-                                              listViewAccountRow.accountId,
-                                              listViewIndex,
-                                            ),
-                                            updateCallback: () =>
-                                                setState(() {}),
-                                            updateOnChange: true,
-                                            child: AccountCardWidget(
-                                              key: Key(
-                                                'Keyesh_${listViewAccountRow.accountId}',
+                                      return Align(
+                                        alignment:
+                                            const AlignmentDirectional(0.0, 0.0),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 50.0),
+                                          child: InkWell(
+                                            splashColor: Colors.transparent,
+                                            focusColor: Colors.transparent,
+                                            hoverColor: Colors.transparent,
+                                            highlightColor: Colors.transparent,
+                                            onTap: () async {
+                                              logFirebaseEvent(
+                                                  'ACCOUNTS_PAGE_Container_esh41kft_ON_TAP');
+                                              logFirebaseEvent(
+                                                  'accountCard_update_page_state');
+                                              setState(() {
+                                                _model.selectedCardId =
+                                                    listViewAccountRow
+                                                        .accountId;
+                                                _model.currentAccount =
+                                                    listViewAccountRow;
+                                              });
+                                            },
+                                            child: wrapWithModel(
+                                              model: _model.accountCardModels
+                                                  .getModel(
+                                                listViewAccountRow.accountId,
+                                                listViewIndex,
                                               ),
-                                              name: listViewAccountRow.name,
-                                              balance:
-                                                  listViewAccountRow.balance,
-                                              type: listViewAccountRow.type,
-                                              institutionName:
+                                              updateCallback: () =>
+                                                  setState(() {}),
+                                              updateOnChange: true,
+                                              child: AccountCardWidget(
+                                                key: Key(
+                                                  'Keyesh_${listViewAccountRow.accountId}',
+                                                ),
+                                                name: listViewAccountRow.name,
+                                                balance:
+                                                    listViewAccountRow.balance,
+                                                type: listViewAccountRow.type,
+                                                institutionName:
+                                                    listViewAccountRow
+                                                        .institutionName,
+                                                accountid: listViewAccountRow
+                                                    .accountId,
+                                                borderColor:
+                                                    valueOrDefault<Color>(
                                                   listViewAccountRow
-                                                      .institutionName,
-                                              accountid:
-                                                  listViewAccountRow.accountId,
-                                              borderColor:
-                                                  valueOrDefault<Color>(
-                                                listViewAccountRow.accountId ==
-                                                        valueOrDefault<String>(
-                                                          _model.selectedCardId,
-                                                          'null',
-                                                        )
-                                                    ? FlutterFlowTheme.of(
-                                                            context)
-                                                        .tertiary400
-                                                    : FlutterFlowTheme.of(
-                                                            context)
-                                                        .lineColor,
-                                                FlutterFlowTheme.of(context)
-                                                    .lineColor,
+                                                              .accountId ==
+                                                          valueOrDefault<
+                                                              String>(
+                                                            _model
+                                                                .selectedCardId,
+                                                            'null',
+                                                          )
+                                                      ? FlutterFlowTheme.of(
+                                                              context)
+                                                          .tertiary400
+                                                      : FlutterFlowTheme.of(
+                                                              context)
+                                                          .lineColor,
+                                                  FlutterFlowTheme.of(context)
+                                                      .lineColor,
+                                                ),
+                                                lastUpdate: listViewAccountRow
+                                                    .lastUpdated!,
                                               ),
-                                              lastUpdate: listViewAccountRow
-                                                  .lastUpdated!,
                                             ),
                                           ),
                                         ),
@@ -263,25 +278,32 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                 },
                               ),
                             ),
-                            Align(
-                              alignment: const AlignmentDirectional(0.0, 1.0),
-                              child: ClipRRect(
-                                child: Container(
-                                  width:
-                                      MediaQuery.sizeOf(context).width * 1.084,
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Align(
+                          alignment: const AlignmentDirectional(0.0, 1.0),
+                          child: ClipRRect(
+                            child: Container(
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              constraints: BoxConstraints(
+                                minWidth:
+                                    MediaQuery.sizeOf(context).width * 0.7,
+                                minHeight: 20.0,
+                                maxWidth:
+                                    MediaQuery.sizeOf(context).width * 0.9,
+                                maxHeight:
+                                    MediaQuery.sizeOf(context).height * 0.43,
+                              ),
+                              decoration: const BoxDecoration(),
+                              child: Align(
+                                alignment: const AlignmentDirectional(0.0, 0.0),
+                                child: SizedBox(
+                                  width: MediaQuery.sizeOf(context).width * 1.0,
                                   height:
-                                      MediaQuery.sizeOf(context).height * 0.99,
-                                  constraints: BoxConstraints(
-                                    minWidth:
-                                        MediaQuery.sizeOf(context).width * 0.7,
-                                    minHeight: 20.0,
-                                    maxWidth:
-                                        MediaQuery.sizeOf(context).width * 0.9,
-                                    maxHeight:
-                                        MediaQuery.sizeOf(context).height *
-                                            0.43,
-                                  ),
-                                  decoration: const BoxDecoration(),
+                                      MediaQuery.sizeOf(context).height * 1.0,
                                   child: Stack(
                                     children: [
                                       if (_model.recentTransactionsClicked ==
@@ -408,9 +430,9 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                       if (!_model.recentTransactionsClicked)
                                         Align(
                                           alignment:
-                                              const AlignmentDirectional(0.0, -20.0),
+                                              const AlignmentDirectional(0.0, 0.0),
                                           child: Padding(
-                                            padding: const EdgeInsets.all(16.0),
+                                            padding: const EdgeInsets.all(20.0),
                                             child: GridView(
                                               padding: EdgeInsets.zero,
                                               gridDelegate:
@@ -420,7 +442,6 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                 mainAxisSpacing: 50.0,
                                                 childAspectRatio: 1.0,
                                               ),
-                                              shrinkWrap: true,
                                               scrollDirection: Axis.vertical,
                                               children: [
                                                 Padding(
@@ -436,7 +457,14 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                       size: 60.0,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 206.0,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          1.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -506,7 +534,14 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                       size: 60.0,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          1.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -568,7 +603,14 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                       size: 60.0,
                                                     ),
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          1.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -626,7 +668,14 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                     },
                                                     text: '',
                                                     options: FFButtonOptions(
-                                                      height: 40.0,
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          1.0,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          1.0,
                                                       padding:
                                                           const EdgeInsetsDirectional
                                                               .fromSTEB(
@@ -684,43 +733,46 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                 ),
                               ),
                             ),
-                            wrapWithModel(
-                              model: _model.navBarFlotingModel,
-                              updateCallback: () => setState(() {}),
-                              updateOnChange: true,
-                              child: const NavBarFlotingWidget(),
-                            ),
-                          ].divide(const SizedBox(height: 10.0)),
-                        ),
-                      ),
-                      if (_model.recentTransactionsClicked == true)
-                        Align(
-                          alignment: const AlignmentDirectional(-0.97, -0.4),
-                          child: FlutterFlowIconButton(
-                            borderColor: FlutterFlowTheme.of(context).black,
-                            borderRadius: 30.0,
-                            borderWidth: 5.0,
-                            buttonSize: MediaQuery.sizeOf(context).width * 0.08,
-                            fillColor: FlutterFlowTheme.of(context).secondary,
-                            hoverColor: FlutterFlowTheme.of(context).primary,
-                            icon: Icon(
-                              Icons.chevron_left_outlined,
-                              color: FlutterFlowTheme.of(context).black,
-                              size: 20.0,
-                            ),
-                            onPressed: () async {
-                              logFirebaseEvent(
-                                  'ACCOUNTS_chevron_left_outlined_ICN_ON_TA');
-                              logFirebaseEvent('IconButton_update_page_state');
-                              setState(() {
-                                _model.recentTransactionsClicked = false;
-                              });
-                            },
                           ),
                         ),
-                    ],
+                      ),
+                      Align(
+                        alignment: const AlignmentDirectional(0.0, 1.0),
+                        child: wrapWithModel(
+                          model: _model.navBarFlotingModel,
+                          updateCallback: () => setState(() {}),
+                          updateOnChange: true,
+                          child: const NavBarFlotingWidget(),
+                        ),
+                      ),
+                    ].divide(const SizedBox(height: 10.0)),
                   ),
-                ),
+                  if (_model.recentTransactionsClicked == true)
+                    Align(
+                      alignment: const AlignmentDirectional(-0.97, -0.4),
+                      child: FlutterFlowIconButton(
+                        borderColor: FlutterFlowTheme.of(context).black,
+                        borderRadius: 30.0,
+                        borderWidth: 5.0,
+                        buttonSize: MediaQuery.sizeOf(context).width * 0.08,
+                        fillColor: FlutterFlowTheme.of(context).secondary,
+                        hoverColor: FlutterFlowTheme.of(context).primary,
+                        icon: Icon(
+                          Icons.chevron_left_outlined,
+                          color: FlutterFlowTheme.of(context).black,
+                          size: 20.0,
+                        ),
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'ACCOUNTS_chevron_left_outlined_ICN_ON_TA');
+                          logFirebaseEvent('IconButton_update_page_state');
+                          setState(() {
+                            _model.recentTransactionsClicked = false;
+                          });
+                        },
+                      ),
+                    ),
+                ],
               ),
             ),
           ),

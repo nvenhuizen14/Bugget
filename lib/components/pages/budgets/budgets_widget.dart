@@ -10,6 +10,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
@@ -162,8 +163,8 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                   Theme.of(context)
                                                               .brightness ==
                                                           Brightness.dark
-                                                      ? 'assets/images/DALLE_2023-06-18_07.03.50_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png'
-                                                      : 'assets/images/DALLE_2023-06-18_07.03.50_-_A_dark_painting_of_a_dirty_punk_rock_with_a_mohawk_getting_a_dollar_sign_tattoo._Use_lots_of_dark_colors.png',
+                                                      ? 'assets/images/budgetbackground.png'
+                                                      : 'assets/images/budgetbackground.png',
                                                 ).image,
                                               ),
                                             ),
@@ -467,7 +468,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                     ),
                                                                   ),
                                                                   theme:
-                                                                      const ExpandableThemeData(
+                                                                      ExpandableThemeData(
                                                                     tapHeaderToExpand:
                                                                         true,
                                                                     tapBodyToExpand:
@@ -478,7 +479,16 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                         ExpandablePanelHeaderAlignment
                                                                             .center,
                                                                     hasIcon:
-                                                                        false,
+                                                                        true,
+                                                                    expandIcon:
+                                                                        FontAwesomeIcons
+                                                                            .angleUp,
+                                                                    collapseIcon:
+                                                                        FontAwesomeIcons
+                                                                            .angleDown,
+                                                                    iconColor: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .btnText,
                                                                   ),
                                                                 ),
                                                               ),
