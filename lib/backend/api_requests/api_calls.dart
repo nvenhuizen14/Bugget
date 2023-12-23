@@ -62,14 +62,18 @@ class SELECTALLFROMTransactioncategoryCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List<String>? categoryTypes(dynamic response) => (getJsonField(
         response,
         r'''$[:].type''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
   List? categoryShow(dynamic response) => getJsonField(
         response,
         r'''$[:].show''',
@@ -81,21 +85,27 @@ class SELECTALLFROMTransactioncategoryCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<int>();
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List<int>? categoryRelatedGroupID(dynamic response) => (getJsonField(
         response,
         r'''$[:].group_id''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<int>();
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List<String>? categoryName1(dynamic response) => (getJsonField(
         response,
         r'''$[0].name''',
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class TransactionCategoryForeginKeytransactionGroupCall {
@@ -126,7 +136,9 @@ class TransactionCategoryForeginKeytransactionGroupCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<int>();
+          .map((x) => castToType<int>(x))
+          .withoutNulls
+          .toList();
   List? transactionGroup(dynamic response) => getJsonField(
         response,
         r'''$[:].transaction_group''',
@@ -138,7 +150,9 @@ class TransactionCategoryForeginKeytransactionGroupCall {
         true,
       ) as List?)
           ?.withoutNulls
-          .cast<String>();
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
 }
 
 class BudgetingCall {

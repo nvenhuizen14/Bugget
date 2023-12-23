@@ -1,10 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
@@ -304,11 +306,14 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Container(
-                  color: Colors.transparent,
-                  child: Image.asset(
-                    'assets/images/DALLE_2023-11-29_06.11.28_-_Create_a_splash_screen_for_a_punk_rock-themed_mobile_budgeting_app,_combining_the_alley_scene_from_the_first_generated_image_with_the_punk_figure_from.png',
-                    fit: BoxFit.fill,
+              ? Center(
+                  child: SizedBox(
+                    width: 50.0,
+                    height: 50.0,
+                    child: SpinKitDualRing(
+                      color: FlutterFlowTheme.of(context).tertiary400,
+                      size: 50.0,
+                    ),
                   ),
                 )
               : page;
