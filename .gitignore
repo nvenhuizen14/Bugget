@@ -1,4 +1,3 @@
-
 .dart_tool/dartpad/web_plugin_registrant.dart
 .dart_tool/package_config.json
 .dart_tool/package_config_subset
@@ -6,3 +5,7 @@
 .flutter-plugins
 .flutter-plugins-dependencies
 pubspec.lock
+.dart_tool/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies

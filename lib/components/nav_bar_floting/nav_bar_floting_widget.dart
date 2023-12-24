@@ -95,7 +95,7 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                       hoverIconColor:
                           FlutterFlowTheme.of(context).secondaryBackground,
                       icon: FaIcon(
-                        FontAwesomeIcons.home,
+                        FontAwesomeIcons.house,
                         color: FlutterFlowTheme.of(context).secondaryBackground,
                         size: 25.0,
                       ),
