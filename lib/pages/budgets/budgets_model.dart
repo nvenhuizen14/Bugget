@@ -4,6 +4,7 @@ import '/components/total_budget_spent_graph/total_budget_spent_graph_widget.dar
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'budgets_widget.dart' show BudgetsWidget;
 
 
 class BudgetsModel extends FlutterFlowModel<BudgetsWidget> {

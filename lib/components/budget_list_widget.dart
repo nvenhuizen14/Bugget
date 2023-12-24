@@ -7,7 +7,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:provider/provider.dart';
-export '/pages/budgets/budgets_model.dart'; show BudgetsModel;
+import 'budget_list_model.dart';
+export 'budget_list_model.dart';
 
 class BudgetListWidget extends StatefulWidget {
   const BudgetListWidget({
@@ -367,4 +368,3 @@ class _BudgetListWidgetState extends State<BudgetListWidget> {
     );
   }
 }
-
