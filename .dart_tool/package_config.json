@@ -99,9 +99,9 @@
     },
     {
       "name": "cli_util",
-      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/cli_util-0.4.0",
+      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/cli_util-0.4.1",
       "packageUri": "lib/",
-      "languageVersion": "2.19"
+      "languageVersion": "3.0"
     },
     {
       "name": "clock",
@@ -962,7 +962,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-23T16:12:29.017945Z",
+  "generated": "2023-12-24T09:03:16.287553Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

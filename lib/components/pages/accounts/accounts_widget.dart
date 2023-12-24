@@ -14,7 +14,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '/pages/accounts/accounts_model.dart';
 export '/pages/accounts/accounts_model.dart';
 
 class AccountsWidget extends StatefulWidget {
