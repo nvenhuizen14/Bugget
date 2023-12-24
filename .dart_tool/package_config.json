@@ -255,7 +255,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///C:/Users/nvenh/Documents/flutter/packages/flutter",
+      "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -291,7 +291,7 @@
     },
     {
       "name": "flutter_localizations",
-      "rootUri": "file:///C:/Users/nvenh/Documents/flutter/packages/flutter_localizations",
+      "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/packages/flutter_localizations",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -345,13 +345,13 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///C:/Users/nvenh/Documents/flutter/packages/flutter_test",
+      "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///C:/Users/nvenh/Documents/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -717,7 +717,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///C:/Users/nvenh/Documents/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
@@ -956,7 +956,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-15T12:04:07.726860Z",
+  "generated": "2023-12-24T07:40:20.007117Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
