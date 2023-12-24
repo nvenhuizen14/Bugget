@@ -1,3 +1,5 @@
+import 'package:bugget/pages/accounts/accounts_model.dart';
+
 import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
