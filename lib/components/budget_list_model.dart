@@ -1,8 +1,6 @@
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:bugget/pages/budgets/budgets_model.dart';
-
 import 'budget_list_widget.dart' show BudgetListWidget;
 
 class BudgetListModel extends FlutterFlowModel<BudgetListWidget> {
