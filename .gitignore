@@ -2,3 +2,5 @@ build/
 .dart_tool/
 .flutter-plugins-dependencies
 .flutter-plugins
+pubspec.lock
+https://github.com/nvenhuizen14/Bugget/pull/6/conflict?name=.dart_tool%252Fpackage_config_subset&ancestor_oid=6daeede692358c66694e37b5047dcfc290604b19&base_oid=f638f91a5257fed22a4a8d3c8d62a994d7f696c6&head_oid=2ef87b37c4f36a6e4876c99f76a68cff7d971417
