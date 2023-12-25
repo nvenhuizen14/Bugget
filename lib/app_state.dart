@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-
+import '/backend/backend.dart';
+import 'backend/supabase/supabase.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
-
+import 'flutter_flow/flutter_flow_util.dart';
 
 class FFAppState extends ChangeNotifier {
   static FFAppState _instance = FFAppState._internal();
@@ -250,8 +251,21 @@ class FFAppState extends ChangeNotifier {
   }
 }
 
+LatLng? _latLngFromString(String? val) {
+  if (val == null) {
+    return null;
+  }
+  final split = val.split(',');
+  final lat = double.parse(split.first);
+  final lng = double.parse(split.last);
+  return LatLng(lat, lng);
+}
 
-
+void _safeInit(Function() initializeField) {
+  try {
+    initializeField();
+  } catch (_) {}
+}
 
 Future _safeInitAsync(Function() initializeField) async {
   try {
