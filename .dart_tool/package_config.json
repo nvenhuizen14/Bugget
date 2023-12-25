@@ -260,6 +260,12 @@
       "languageVersion": "2.18"
     },
     {
+      "name": "fl_chart",
+      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/fl_chart-0.65.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///C:/Users/nvenh/OneDrive%20-%20Nvsolutions/Documents/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -897,9 +903,9 @@
     },
     {
       "name": "webview_flutter",
-      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter-4.0.5",
+      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter-4.2.4",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "2.19"
     },
     {
       "name": "webview_flutter_android",
@@ -909,9 +915,9 @@
     },
     {
       "name": "webview_flutter_platform_interface",
-      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_platform_interface-2.0.2",
+      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/webview_flutter_platform_interface-2.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.0"
     },
     {
       "name": "webview_flutter_wkwebview",
@@ -962,7 +968,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-24T10:37:09.143253Z",
+  "generated": "2023-12-25T12:11:39.440106Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }

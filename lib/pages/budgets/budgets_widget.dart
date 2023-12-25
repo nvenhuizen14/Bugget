@@ -1,6 +1,6 @@
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '/backend/supabase/supabase.dart';
+import '/components/spending_chart.dart';
 import '/components/create_budget_modal_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/components/total_budget_spent_graph/total_budget_spent_graph_widget.dart';
@@ -31,6 +31,28 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
   late BudgetsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+Future<List<Map<String, dynamic>>> fetchSpendingData() async {
+  try {
+    final response = await SupaFlow.client
+        .from('top_transaction_groups')
+        .select()
+        .limit(5);
+       // Using 'get' for select queries
+
+    // If the response is not a list, consider it an error
+    if (response is! List) {
+      throw Exception('Error fetching data');
+    }
+
+    // Convert response to list of maps
+    return List<Map<String, dynamic>>.from(response);
+  } catch (e) {
+    // Catch any other errors that might occur
+    throw Exception('Error occurred: $e');
+  }
+}
+
 
   @override
   void initState() {
@@ -502,7 +524,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                             ),
                                           ),
                                         ),
-                                      ),                                      
+                                      ), 
                                       Align(
                                         alignment:
                                             const AlignmentDirectional(-0.02, -0.2),
@@ -585,7 +607,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                   height:
                                                       MediaQuery.sizeOf(context)
                                                               .height *
-                                                          0.25,
+                                                          0.35,
                                                   decoration: BoxDecoration(
                                                     color: const Color(0xD0262D34),
                                                     borderRadius:
@@ -616,6 +638,39 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 ),
                                               ),
                                             ),
+                                          Align(
+                                            alignment: AlignmentDirectional(0.0, -1.0),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional.fromSTEB(0, 40, 0, 0),
+                                              child: Container(
+                                                width: MediaQuery.of(context).size.width * 0.95,
+                                                height: MediaQuery.of(context).size.height * 0.35,
+                                                decoration: BoxDecoration(
+                                                  color: Color(0xD0262D34),
+                                                  borderRadius: BorderRadius.circular(5),
+                                                  border: Border.all(
+                                                    color: FlutterFlowTheme.of(context).secondary,
+                                                    width: 4,
+                                                  ),
+                                                ),
+                                                child: FutureBuilder<List<Map<String, dynamic>>>(
+                                                  future: fetchSpendingData(),
+                                                  builder: (context, snapshot) {
+                                                    if (snapshot.connectionState == ConnectionState.waiting) {
+                                                      return CircularProgressIndicator();
+                                                    } else if (snapshot.hasError) {
+                                                      return Text('Error: ${snapshot.error}');
+                                                    } else if (snapshot.data == null || snapshot.data!.isEmpty) {
+                                                      return Text('No data available');
+                                                    } else {
+                                                      // Use the updated SpendingChart widget
+                                                      return SpendingChart(data: snapshot.data!);
+                                                    }
+                                                  },
+                                                ),
+                                              ),
+                                            ),
+                                          ),
                                             Container(),
                                             Container(),
                                             Container(),
