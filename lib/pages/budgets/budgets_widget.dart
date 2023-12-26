@@ -188,8 +188,8 @@ Future<List<Map<String, dynamic>>> fetchSpendingData() async {
                                                   Theme.of(context)
                                                               .brightness ==
                                                           Brightness.dark
-                                                      ? 'assets/images/dallebudgetpunk.png'
-                                                      : 'assets/images/dallebudgetpunk.png ',
+                                                      ? 'assets/images/budgetbackground.png'
+                                                      : 'assets/images/budgetbackground.png',
                                                 ).image,
                                               ),
                                             ),
