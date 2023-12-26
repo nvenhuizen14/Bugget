@@ -1,5 +1,3 @@
-// ignore_for_file: constant_identifier_names
-
 import 'dart:convert';
 import 'dart:io';
 import 'dart:core';
@@ -69,7 +67,6 @@ class ApiCallResponse {
     bool returnBody,
     bool decodeUtf8,
   ) {
-    // ignore: prefer_typing_uninitialized_variables
     var jsonBody;
     try {
       final responseBody = decodeUtf8 && returnBody

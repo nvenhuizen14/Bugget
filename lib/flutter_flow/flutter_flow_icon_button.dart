@@ -127,7 +127,7 @@ class _FlutterFlowIconButtonState extends State<FlutterFlowIconButton> {
       width: widget.buttonSize,
       height: widget.buttonSize,
       child: Theme(
-        data: Theme.of(context).copyWith(),
+        data: Theme.of(context).copyWith(useMaterial3: true),
         child: IgnorePointer(
           ignoring: (widget.showLoadingIndicator && loading),
           child: IconButton(

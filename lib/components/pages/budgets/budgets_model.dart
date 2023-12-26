@@ -2,10 +2,9 @@ import '/backend/supabase/supabase.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/components/total_budget_spent_graph/total_budget_spent_graph_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import 'budgets_widget.dart' show BudgetsWidget;
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'budgets_widget.dart' show BudgetsWidget;
-
 
 class BudgetsModel extends FlutterFlowModel<BudgetsWidget> {
   ///  Local state fields for this page.
