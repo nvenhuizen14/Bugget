@@ -1,7 +1,7 @@
-// ignore_for_file: library_private_types_in_public_api
+// ignore_for_file: library_private_types_in_public_api, avoid_print
 
-import 'package:bugget/components/pages/accounts/accounts_model.dart';
-
+import 'package:bugget/pages/accounts/accounts_model.dart';
+export 'package:bugget/pages/accounts/accounts_model.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
@@ -18,7 +18,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import '../../services/plaid_service.dart';
+import '/services/plaid_service.dart';
 
 class AccountsWidget extends StatefulWidget {
   const AccountsWidget({super.key});
@@ -158,7 +158,7 @@ class _AccountsWidgetState extends State<AccountsWidget>
                           image: DecorationImage(
                             fit: BoxFit.contain,
                             image: Image.asset(
-                              'assets\images\dalleaccountspunk.png',
+                              'assets/images/accountbackground.png',
                             ).image,
                           ),
                           boxShadow: const [
@@ -733,4 +733,3 @@ class _AccountsWidgetState extends State<AccountsWidget>
         ));
   }
 }
-
