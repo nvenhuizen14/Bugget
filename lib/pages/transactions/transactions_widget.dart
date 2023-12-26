@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import '/backend/supabase/supabase.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/components/transaction_row_widget.dart';
@@ -119,7 +121,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                       logFirebaseEvent('IconButton_wait__delay');
                       await Future.delayed(const Duration(milliseconds: 600));
                       logFirebaseEvent('IconButton_navigate_to');
-
+                      
                       context.pushNamed('transaction_rules');
                     },
                   ).animateOnActionTrigger(

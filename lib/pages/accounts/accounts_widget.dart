@@ -29,8 +29,11 @@ class AccountsWidget extends StatefulWidget {
 
 class _AccountsWidgetState extends State<AccountsWidget> {
   late AccountsModel _model;
+
   final PlaidService _plaidService = PlaidService();
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  
   final animationsMap = {
     'accountCardOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -50,15 +53,20 @@ class _AccountsWidgetState extends State<AccountsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => AccountsModel());
+
     _plaidService.initializePlaid(); // Initialize the Plaid Service
+
     logFirebaseEvent('screen_view', parameters: {'screen_name': 'Accounts'});
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
   void dispose() {
     _model.dispose();
+
     _plaidService.dispose();
+
     super.dispose();
   }
 
@@ -220,6 +228,8 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                   return ListView.separated(
                                     padding:
                                         const EdgeInsets.symmetric(horizontal: 30),
+                                    primary: true,
+                                    physics: const BouncingScrollPhysics(),
                                     scrollDirection: Axis.horizontal,
                                     itemCount: listViewAccountRowList.length,
                                     separatorBuilder: (_, __) =>
