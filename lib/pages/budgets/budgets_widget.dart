@@ -541,7 +541,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                             style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                                   fontFamily: FlutterFlowTheme.of(context).headlineSmallFamily,
                                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                                                  fontSize: 16,
+                                                                                                  fontSize: 14,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                                                 ),
                                                                                           ),
