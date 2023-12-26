@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -116,7 +118,7 @@ class SupabaseAuthManager extends AuthManager with EmailSignInManager {
       }
       return authUser;
     } on AuthException catch (e) {
-      final errorMsg = e.message.contains('User already registered') ?? false
+      final errorMsg = e.message.contains('User already registered')
           ? 'The email is already in use by a different account'
           : 'Error: ${e.message}';
       ScaffoldMessenger.of(context).hideCurrentSnackBar();

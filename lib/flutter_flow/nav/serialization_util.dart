@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names, type_literal_in_constant_pattern
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
