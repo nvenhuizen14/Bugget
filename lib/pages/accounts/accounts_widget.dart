@@ -1,5 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
 
+import 'package:bugget/components/pages/accounts/accounts_model.dart';
+
 import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
@@ -16,8 +18,6 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'accounts_model.dart';
-export 'accounts_model.dart';
 import '../../services/plaid_service.dart';
 
 class AccountsWidget extends StatefulWidget {

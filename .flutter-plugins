@@ -19,10 +19,7 @@ path_provider_android=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.
 path_provider_foundation=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_foundation-2.2.2\\
 path_provider_linux=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_linux-2.1.11\\
 path_provider_windows=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\path_provider_windows-2.1.7\\
-<<<<<<< Updated upstream
 plaid_flutter=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\plaid_flutter-3.1.4\\
-=======
->>>>>>> Stashed changes
 shared_preferences=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\shared_preferences-2.2.2\\
 shared_preferences_android=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\shared_preferences_android-2.2.1\\
 shared_preferences_foundation=C:\\Users\\nvenh\\AppData\\Local\\Pub\\Cache\\hosted\\pub.dev\\shared_preferences_foundation-2.3.4\\
