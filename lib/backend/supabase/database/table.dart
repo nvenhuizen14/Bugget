@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_shadowing_type_parameters
+
 import 'database.dart';
 
 abstract class SupabaseTable<T extends SupabaseDataRow> {
