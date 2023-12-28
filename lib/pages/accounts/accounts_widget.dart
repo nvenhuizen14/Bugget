@@ -1,5 +1,7 @@
 // ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api, avoid_print
 
+// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api, avoid_print
+
 import 'package:bugget/flutter_flow/flutter_flow_animations.dart';
 import 'package:bugget/services/plaid_service.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -33,7 +35,7 @@ class _AccountsWidgetState extends State<AccountsWidget> {
   final PlaidService _plaidService = PlaidService();
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  
+
   final animationsMap = {
     'accountCardOnPageLoadAnimation': AnimationInfo(
       trigger: AnimationTrigger.onPageLoad,
@@ -192,7 +194,8 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                       Align(
                         alignment: const AlignmentDirectional(0, 1),
                         child: Padding(
-                          padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                          padding:
+                              const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                           child: Container(
                             width: MediaQuery.sizeOf(context).width * 0.974,
                             height: MediaQuery.sizeOf(context).height * 0.454,
@@ -226,8 +229,8 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                   List<AccountRow> listViewAccountRowList =
                                       snapshot.data!;
                                   return ListView.separated(
-                                    padding:
-                                        const EdgeInsets.symmetric(horizontal: 30),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 30),
                                     primary: true,
                                     physics: const BouncingScrollPhysics(),
                                     scrollDirection: Axis.horizontal,
@@ -238,11 +241,11 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                       final listViewAccountRow =
                                           listViewAccountRowList[listViewIndex];
                                       return Align(
-                                        alignment: const AlignmentDirectional(0, 0),
+                                        alignment:
+                                            const AlignmentDirectional(0, 0),
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsetsDirectional.fromSTEB(
-                                                  0, 0, 0, 50),
+                                          padding: const EdgeInsetsDirectional
+                                              .fromSTEB(0, 0, 0, 50),
                                           child: InkWell(
                                             splashColor: Colors.transparent,
                                             focusColor: Colors.transparent,
@@ -345,7 +348,8 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                       if (_model.recentTransactionsClicked ==
                                           true)
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0, 0),
                                           child: FutureBuilder<
                                               List<TransactionsRow>>(
                                             future:
@@ -464,153 +468,81 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                         ),
                                       if (!_model.recentTransactionsClicked)
                                         Align(
-                                          alignment: const AlignmentDirectional(0, 0),
+                                          alignment:
+                                              const AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding: const EdgeInsets.all(18),
                                             child: GridView(
-                                              padding: EdgeInsets.zero,
-                                              gridDelegate:
-                                                  const SliverGridDelegateWithFixedCrossAxisCount(
-                                                crossAxisCount: 2,
-                                                crossAxisSpacing: 40,
-                                                mainAxisSpacing: 50,
-                                                childAspectRatio: 1,
-                                              ),
-                                              shrinkWrap: true,
-                                              scrollDirection: Axis.vertical,
-                                              children: [
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0, 0),
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.291,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        0.124,
-                                                    constraints: BoxConstraints(
-                                                      maxWidth:
-                                                          MediaQuery.sizeOf(
+                                                padding: EdgeInsets.zero,
+                                                gridDelegate:
+                                                    const SliverGridDelegateWithFixedCrossAxisCount(
+                                                  crossAxisCount: 2,
+                                                  crossAxisSpacing: 40,
+                                                  mainAxisSpacing: 50,
+                                                  childAspectRatio: 1,
+                                                ),
+                                                shrinkWrap: true,
+                                                scrollDirection: Axis.vertical,
+                                                children: [
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0, 0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
                                                                   context)
-                                                              .width,
-                                                      maxHeight:
-                                                          MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .height *
-                                                              1,
-                                                    ),
-                                                    decoration: const BoxDecoration(),
-                                                     child: FFButtonWidget(
-                                            		  onPressed: () {
-                                               		  openPlaidLink();
-                                           		    },
-                                                      text: '',
-                                                      icon: const Icon(
-                                                        Icons.account_circle,
-                                                        size: 60,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        width:
+                                                              .width *
+                                                          0.291,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.124,
+                                                      constraints:
+                                                          BoxConstraints(
+                                                        maxWidth:
                                                             MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                1.009,
-                                                        height:
+                                                                    context)
+                                                                .width,
+                                                        maxHeight:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .height *
-                                                                0.961,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0, 0, 0, 0),
-                                                        color:
-                                                            const Color(0x62550F04),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Oswald',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize: 24,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context).titleSmallFamily),
-                                                                ),
-                                                        elevation: 3,
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .lineColor,
-                                                          width: 6,
-                                                        ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15),
-                                                        hoverColor:
-                                                            const Color(0x7930686E),
+                                                                1,
                                                       ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0, 0),
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.29,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        0.127,
-                                                    constraints: BoxConstraints(
-                                                      maxWidth:
-                                                          MediaQuery.sizeOf(
-                                                                  context)
-                                                              .width,
-                                                      maxHeight:
-                                                          MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .height *
-                                                              1,
-                                                    ),
-                                                    decoration: const BoxDecoration(),
-                                                    child: Align(
-                                                      alignment:
-                                                          const AlignmentDirectional(
-                                                              0, 0),
+                                                      decoration:
+                                                          const BoxDecoration(),
                                                       child: FFButtonWidget(
                                                         onPressed: () async {
-                                                          logFirebaseEvent(
-                                                              'ACCOUNTS_PAGE__BTN_ON_TAP');
-                                                          logFirebaseEvent(
-                                                              'Button_update_page_state');
-                                                          setState(() {
-                                                            _model.recentTransactionsClicked =
-                                                                !_model.recentTransactionsClicked;
-                                                          },
-                                                          );
+                                                          try {
+                                                            String? linkToken =
+                                                                await _plaidService
+                                                                    .fetchLinkToken();
+                                                            if (linkToken ==
+                                                                null) {
+                                                              // Handle scenario when the link token could not be fetched
+                                                              _showErrorDialog(
+                                                                  "Failed to fetch the link token. Please try again.");
+                                                              return;
+                                                            }
+
+                                                            try {
+                                                              _plaidService
+                                                                  .openPlaidLink(
+                                                                      linkToken);
+                                                            } catch (e) {
+                                                              // Handle errors in opening Plaid Link
+                                                              _showErrorDialog(
+                                                                  "Failed to open Plaid Link. Please try again.");
+                                                            }
+                                                          } catch (e) {
+                                                            // Handle any other exceptions that might occur
+                                                            _showErrorDialog(
+                                                                "An unexpected error occurred: ${e.toString()}");
+                                                          }
                                                         },
                                                         text: '',
                                                         icon: const Icon(
-                                                          Icons
-                                                              .receipt_long_rounded,
+                                                          Icons.account_circle,
                                                           size: 60,
                                                         ),
                                                         options:
@@ -619,22 +551,22 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .width *
-                                                                  0.953,
+                                                                  1.009,
                                                           height:
                                                               MediaQuery.sizeOf(
                                                                           context)
                                                                       .height *
-                                                                  0.987,
+                                                                  0.961,
                                                           padding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
+                                                                  .fromSTEB(
+                                                                  24, 0, 24, 0),
                                                           iconPadding:
                                                               const EdgeInsetsDirectional
-                                                                  .fromSTEB(0,
-                                                                      0, 0, 0),
-                                                          color:
-                                                              const Color(0x62550F04),
+                                                                  .fromSTEB(
+                                                                  0, 0, 0, 0),
+                                                          color: const Color(
+                                                              0x62550F04),
                                                           textStyle:
                                                               FlutterFlowTheme.of(
                                                                       context)
@@ -650,8 +582,7 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).titleSmallFamily
-									                                                  ),
+                                                                            FlutterFlowTheme.of(context).titleSmallFamily),
                                                                   ),
                                                           elevation: 3,
                                                           borderSide:
@@ -663,188 +594,307 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                           ),
                                                           borderRadius:
                                                               BorderRadius
-                                                                  .circular(16),
+                                                                  .circular(15),
                                                           hoverColor:
-                                                              const Color(0x7930686E),
+                                                              const Color(
+                                                                  0x7930686E),
                                                         ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0, 0),
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.29,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        0.126,
-                                                    constraints: BoxConstraints(
-                                                      maxWidth:
-                                                          MediaQuery.sizeOf(
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0, 0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
                                                                   context)
-                                                              .width,
-                                                      maxHeight:
-                                                          MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .height *
-                                                              1,
-                                                    ),
-                                                    decoration: const BoxDecoration(),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'Button pressed ...');
-                                                      },
-                                                      text: '',
-                                                      icon: const Icon(
-                                                        Icons.mode_edit,
-                                                        size: 60,
-                                                      ),
-                                                      options: FFButtonOptions(
-                                                        width:
+                                                              .width *
+                                                          0.29,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.127,
+                                                      constraints:
+                                                          BoxConstraints(
+                                                        maxWidth:
                                                             MediaQuery.sizeOf(
                                                                     context)
                                                                 .width,
-                                                        height:
+                                                        maxHeight:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .height *
                                                                 1,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
+                                                      ),
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: Align(
+                                                        alignment:
+                                                            const AlignmentDirectional(
+                                                                0, 0),
+                                                        child: FFButtonWidget(
+                                                          onPressed: () async {
+                                                            logFirebaseEvent(
+                                                                'ACCOUNTS_PAGE__BTN_ON_TAP');
+                                                            logFirebaseEvent(
+                                                                'Button_update_page_state');
+                                                            setState(
+                                                              () {
+                                                                _model.recentTransactionsClicked =
+                                                                    !_model
+                                                                        .recentTransactionsClicked;
+                                                              },
+                                                            );
+                                                          },
+                                                          text: '',
+                                                          icon: const Icon(
+                                                            Icons
+                                                                .receipt_long_rounded,
+                                                            size: 60,
+                                                          ),
+                                                          options:
+                                                              FFButtonOptions(
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.953,
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                0.987,
+                                                            padding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
                                                                     0, 0, 0, 0),
-                                                        color:
-                                                            const Color(0x62550F04),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Oswald',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize: 24,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .titleSmallFamily),
-                                                                ),
-                                                        elevation: 3,
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .lineColor,
-                                                          width: 6,
+                                                            iconPadding:
+                                                                const EdgeInsetsDirectional
+                                                                    .fromSTEB(
+                                                                    0, 0, 0, 0),
+                                                            color: const Color(
+                                                                0x62550F04),
+                                                            textStyle:
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .titleSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          'Oswald',
+                                                                      color: FlutterFlowTheme.of(
+                                                                              context)
+                                                                          .primaryText,
+                                                                      fontSize:
+                                                                          24,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                    ),
+                                                            elevation: 3,
+                                                            borderSide:
+                                                                BorderSide(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .lineColor,
+                                                              width: 6,
+                                                            ),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        16),
+                                                            hoverColor:
+                                                                const Color(
+                                                                    0x7930686E),
+                                                          ),
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15),
-                                                        hoverColor:
-                                                            const Color(0x7930686E),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                                Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0, 0),
-                                                  child: Container(
-                                                    width: MediaQuery.sizeOf(
-                                                                context)
-                                                            .width *
-                                                        0.29,
-                                                    height: MediaQuery.sizeOf(
-                                                                context)
-                                                            .height *
-                                                        0.12,
-                                                    constraints: BoxConstraints(
-                                                      maxWidth:
-                                                          MediaQuery.sizeOf(
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0, 0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
                                                                   context)
-                                                              .width,
-                                                      maxHeight:
-                                                          MediaQuery.sizeOf(
-                                                                      context)
-                                                                  .height *
-                                                              1,
-                                                    ),
-                                                    decoration: const BoxDecoration(),
-                                                    child: FFButtonWidget(
-                                                      onPressed: () {
-                                                        print(
-                                                            'Button pressed ...');
-                                                      },
-                                                      text: '',
-                                                      options: FFButtonOptions(
-                                                        width:
+                                                              .width *
+                                                          0.29,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.126,
+                                                      constraints:
+                                                          BoxConstraints(
+                                                        maxWidth:
                                                             MediaQuery.sizeOf(
                                                                     context)
                                                                 .width,
-                                                        height:
+                                                        maxHeight:
                                                             MediaQuery.sizeOf(
                                                                         context)
                                                                     .height *
                                                                 1,
-                                                        padding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(24, 0,
-                                                                    24, 0),
-                                                        iconPadding:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    0, 0, 0, 0),
-                                                        color:
-                                                            const Color(0x62550F04),
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .titleSmall
-                                                                .override(
-                                                                  fontFamily:
-                                                                      'Oswald',
-                                                                  color: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .primaryText,
-                                                                  fontSize: 24,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .titleSmallFamily),
-                                                                ),
-                                                        elevation: 3,
-                                                        borderSide: BorderSide(
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .lineColor,
-                                                          width: 6,
+                                                      ),
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () {
+                                                          print(
+                                                              'Button pressed ...');
+                                                        },
+                                                        text: '',
+                                                        icon: const Icon(
+                                                          Icons.mode_edit,
+                                                          size: 60,
                                                         ),
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(15),
-                                                        hoverColor:
-                                                            const Color(0x7930686E),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                      context)
+                                                                  .width,
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  1,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                  24, 0, 24, 0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                  0, 0, 0, 0),
+                                                          color: const Color(
+                                                              0x62550F04),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Oswald',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        24,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                  ),
+                                                          elevation: 3,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            width: 6,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(15),
+                                                          hoverColor:
+                                                              const Color(
+                                                                  0x7930686E),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
+                                                  Align(
+                                                    alignment:
+                                                        const AlignmentDirectional(
+                                                            0, 0),
+                                                    child: Container(
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.29,
+                                                      height: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .height *
+                                                          0.12,
+                                                      constraints:
+                                                          BoxConstraints(
+                                                        maxWidth:
+                                                            MediaQuery.sizeOf(
+                                                                    context)
+                                                                .width,
+                                                        maxHeight:
+                                                            MediaQuery.sizeOf(
+                                                                        context)
+                                                                    .height *
+                                                                1,
+                                                      ),
+                                                      decoration:
+                                                          const BoxDecoration(),
+                                                      child: FFButtonWidget(
+                                                        onPressed: () {
+                                                          print(
+                                                              'Button pressed ...');
+                                                        },
+                                                        text: '',
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width:
+                                                              MediaQuery.sizeOf(
+                                                                      context)
+                                                                  .width,
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  1,
+                                                          padding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                  24, 0, 24, 0),
+                                                          iconPadding:
+                                                              const EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                  0, 0, 0, 0),
+                                                          color: const Color(
+                                                              0x62550F04),
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .titleSmall
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Oswald',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryText,
+                                                                    fontSize:
+                                                                        24,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).titleSmallFamily),
+                                                                  ),
+                                                          elevation: 3,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .lineColor,
+                                                            width: 6,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(15),
+                                                          hoverColor:
+                                                              const Color(
+                                                                  0x7930686E),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ]),
                                           ),
                                         ),
                                     ],
@@ -895,7 +945,26 @@ class _AccountsWidgetState extends State<AccountsWidget> {
               ),
             ),
           ),
-        )
-      ); 
-    } 
+        ));
   }
+
+  void _showErrorDialog(String message) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('Error'),
+          content: Text(message),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Close'),
+              onPressed: () {
+                Navigator.of(context).pop(); // This closes the dialog
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+}
