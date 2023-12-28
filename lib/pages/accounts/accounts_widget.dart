@@ -1,6 +1,5 @@
 // ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api, avoid_print
 
-// ignore_for_file: unnecessary_null_comparison, library_private_types_in_public_api, avoid_print
 
 import 'package:bugget/flutter_flow/flutter_flow_animations.dart';
 import 'package:bugget/services/plaid_service.dart';
