@@ -36,7 +36,7 @@ class PlaidService {
 
       // Include the client_user_id in the body of the request
       var response = await http.post(
-        Uri.parse('https://n8n.nvsolutionss.com/fetchLinkToken'),
+        Uri.parse('https://n8n.nvsolutionss.com/webhook/fetchLinkToken'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'client_user_id': userId, // Include the client_user_id
@@ -94,7 +94,7 @@ class PlaidService {
       }
 
       var response = await http.post(
-        Uri.parse('https://n8n.nvsolutionss.com/publicToken'),
+        Uri.parse('https://n8n.nvsolutionss.com/webhook/publicTokenExchange'),
         headers: {'Content-Type': 'application/json'},
         body: json.encode({
           'public_token': publicToken,
