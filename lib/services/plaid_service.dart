@@ -58,7 +58,6 @@ class PlaidService {
 
   }
 
-
   // Open Plaid Link with the configuration
   void openPlaidLink(String linkToken) {
     _configuration = LinkTokenConfiguration(token: linkToken);
