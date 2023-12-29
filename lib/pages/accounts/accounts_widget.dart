@@ -71,14 +71,6 @@ class _AccountsWidgetState extends State<AccountsWidget> {
     super.dispose();
   }
 
-  void openPlaidLink() async {
-    String? linkToken = await _plaidService.fetchLinkToken();
-    if (linkToken != null) {
-      _plaidService.openPlaidLink(linkToken);
-    } else {
-      // Handle the error scenario
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
