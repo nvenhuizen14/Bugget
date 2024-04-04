@@ -5,7 +5,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'account_card_model.dart';
 export 'account_card_model.dart';
 
@@ -31,7 +30,7 @@ class AccountCardWidget extends StatefulWidget {
   final Color borderColor;
 
   @override
-  _AccountCardWidgetState createState() => _AccountCardWidgetState();
+  State<AccountCardWidget> createState() => _AccountCardWidgetState();
 }
 
 class _AccountCardWidgetState extends State<AccountCardWidget> {
@@ -73,8 +72,6 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: ClipRRect(
@@ -134,7 +131,10 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                               BoxShadow(
                                 blurRadius: 4.0,
                                 color: Color(0x33000000),
-                                offset: Offset(0.0, 2.0),
+                                offset: Offset(
+                                  0.0,
+                                  2.0,
+                                ),
                               )
                             ],
                             borderRadius: BorderRadius.circular(8.0),
@@ -171,11 +171,10 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                       fontFamily: 'Plus Jakarta Sans',
                                       color: FlutterFlowTheme.of(context).black,
                                       fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
                                       useGoogleFonts: GoogleFonts.asMap()
-                                          .containsKey(
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMediumFamily),
+                                          .containsKey('Plus Jakarta Sans'),
                                     ),
                               ),
                             ),
@@ -204,11 +203,10 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                         color:
                                             FlutterFlowTheme.of(context).black,
                                         fontSize: 32.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w600,
                                         useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .displaySmallFamily),
+                                            .containsKey('Outfit'),
                                       ),
                                 ),
                               ),
@@ -226,6 +224,7 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                       fontFamily: FlutterFlowTheme.of(context)
                                           .bodyMediumFamily,
                                       color: FlutterFlowTheme.of(context).black,
+                                      letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
@@ -255,11 +254,10 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .black,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w500,
                                           useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMediumFamily),
+                                              .containsKey('Roboto Mono'),
                                         ),
                                   ),
                                 ),
@@ -280,11 +278,10 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                         color:
                                             FlutterFlowTheme.of(context).black,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
+                                            .containsKey('Roboto Mono'),
                                       ),
                                 ),
                               ],
@@ -307,6 +304,7 @@ class _AccountCardWidgetState extends State<AccountCardWidget> {
                                             .bodyMediumFamily,
                                         color:
                                             FlutterFlowTheme.of(context).black,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)

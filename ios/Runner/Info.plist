@@ -54,7 +54,8 @@
 	<true/>
 
 
-
+	<key>NSCalendarsUsageDescription</key>
+    <string>Bugget is requesting permissions to sync with your Calendar!</string>
 
 
 	<key>UILaunchStoryboardName</key>

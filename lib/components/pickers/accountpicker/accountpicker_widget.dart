@@ -5,7 +5,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'accountpicker_model.dart';
 export 'accountpicker_model.dart';
 
@@ -14,13 +13,13 @@ class AccountpickerWidget extends StatefulWidget {
     super.key,
     required this.currentTransaction,
     String? currentAccount,
-  })  : currentAccount = currentAccount ?? 'null';
+  }) : currentAccount = currentAccount ?? 'null';
 
   final TransactionsRow? currentTransaction;
   final String currentAccount;
 
   @override
-  _AccountpickerWidgetState createState() => _AccountpickerWidgetState();
+  State<AccountpickerWidget> createState() => _AccountpickerWidgetState();
 }
 
 class _AccountpickerWidgetState extends State<AccountpickerWidget> {
@@ -49,8 +48,6 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 1.0),
       child: Column(
@@ -79,9 +76,10 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                         fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 24.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).headlineSmallFamily),
+                        useGoogleFonts:
+                            GoogleFonts.asMap().containsKey('Outfit'),
                       ),
                 ),
               ],
@@ -166,7 +164,10 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                     spreadRadius: 10.0,
                                   )
                                 ],
@@ -196,11 +197,11 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily),
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                     const Icon(

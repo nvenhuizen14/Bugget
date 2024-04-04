@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_budget_modal_model.dart';
 export 'create_budget_modal_model.dart';
 
@@ -30,7 +29,7 @@ class CreateBudgetModalWidget extends StatefulWidget {
   final String recurring;
 
   @override
-  _CreateBudgetModalWidgetState createState() =>
+  State<CreateBudgetModalWidget> createState() =>
       _CreateBudgetModalWidgetState();
 }
 
@@ -72,8 +71,6 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Material(
       color: Colors.transparent,
       elevation: 5.0,
@@ -130,7 +127,13 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                 padding: const EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                 child: Text(
                   'Create Budget Item',
-                  style: FlutterFlowTheme.of(context).headlineMedium,
+                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                        fontFamily:
+                            FlutterFlowTheme.of(context).headlineMediumFamily,
+                        letterSpacing: 0.0,
+                        useGoogleFonts: GoogleFonts.asMap().containsKey(
+                            FlutterFlowTheme.of(context).headlineMediumFamily),
+                      ),
                 ),
               ),
             ),
@@ -143,6 +146,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                       fontFamily:
                           FlutterFlowTheme.of(context).labelMediumFamily,
                       color: FlutterFlowTheme.of(context).btnText,
+                      letterSpacing: 0.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).labelMediumFamily),
                     ),
@@ -202,7 +206,10 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                       blurRadius: 4.0,
                                       color: FlutterFlowTheme.of(context)
                                           .background,
-                                      offset: const Offset(0.0, 2.0),
+                                      offset: const Offset(
+                                        0.0,
+                                        2.0,
+                                      ),
                                       spreadRadius: 6.0,
                                     )
                                   ],
@@ -246,6 +253,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .btnText,
+                                                      letterSpacing: 0.0,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
                                                           .containsKey(
@@ -343,11 +351,29 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .btnText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
                                                                         FlutterFlowTheme.of(context)
                                                                             .labelMediumFamily),
+                                                              ),
+                                                      searchTextStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
                                                               ),
                                                       textStyle:
                                                           FlutterFlowTheme.of(
@@ -361,6 +387,8 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                                         context)
                                                                     .btnText,
                                                                 fontSize: 10.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -426,6 +454,8 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                                 color: FlutterFlowTheme.of(
                                                                         context)
                                                                     .btnText,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -451,7 +481,19 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .titleSmall,
+                                                                .titleSmall
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .titleSmallFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .titleSmallFamily),
+                                                                ),
                                                       ),
                                                     ],
                                                   ),
@@ -554,6 +596,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .titleSmallFamily,
                                 color: FlutterFlowTheme.of(context).btnText,
+                                letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .titleSmallFamily),
@@ -600,9 +643,20 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .labelMediumFamily,
                                 color: FlutterFlowTheme.of(context).btnText,
+                                letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .labelMediumFamily),
+                              ),
+                          searchTextStyle: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .override(
+                                fontFamily: FlutterFlowTheme.of(context)
+                                    .bodyMediumFamily,
+                                letterSpacing: 0.0,
+                                useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                    FlutterFlowTheme.of(context)
+                                        .bodyMediumFamily),
                               ),
                           textStyle: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -610,6 +664,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .bodyMediumFamily,
                                 color: FlutterFlowTheme.of(context).btnText,
+                                letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .bodyMediumFamily),
@@ -688,6 +743,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                 fontFamily: FlutterFlowTheme.of(context)
                                     .titleMediumFamily,
                                 color: Colors.white,
+                                letterSpacing: 0.0,
                                 useGoogleFonts: GoogleFonts.asMap().containsKey(
                                     FlutterFlowTheme.of(context)
                                         .titleMediumFamily),

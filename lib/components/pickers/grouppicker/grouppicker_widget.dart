@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'grouppicker_model.dart';
 export 'grouppicker_model.dart';
 
@@ -13,13 +12,13 @@ class GrouppickerWidget extends StatefulWidget {
     super.key,
     required this.currentTransaction,
     String? currentGroup,
-  })  : currentGroup = currentGroup ?? 'null';
+  }) : currentGroup = currentGroup ?? 'null';
 
   final TransactionsRow? currentTransaction;
   final String currentGroup;
 
   @override
-  _GrouppickerWidgetState createState() => _GrouppickerWidgetState();
+  State<GrouppickerWidget> createState() => _GrouppickerWidgetState();
 }
 
 class _GrouppickerWidgetState extends State<GrouppickerWidget> {
@@ -48,8 +47,6 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 1.0),
       child: Column(
@@ -78,9 +75,10 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                         fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 24.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).headlineSmallFamily),
+                        useGoogleFonts:
+                            GoogleFonts.asMap().containsKey('Outfit'),
                       ),
                 ),
               ],
@@ -166,7 +164,10 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                     spreadRadius: 10.0,
                                   )
                                 ],
@@ -196,11 +197,11 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily),
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                     const Icon(

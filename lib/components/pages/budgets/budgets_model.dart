@@ -50,8 +50,6 @@ class BudgetsModel extends FlutterFlowModel<BudgetsWidget> {
   // Model for NavBarFloting component.
   late NavBarFlotingModel navBarFlotingModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     totalBudgetSpentGraphModel =
@@ -66,8 +64,4 @@ class BudgetsModel extends FlutterFlowModel<BudgetsWidget> {
     totalBudgetSpentGraphModel.dispose();
     navBarFlotingModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

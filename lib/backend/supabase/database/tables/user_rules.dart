@@ -14,22 +14,20 @@ class UserRulesRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => UserRulesTable();
 
-  String? get descriptionRule => getField<String>('description_rule');
-  set descriptionRule(String? value) =>
-      setField<String>('description_rule', value);
+  String? get keyword => getField<String>('keyword');
+  set keyword(String? value) => setField<String>('keyword', value);
 
-  int? get amountMin => getField<int>('amount_min');
-  set amountMin(int? value) => setField<int>('amount_min', value);
+  double? get amountMin => getField<double>('amount_min');
+  set amountMin(double? value) => setField<double>('amount_min', value);
 
-  int? get amountMax => getField<int>('amount_max');
-  set amountMax(int? value) => setField<int>('amount_max', value);
+  double? get amountMax => getField<double>('amount_max');
+  set amountMax(double? value) => setField<double>('amount_max', value);
 
-  String? get accountNameRule => getField<String>('account_name_rule');
-  set accountNameRule(String? value) =>
-      setField<String>('account_name_rule', value);
+  String? get accountName => getField<String>('account_name');
+  set accountName(String? value) => setField<String>('account_name', value);
 
-  String? get categoryRule => getField<String>('category_rule');
-  set categoryRule(String? value) => setField<String>('category_rule', value);
+  String? get category => getField<String>('category');
+  set category(String? value) => setField<String>('category', value);
 
   int get id => getField<int>('id')!;
   set id(int value) => setField<int>('id', value);

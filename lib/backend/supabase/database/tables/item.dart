@@ -67,4 +67,13 @@ class ItemRow extends SupabaseDataRow {
       getField<DateTime>('last_webhook_code_sent');
   set lastWebhookCodeSent(DateTime? value) =>
       setField<DateTime>('last_webhook_code_sent', value);
+
+  String? get accessToken => getField<String>('access_token');
+  set accessToken(String? value) => setField<String>('access_token', value);
+
+  String? get publicToken => getField<String>('public_token');
+  set publicToken(String? value) => setField<String>('public_token', value);
+
+  String? get cursor => getField<String>('cursor');
+  set cursor(String? value) => setField<String>('cursor', value);
 }

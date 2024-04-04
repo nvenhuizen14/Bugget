@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'total_budget_spent_graph_model.dart';
 export 'total_budget_spent_graph_model.dart';
 
@@ -19,7 +18,7 @@ class TotalBudgetSpentGraphWidget extends StatefulWidget {
   final double budget;
 
   @override
-  _TotalBudgetSpentGraphWidgetState createState() =>
+  State<TotalBudgetSpentGraphWidget> createState() =>
       _TotalBudgetSpentGraphWidgetState();
 }
 
@@ -50,8 +49,6 @@ class _TotalBudgetSpentGraphWidgetState
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, -1.0),
       child: SizedBox(
@@ -115,6 +112,7 @@ class _TotalBudgetSpentGraphWidgetState
                                       color: FlutterFlowTheme.of(context)
                                           .primaryBtnText,
                                       fontSize: 20.0,
+                                      letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
@@ -158,6 +156,7 @@ class _TotalBudgetSpentGraphWidgetState
                               color:
                                   FlutterFlowTheme.of(context).primaryBtnText,
                               fontSize: 24.0,
+                              letterSpacing: 0.0,
                               fontStyle: FontStyle.italic,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context)
@@ -176,6 +175,7 @@ class _TotalBudgetSpentGraphWidgetState
                                   FlutterFlowTheme.of(context).bodySmallFamily,
                               color: FlutterFlowTheme.of(context).btnText,
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontStyle: FontStyle.italic,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodySmallFamily),
@@ -210,6 +210,7 @@ class _TotalBudgetSpentGraphWidgetState
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).btnText,
                             fontSize: 24.0,
+                            letterSpacing: 0.0,
                             fontStyle: FontStyle.italic,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
@@ -225,6 +226,7 @@ class _TotalBudgetSpentGraphWidgetState
                                   FlutterFlowTheme.of(context).bodySmallFamily,
                               color: FlutterFlowTheme.of(context).btnText,
                               fontSize: 12.0,
+                              letterSpacing: 0.0,
                               fontStyle: FontStyle.italic,
                               useGoogleFonts: GoogleFonts.asMap().containsKey(
                                   FlutterFlowTheme.of(context).bodySmallFamily),

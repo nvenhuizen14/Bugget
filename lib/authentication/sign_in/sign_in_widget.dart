@@ -6,10 +6,8 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'sign_in_model.dart';
 export 'sign_in_model.dart';
 
@@ -17,7 +15,7 @@ class SignInWidget extends StatefulWidget {
   const SignInWidget({super.key});
 
   @override
-  _SignInWidgetState createState() => _SignInWidgetState();
+  State<SignInWidget> createState() => _SignInWidgetState();
 }
 
 class _SignInWidgetState extends State<SignInWidget> {
@@ -49,17 +47,6 @@ class _SignInWidgetState extends State<SignInWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'SignIn',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -74,50 +61,53 @@ class _SignInWidgetState extends State<SignInWidget> {
               top: true,
               child: Stack(
                 children: [
-                  InkWell(
-                    splashColor: Colors.transparent,
-                    focusColor: Colors.transparent,
-                    hoverColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () async {
-                      logFirebaseEvent('SIGN_IN_PAGE_Image_a8q7h9o1_ON_TAP');
-                      logFirebaseEvent('Image_expand_image');
-                      await Navigator.push(
-                        context,
-                        PageTransition(
-                          type: PageTransitionType.fade,
-                          child: FlutterFlowExpandedImageView(
-                            image: Image.asset(
-                              Theme.of(context).brightness == Brightness.dark
-                                  ? 'assets/images/buggetsigninbg.png'
-                                  : 'assets/images/buggetsigninbg.png',
-                              fit: BoxFit.contain,
+                  Align(
+                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    child: InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        logFirebaseEvent('SIGN_IN_PAGE_Image_a8q7h9o1_ON_TAP');
+                        logFirebaseEvent('Image_expand_image');
+                        await Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.fade,
+                            child: FlutterFlowExpandedImageView(
+                              image: Image.asset(
+                                Theme.of(context).brightness == Brightness.dark
+                                    ? 'assets/images/buggetsigninbg.png'
+                                    : 'assets/images/buggetsigninbg.png',
+                                fit: BoxFit.contain,
+                              ),
+                              allowRotation: false,
+                              tag: 'hero',
+                              useHeroAnimation: true,
                             ),
-                            allowRotation: false,
-                            tag: 'hero',
-                            useHeroAnimation: true,
                           ),
-                        ),
-                      );
-                    },
-                    child: Hero(
-                      tag: 'hero',
-                      transitionOnUserGestures: true,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.asset(
-                          Theme.of(context).brightness == Brightness.dark
-                              ? 'assets/images/buggetsigninbg.png'
-                              : 'assets/images/buggetsigninbg.png',
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: MediaQuery.sizeOf(context).height * 1.0,
-                          fit: BoxFit.none,
+                        );
+                      },
+                      child: Hero(
+                        tag: 'hero',
+                        transitionOnUserGestures: true,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.asset(
+                            Theme.of(context).brightness == Brightness.dark
+                                ? 'assets/images/buggetsigninbg.png'
+                                : 'assets/images/buggetsigninbg.png',
+                            width: MediaQuery.sizeOf(context).width * 1.0,
+                            height: MediaQuery.sizeOf(context).height * 1.0,
+                            fit: BoxFit.none,
+                          ),
                         ),
                       ),
                     ),
                   ),
                   Align(
-                    alignment: const AlignmentDirectional(0.0, 0.0),
+                    alignment: const AlignmentDirectional(0.0, 0.8),
                     child: Padding(
                       padding:
                           const EdgeInsetsDirectional.fromSTEB(24.0, 75.0, 24.0, 0.0),
@@ -147,6 +137,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .btnText,
                                           fontSize: 36.0,
+                                          letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
@@ -188,6 +179,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                     .displaySmallFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .btnText,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
@@ -222,6 +214,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .btnText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -244,7 +237,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   BoxShadow(
                                     blurRadius: 6.0,
                                     color: Color(0x3416202A),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(12.0),
@@ -276,12 +272,8 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       return;
                                     }
 
-                                    logFirebaseEvent('TextField_navigate_to');
-                                    if (Navigator.of(context).canPop()) {
-                                      context.pop();
-                                    }
-                                    context.pushNamedAuth(
-                                        'Dashboard', context.mounted);
+                                    context.goNamedAuth(
+                                        'Budgets', context.mounted);
                                   },
                                   autofocus: true,
                                   autofillHints: const [AutofillHints.email],
@@ -295,11 +287,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .btnText,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                           useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily),
+                                              .containsKey('Outfit'),
                                         ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -307,11 +298,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           fontFamily: 'Outfit',
                                           color: Colors.black,
                                           fontSize: 14.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.normal,
                                           useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodySmallFamily),
+                                              .containsKey('Outfit'),
                                         ),
                                     enabledBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
@@ -372,12 +362,12 @@ class _SignInWidgetState extends State<SignInWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .btnText,
                                         fontSize: 14.0,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.normal,
                                         useGoogleFonts: GoogleFonts.asMap()
-                                            .containsKey(
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMediumFamily),
+                                            .containsKey('Outfit'),
                                       ),
+                                  minLines: null,
                                   keyboardType: TextInputType.emailAddress,
                                   cursorColor:
                                       FlutterFlowTheme.of(context).black600,
@@ -398,7 +388,10 @@ class _SignInWidgetState extends State<SignInWidget> {
                                   BoxShadow(
                                     blurRadius: 6.0,
                                     color: Color(0x3416202A),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                   )
                                 ],
                                 borderRadius: BorderRadius.circular(12.0),
@@ -414,6 +407,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                       autofillHints: const [AutofillHints.password],
                                       obscureText: !_model.passwordVisibility,
                                       decoration: InputDecoration(
+                                        isDense: false,
                                         labelText: 'Password',
                                         labelStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -423,13 +417,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .btnText,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                                      .containsKey('Outfit'),
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context)
                                             .bodySmall
@@ -437,13 +429,11 @@ class _SignInWidgetState extends State<SignInWidget> {
                                               fontFamily: 'Outfit',
                                               color: const Color(0xFF57636C),
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
                                               useGoogleFonts:
                                                   GoogleFonts.asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodySmallFamily),
+                                                      .containsKey('Outfit'),
                                             ),
                                         enabledBorder: OutlineInputBorder(
                                           borderSide: BorderSide(
@@ -508,12 +498,12 @@ class _SignInWidgetState extends State<SignInWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .btnText,
                                             fontSize: 14.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
-                                                .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMediumFamily),
+                                                .containsKey('Outfit'),
                                           ),
+                                      minLines: null,
                                       cursorColor:
                                           FlutterFlowTheme.of(context).btnText,
                                       validator: _model
@@ -554,6 +544,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           color: FlutterFlowTheme.of(context)
                                               .primaryBtnText,
                                           fontSize: 13.0,
+                                          letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
@@ -565,64 +556,6 @@ class _SignInWidgetState extends State<SignInWidget> {
                                           .secondary,
                                       width: 1.0,
                                     ),
-                                  ),
-                                ),
-                                FFButtonWidget(
-                                  onPressed: () async {
-                                    logFirebaseEvent(
-                                        'SIGN_IN_PAGE_LOGIN_BTN_ON_TAP');
-                                    logFirebaseEvent('Button_auth');
-                                    GoRouter.of(context).prepareAuthEvent();
-
-                                    final user =
-                                        await authManager.signInWithEmail(
-                                      context,
-                                      _model.emailTextController.text,
-                                      _model.passwordTextController.text,
-                                    );
-                                    if (user == null) {
-                                      return;
-                                    }
-
-                                    logFirebaseEvent('Button_navigate_to');
-
-                                    context.pushNamedAuth(
-                                        'Dashboard', context.mounted);
-                                  },
-                                  text: 'Login',
-                                  options: FFButtonOptions(
-                                    width: 150.0,
-                                    height: 50.0,
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: FlutterFlowTheme.of(context).black,
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleMedium
-                                        .override(
-                                          fontFamily:
-                                              FlutterFlowTheme.of(context)
-                                                  .titleMediumFamily,
-                                          color: Colors.white,
-                                          useGoogleFonts: GoogleFonts.asMap()
-                                              .containsKey(
-                                                  FlutterFlowTheme.of(context)
-                                                      .titleMediumFamily),
-                                        ),
-                                    elevation: 3.0,
-                                    borderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondary,
-                                      width: 1.0,
-                                    ),
-                                    hoverBorderSide: BorderSide(
-                                      color: FlutterFlowTheme.of(context)
-                                          .textColor,
-                                      width: 1.0,
-                                    ),
-                                    hoverTextColor:
-                                        FlutterFlowTheme.of(context).dukeBlue,
                                   ),
                                 ),
                               ],
@@ -676,6 +609,7 @@ class _SignInWidgetState extends State<SignInWidget> {
                                                     .titleSmallFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .btnText,
+                                            letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -739,6 +673,57 @@ class _SignInWidgetState extends State<SignInWidget> {
                             ),
                           ),
                         ],
+                      ),
+                    ),
+                  ),
+                  Align(
+                    alignment: const AlignmentDirectional(1.36, 0.28),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        logFirebaseEvent('SIGN_IN_PAGE_LOGIN_BTN_ON_TAP');
+                        logFirebaseEvent('Button_auth');
+                        GoRouter.of(context).prepareAuthEvent();
+
+                        final user = await authManager.signInWithEmail(
+                          context,
+                          _model.emailTextController.text,
+                          _model.passwordTextController.text,
+                        );
+                        if (user == null) {
+                          return;
+                        }
+
+                        context.goNamedAuth('Budgets', context.mounted);
+                      },
+                      text: 'Login',
+                      options: FFButtonOptions(
+                        width: 150.0,
+                        height: 50.0,
+                        padding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: FlutterFlowTheme.of(context).black,
+                        textStyle:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleMediumFamily,
+                                  color: Colors.white,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleMediumFamily),
+                                ),
+                        elevation: 3.0,
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).secondary,
+                          width: 1.0,
+                        ),
+                        hoverBorderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).textColor,
+                          width: 1.0,
+                        ),
+                        hoverTextColor: FlutterFlowTheme.of(context).dukeBlue,
                       ),
                     ),
                   ),

@@ -122,9 +122,9 @@ DateTimeRange? dateTimeRangeFromString(String dateTimeRangeStr) {
   );
 }
 
-LatLng? latLngFromString(String latLngStr) {
-  final pieces = latLngStr.split(',');
-  if (pieces.length != 2) {
+LatLng? latLngFromString(String? latLngStr) {
+  final pieces = latLngStr?.split(',');
+  if (pieces == null || pieces.length != 2) {
     return null;
   }
   return LatLng(
@@ -261,8 +261,12 @@ dynamic deserializeParam<T>(
             return ItemRow(data);
           case UserCombinedRow:
             return UserCombinedRow(data);
+          case DocumentsRow:
+            return DocumentsRow(data);
           case UserRulesRow:
             return UserRulesRow(data);
+          case GroupBudgetViewRow:
+            return GroupBudgetViewRow(data);
           case UserRow:
             return UserRow(data);
           case InstitutionRow:
@@ -279,6 +283,8 @@ dynamic deserializeParam<T>(
             return DailySpendingRow(data);
           case GroupSummaryRow:
             return GroupSummaryRow(data);
+          case TopTransactionGroupsRow:
+            return TopTransactionGroupsRow(data);
           case TransactionCategoryRow:
             return TransactionCategoryRow(data);
           case TransactionGroupRow:

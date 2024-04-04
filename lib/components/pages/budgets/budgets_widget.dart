@@ -2,18 +2,19 @@ import '/backend/supabase/supabase.dart';
 import '/components/create_budget_modal_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/components/total_budget_spent_graph/total_budget_spent_graph_widget.dart';
+import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_web_view.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'budgets_model.dart';
 export 'budgets_model.dart';
@@ -22,7 +23,7 @@ class BudgetsWidget extends StatefulWidget {
   const BudgetsWidget({super.key});
 
   @override
-  _BudgetsWidgetState createState() => _BudgetsWidgetState();
+  State<BudgetsWidget> createState() => _BudgetsWidgetState();
 }
 
 class _BudgetsWidgetState extends State<BudgetsWidget>
@@ -30,6 +31,40 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
   late BudgetsModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final animationsMap = {
+    'containerOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        FadeEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 1200.ms,
+          begin: 0.16,
+          end: 0.845,
+        ),
+        SaturateEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 1200.ms,
+          begin: 0.0,
+          end: 1.01,
+        ),
+      ],
+    ),
+    'expandableOnPageLoadAnimation': AnimationInfo(
+      trigger: AnimationTrigger.onPageLoad,
+      effects: [
+        MoveEffect(
+          curve: Curves.easeInOut,
+          delay: 0.ms,
+          duration: 600.ms,
+          begin: const Offset(-100.0, 0.0),
+          end: const Offset(0.0, 0.0),
+        ),
+      ],
+    ),
+  };
 
   @override
   void initState() {
@@ -42,6 +77,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
       length: 2,
       initialIndex: 0,
     )..addListener(() => setState(() {}));
+
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -54,17 +90,6 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Budgets',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -88,8 +113,16 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                           alignment: const Alignment(-1.0, 0),
                           child: FlutterFlowButtonTabBar(
                             useToggleButtonStyle: false,
-                            labelStyle:
-                                FlutterFlowTheme.of(context).titleMedium,
+                            labelStyle: FlutterFlowTheme.of(context)
+                                .titleMedium
+                                .override(
+                                  fontFamily: FlutterFlowTheme.of(context)
+                                      .titleMediumFamily,
+                                  letterSpacing: 0.0,
+                                  useGoogleFonts: GoogleFonts.asMap()
+                                      .containsKey(FlutterFlowTheme.of(context)
+                                          .titleMediumFamily),
+                                ),
                             unselectedLabelStyle: const TextStyle(),
                             labelColor: FlutterFlowTheme.of(context).btnText,
                             unselectedLabelColor:
@@ -113,6 +146,9 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                               ),
                             ],
                             controller: _model.tabBarController,
+                            onTap: (i) async {
+                              [() async {}, () async {}][i]();
+                            },
                           ),
                         ),
                         Expanded(
@@ -250,47 +286,66 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                   .overlay,
                                                               child:
                                                                   ExpandableNotifier(
+                                                                initialExpanded:
+                                                                    false,
                                                                 child:
                                                                     ExpandablePanel(
                                                                   header: Align(
                                                                     alignment:
                                                                         const AlignmentDirectional(
-                                                                            0.0,
-                                                                            0.0),
+                                                                            -1.0,
+                                                                            -1.0),
                                                                     child:
-                                                                        Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .max,
-                                                                      children: [
-                                                                        Row(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.max,
-                                                                          children: [
-                                                                            Padding(
-                                                                              padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
-                                                                              child: Text(
-                                                                                valueOrDefault<String>(
-                                                                                  listViewGroupSummaryRow.groupName,
-                                                                                  'null',
-                                                                                ),
-                                                                                style: FlutterFlowTheme.of(context).displaySmall.override(
-                                                                                      fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
-                                                                                      color: FlutterFlowTheme.of(context).primaryText,
-                                                                                      fontSize: 24.0,
-                                                                                      useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                        SizedBox(
+                                                                      width: MediaQuery.sizeOf(context)
+                                                                              .width *
+                                                                          0.84,
+                                                                      height: MediaQuery.sizeOf(context)
+                                                                              .height *
+                                                                          0.05,
+                                                                      child:
+                                                                          Stack(
+                                                                        children: [
+                                                                          Align(
+                                                                            alignment:
+                                                                                const AlignmentDirectional(0.0, 0.0),
+                                                                            child:
+                                                                                Column(
+                                                                              mainAxisSize: MainAxisSize.max,
+                                                                              children: [
+                                                                                Row(
+                                                                                  mainAxisSize: MainAxisSize.min,
+                                                                                  children: [
+                                                                                    Align(
+                                                                                      alignment: const AlignmentDirectional(0.0, -1.0),
+                                                                                      child: Padding(
+                                                                                        padding: const EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
+                                                                                        child: Text(
+                                                                                          valueOrDefault<String>(
+                                                                                            listViewGroupSummaryRow.groupName,
+                                                                                            'null',
+                                                                                          ),
+                                                                                          style: FlutterFlowTheme.of(context).displaySmall.override(
+                                                                                                fontFamily: FlutterFlowTheme.of(context).displaySmallFamily,
+                                                                                                color: FlutterFlowTheme.of(context).primaryText,
+                                                                                                fontSize: 24.0,
+                                                                                                letterSpacing: 0.0,
+                                                                                                useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                                              ),
+                                                                                        ),
+                                                                                      ),
                                                                                     ),
-                                                                              ),
+                                                                                  ],
+                                                                                ),
+                                                                                Divider(
+                                                                                  thickness: 1.0,
+                                                                                  color: FlutterFlowTheme.of(context).accent4,
+                                                                                ),
+                                                                              ],
                                                                             ),
-                                                                          ],
-                                                                        ),
-                                                                        Divider(
-                                                                          thickness:
-                                                                              1.0,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).accent4,
-                                                                        ),
-                                                                      ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
                                                                     ),
                                                                   ),
                                                                   collapsed:
@@ -318,6 +373,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                     fontSize: 14.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                   ),
                                                                             ),
@@ -360,6 +416,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                               style: FlutterFlowTheme.of(context).headlineSmall.override(
                                                                                     fontFamily: FlutterFlowTheme.of(context).headlineSmallFamily,
                                                                                     fontSize: 15.0,
+                                                                                    letterSpacing: 0.0,
                                                                                     useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                                   ),
                                                                             ),
@@ -385,7 +442,11 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                 ),
                                                                                 '1',
                                                                               ),
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                    letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -446,6 +507,8 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                               .builder(
                                                                             padding:
                                                                                 EdgeInsets.zero,
+                                                                            primary:
+                                                                                false,
                                                                             scrollDirection:
                                                                                 Axis.vertical,
                                                                             itemCount:
@@ -474,6 +537,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                                 style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                                       fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                                                       fontSize: 18.0,
+                                                                                                      letterSpacing: 0.0,
                                                                                                       useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                                                     ),
                                                                                               ),
@@ -495,7 +559,11 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                             alignment: const AlignmentDirectional(0.0, -1.0),
                                                                                             child: Text(
                                                                                               '0\$',
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                  ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
@@ -524,6 +592,7 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                                   fontFamily: FlutterFlowTheme.of(context).headlineSmallFamily,
                                                                                                   color: FlutterFlowTheme.of(context).primaryBtnText,
                                                                                                   fontSize: 16.0,
+                                                                                                  letterSpacing: 0.0,
                                                                                                   useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).headlineSmallFamily),
                                                                                                 ),
                                                                                           ),
@@ -543,7 +612,11 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                                                 ),
                                                                                                 '1',
                                                                                               ),
-                                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                                    letterSpacing: 0.0,
+                                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                                  ),
                                                                                             ),
                                                                                           ),
                                                                                         ),
@@ -584,10 +657,18 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                                     iconColor: FlutterFlowTheme.of(
                                                                             context)
                                                                         .btnText,
+                                                                    iconPadding:
+                                                                        const EdgeInsets.fromLTRB(
+                                                                            0.0,
+                                                                            0.0,
+                                                                            5.0,
+                                                                            0.0),
                                                                   ),
                                                                 ),
                                                               ),
-                                                            );
+                                                            ).animateOnPageLoad(
+                                                                animationsMap[
+                                                                    'expandableOnPageLoadAnimation']!);
                                                           },
                                                         );
                                                       },
@@ -597,7 +678,8 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                               ),
                                             ),
                                           ),
-                                        ),
+                                        ).animateOnPageLoad(animationsMap[
+                                            'containerOnPageLoadAnimation']!),
                                       ),
                                       Align(
                                         alignment:
@@ -624,30 +706,33 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                                 context: context,
                                                 builder: (context) {
                                                   return WebViewAware(
-                                                      child: GestureDetector(
-                                                    onTap: () => _model
-                                                            .unfocusNode
-                                                            .canRequestFocus
-                                                        ? FocusScope.of(context)
-                                                            .requestFocus(_model
-                                                                .unfocusNode)
-                                                        : FocusScope.of(context)
-                                                            .unfocus(),
-                                                    child: Padding(
-                                                      padding: MediaQuery
-                                                          .viewInsetsOf(
-                                                              context),
-                                                      child: SizedBox(
-                                                        height:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .height *
-                                                                0.5,
-                                                        child:
-                                                            const CreateBudgetModalWidget(),
+                                                    child: GestureDetector(
+                                                      onTap: () => _model
+                                                              .unfocusNode
+                                                              .canRequestFocus
+                                                          ? FocusScope.of(
+                                                                  context)
+                                                              .requestFocus(_model
+                                                                  .unfocusNode)
+                                                          : FocusScope.of(
+                                                                  context)
+                                                              .unfocus(),
+                                                      child: Padding(
+                                                        padding: MediaQuery
+                                                            .viewInsetsOf(
+                                                                context),
+                                                        child: SizedBox(
+                                                          height:
+                                                              MediaQuery.sizeOf(
+                                                                          context)
+                                                                      .height *
+                                                                  0.5,
+                                                          child:
+                                                              const CreateBudgetModalWidget(),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ));
+                                                  );
                                                 },
                                               ).then((value) =>
                                                   safeSetState(() {}));
@@ -656,7 +741,20 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                               'Create A Budget',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
                                             ),
                                           ),
                                         ),
@@ -713,7 +811,19 @@ class _BudgetsWidgetState extends State<BudgetsWidget>
                                               ),
                                             ),
                                             Container(),
-                                            Container(),
+                                            FlutterFlowWebView(
+                                              content:
+                                                  'https://chartbrew-nu.vercel.app//chart/4533dbaa-1ce5-42c6-a44c-dd35004af2f8/embedded',
+                                              bypass: false,
+                                              width: MediaQuery.sizeOf(context)
+                                                      .width *
+                                                  0.595,
+                                              height: MediaQuery.sizeOf(context)
+                                                      .height *
+                                                  0.3,
+                                              verticalScroll: false,
+                                              horizontalScroll: false,
+                                            ),
                                             Container(),
                                           ],
                                           carouselController:

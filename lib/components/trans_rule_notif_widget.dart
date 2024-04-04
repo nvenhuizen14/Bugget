@@ -2,7 +2,6 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'trans_rule_notif_model.dart';
 export 'trans_rule_notif_model.dart';
 
@@ -10,7 +9,7 @@ class TransRuleNotifWidget extends StatefulWidget {
   const TransRuleNotifWidget({super.key});
 
   @override
-  _TransRuleNotifWidgetState createState() => _TransRuleNotifWidgetState();
+  State<TransRuleNotifWidget> createState() => _TransRuleNotifWidgetState();
 }
 
 class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
@@ -39,8 +38,6 @@ class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Card(
       clipBehavior: Clip.antiAliasWithSaveLayer,
       color: FlutterFlowTheme.of(context).black,
@@ -57,9 +54,9 @@ class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
                 fontFamily: 'Inter',
                 color: FlutterFlowTheme.of(context).btnText,
                 fontSize: 14.0,
+                letterSpacing: 0.0,
                 fontWeight: FontWeight.normal,
-                useGoogleFonts: GoogleFonts.asMap()
-                    .containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                useGoogleFonts: GoogleFonts.asMap().containsKey('Inter'),
               ),
         ),
       ),

@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'recent_transactions_model.dart';
 export 'recent_transactions_model.dart';
 
@@ -11,7 +10,7 @@ class RecentTransactionsWidget extends StatefulWidget {
   const RecentTransactionsWidget({super.key});
 
   @override
-  _RecentTransactionsWidgetState createState() =>
+  State<RecentTransactionsWidget> createState() =>
       _RecentTransactionsWidgetState();
 }
 
@@ -41,8 +40,6 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return ListView(
       padding: EdgeInsets.zero,
       shrinkWrap: true,
@@ -65,6 +62,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -82,6 +80,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 20.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -121,7 +120,13 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                     'Electric Bill',
                     textAlign: TextAlign.start,
                     maxLines: 1,
-                    style: FlutterFlowTheme.of(context).bodyMedium,
+                    style: FlutterFlowTheme.of(context).bodyMedium.override(
+                          fontFamily:
+                              FlutterFlowTheme.of(context).bodyMediumFamily,
+                          letterSpacing: 0.0,
+                          useGoogleFonts: GoogleFonts.asMap().containsKey(
+                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                        ),
                   ),
                 ),
               ),
@@ -133,6 +138,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontSize: 14.0,
+                        letterSpacing: 0.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
@@ -156,6 +162,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           color: FlutterFlowTheme.of(context).black600,
                           fontSize: 10.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -172,6 +179,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                         fontFamily:
                             FlutterFlowTheme.of(context).bodyMediumFamily,
                         fontSize: 14.0,
+                        letterSpacing: 0.0,
                         useGoogleFonts: GoogleFonts.asMap().containsKey(
                             FlutterFlowTheme.of(context).bodyMediumFamily),
                       ),
@@ -204,7 +212,13 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                       'Electric Bill',
                       textAlign: TextAlign.start,
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                          ),
                     ),
                   ),
                 ),
@@ -216,6 +230,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -239,6 +254,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).black600,
                             fontSize: 10.0,
+                            letterSpacing: 0.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
@@ -255,6 +271,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -288,7 +305,13 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                       'Electric Bill',
                       textAlign: TextAlign.start,
                       maxLines: 1,
-                      style: FlutterFlowTheme.of(context).bodyMedium,
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).bodyMediumFamily,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).bodyMediumFamily),
+                          ),
                     ),
                   ),
                 ),
@@ -300,6 +323,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),
@@ -323,6 +347,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                             color: FlutterFlowTheme.of(context).black600,
                             fontSize: 10.0,
+                            letterSpacing: 0.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).bodyMediumFamily),
                           ),
@@ -339,6 +364,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
                           fontFamily:
                               FlutterFlowTheme.of(context).bodyMediumFamily,
                           fontSize: 14.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context).bodyMediumFamily),
                         ),

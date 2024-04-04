@@ -1,7 +1,6 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'my_chart_model.dart';
 export 'my_chart_model.dart';
 
@@ -9,7 +8,7 @@ class MyChartWidget extends StatefulWidget {
   const MyChartWidget({super.key});
 
   @override
-  _MyChartWidgetState createState() => _MyChartWidgetState();
+  State<MyChartWidget> createState() => _MyChartWidgetState();
 }
 
 class _MyChartWidgetState extends State<MyChartWidget> {
@@ -38,8 +37,6 @@ class _MyChartWidgetState extends State<MyChartWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 0.0),
       child: ClipRRect(

@@ -27,15 +27,9 @@ class CreateBudgetModalModel extends FlutterFlowModel<CreateBudgetModalWidget> {
   // Stores action output result for [Backend Call - Insert Row] action in Button widget.
   BudgetRow? newBudgetItem;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

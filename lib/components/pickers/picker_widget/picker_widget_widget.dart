@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'picker_widget_model.dart';
 export 'picker_widget_model.dart';
 
@@ -22,7 +21,7 @@ class PickerWidgetWidget extends StatefulWidget {
   final String columnView;
 
   @override
-  _PickerWidgetWidgetState createState() => _PickerWidgetWidgetState();
+  State<PickerWidgetWidget> createState() => _PickerWidgetWidgetState();
 }
 
 class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
@@ -51,8 +50,6 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(0.0, 1.0),
       child: Column(
@@ -81,9 +78,10 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                         fontFamily: 'Outfit',
                         color: FlutterFlowTheme.of(context).primaryText,
                         fontSize: 24.0,
+                        letterSpacing: 0.0,
                         fontWeight: FontWeight.w500,
-                        useGoogleFonts: GoogleFonts.asMap().containsKey(
-                            FlutterFlowTheme.of(context).headlineSmallFamily),
+                        useGoogleFonts:
+                            GoogleFonts.asMap().containsKey('Outfit'),
                       ),
                 ),
               ],
@@ -173,7 +171,10 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                                   BoxShadow(
                                     blurRadius: 4.0,
                                     color: Color(0x33000000),
-                                    offset: Offset(0.0, 2.0),
+                                    offset: Offset(
+                                      0.0,
+                                      2.0,
+                                    ),
                                     spreadRadius: 10.0,
                                   )
                                 ],
@@ -200,11 +201,11 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryText,
                                             fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             fontWeight: FontWeight.normal,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyLargeFamily),
+                                                    'Plus Jakarta Sans'),
                                           ),
                                     ),
                                     const Icon(
@@ -229,7 +230,12 @@ class _PickerWidgetWidgetState extends State<PickerWidgetWidget> {
             padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
             child: Text(
               'Create New Category',
-              style: FlutterFlowTheme.of(context).bodyMedium,
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                    letterSpacing: 0.0,
+                    useGoogleFonts: GoogleFonts.asMap().containsKey(
+                        FlutterFlowTheme.of(context).bodyMediumFamily),
+                  ),
             ),
           ),
         ],

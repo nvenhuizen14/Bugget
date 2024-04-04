@@ -10,8 +10,6 @@ class TransactionsdatePickerModel
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     calendarSelectedDay = DateTimeRange(
@@ -22,8 +20,4 @@ class TransactionsdatePickerModel
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

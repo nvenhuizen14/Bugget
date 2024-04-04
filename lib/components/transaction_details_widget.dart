@@ -7,7 +7,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'transaction_details_model.dart';
 export 'transaction_details_model.dart';
@@ -43,7 +42,7 @@ class TransactionDetailsWidget extends StatefulWidget {
   final String columnView;
 
   @override
-  _TransactionDetailsWidgetState createState() =>
+  State<TransactionDetailsWidget> createState() =>
       _TransactionDetailsWidgetState();
 }
 
@@ -73,8 +72,6 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return SizedBox(
       width: MediaQuery.sizeOf(context).width * 0.995,
       height: MediaQuery.sizeOf(context).height * 0.6,
@@ -135,6 +132,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                           .headlineSmallFamily,
                                       color:
                                           FlutterFlowTheme.of(context).btnText,
+                                      letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
@@ -170,6 +168,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                         color: FlutterFlowTheme.of(context)
                                             .btnText,
                                         fontSize: 28.0,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
@@ -217,7 +216,19 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                       child: Text(
                                         'Category: ',
                                         style: FlutterFlowTheme.of(context)
-                                            .titleMedium,
+                                            .titleMedium
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMediumFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .titleMediumFamily),
+                                            ),
                                       ),
                                     ),
                                   ),
@@ -241,26 +252,28 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.6,
-                                                  child: PickerWidgetWidget(
-                                                    currentTransaction: widget
-                                                        .currentTransaction!,
-                                                    currentCategory:
-                                                        valueOrDefault<String>(
-                                                      widget.category,
-                                                      'null',
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SizedBox(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.6,
+                                                    child: PickerWidgetWidget(
+                                                      currentTransaction: widget
+                                                          .currentTransaction!,
+                                                      currentCategory:
+                                                          valueOrDefault<
+                                                              String>(
+                                                        widget.category,
+                                                        'null',
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -288,7 +301,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                           child: Padding(
                                             padding:
                                                 const EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 8.0, 0.0),
+                                                    5.0, 0.0, 8.0, 0.0),
                                             child: Row(
                                               mainAxisSize: MainAxisSize.max,
                                               mainAxisAlignment:
@@ -308,14 +321,13 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                                     context)
                                                                 .primaryBtnText,
                                                         fontSize: 16.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyLargeFamily),
+                                                                'Plus Jakarta Sans'),
                                                       ),
                                                 ),
                                                 Icon(
@@ -347,7 +359,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                     'Group: ',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context)
-                                        .titleMedium,
+                                        .titleMedium
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .titleMediumFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleMediumFamily),
+                                        ),
                                   ),
                                   Expanded(
                                     child: Padding(
@@ -369,22 +391,24 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.6,
-                                                  child: GrouppickerWidget(
-                                                    currentTransaction: widget
-                                                        .currentTransaction!,
-                                                    currentGroup: widget.group,
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SizedBox(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.6,
+                                                    child: GrouppickerWidget(
+                                                      currentTransaction: widget
+                                                          .currentTransaction!,
+                                                      currentGroup:
+                                                          widget.group,
+                                                    ),
                                                   ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -432,31 +456,40 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.end,
                                                 children: [
-                                                  Text(
-                                                    valueOrDefault<String>(
-                                                      widget.group,
-                                                      'null',
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      valueOrDefault<String>(
+                                                        widget.group,
+                                                        'null',
+                                                      ),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .btnText,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
+                                                              ),
                                                     ),
-                                                    textAlign: TextAlign.start,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .btnText,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLargeFamily),
-                                                        ),
                                                   ),
                                                   Icon(
                                                     Icons.chevron_right_rounded,
@@ -488,7 +521,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                     Text(
                                       'Amount: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMediumFamily),
+                                          ),
                                     ),
                                     Text(
                                       valueOrDefault<String>(
@@ -509,6 +552,8 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                     .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBtnText,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)
@@ -532,7 +577,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                     Text(
                                       'Account: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMediumFamily),
+                                          ),
                                     ),
                                     Padding(
                                       padding: const EdgeInsetsDirectional.fromSTEB(
@@ -553,23 +608,24 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
-                                                  child: Padding(
-                                                padding:
-                                                    MediaQuery.viewInsetsOf(
-                                                        context),
-                                                child: SizedBox(
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.6,
-                                                  child: AccountpickerWidget(
-                                                    currentTransaction: widget
-                                                        .currentTransaction!,
-                                                    currentAccount:
-                                                        widget.account,
+                                                child: Padding(
+                                                  padding:
+                                                      MediaQuery.viewInsetsOf(
+                                                          context),
+                                                  child: SizedBox(
+                                                    height: MediaQuery.sizeOf(
+                                                                context)
+                                                            .height *
+                                                        0.6,
+                                                    child: AccountpickerWidget(
+                                                      currentTransaction: widget
+                                                          .currentTransaction!,
+                                                      currentAccount:
+                                                          widget.account,
+                                                    ),
                                                   ),
                                                 ),
-                                              ));
+                                              );
                                             },
                                           ).then(
                                               (value) => safeSetState(() {}));
@@ -620,31 +676,40 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                       .spaceBetween,
                                               children: [
                                                 Expanded(
-                                                  child: AutoSizeText(
-                                                    widget.account
-                                                        .maybeHandleOverflow(
-                                                            maxChars: 30),
-                                                    textAlign: TextAlign.start,
-                                                    maxLines: 1,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyLarge
-                                                        .override(
-                                                          fontFamily:
-                                                              'Plus Jakarta Sans',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .primaryBtnText,
-                                                          fontSize: 16.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyLargeFamily),
-                                                        ),
+                                                  child: Padding(
+                                                    padding:
+                                                        const EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      widget.account
+                                                          .maybeHandleOverflow(
+                                                              maxChars: 30),
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 1,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyLarge
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Plus Jakarta Sans',
+                                                                color: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .primaryBtnText,
+                                                                fontSize: 16.0,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .normal,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        'Plus Jakarta Sans'),
+                                                              ),
+                                                    ),
                                                   ),
                                                 ),
                                                 Icon(
@@ -675,7 +740,17 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                     Text(
                                       'Merchant Name: ',
                                       style: FlutterFlowTheme.of(context)
-                                          .titleMedium,
+                                          .titleMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .titleMediumFamily),
+                                          ),
                                     ),
                                     Text(
                                       valueOrDefault<String>(
@@ -691,6 +766,8 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                     .bodyMediumFamily,
                                             color: FlutterFlowTheme.of(context)
                                                 .primaryBtnText,
+                                            fontSize: 16.0,
+                                            letterSpacing: 0.0,
                                             useGoogleFonts: GoogleFonts.asMap()
                                                 .containsKey(
                                                     FlutterFlowTheme.of(context)

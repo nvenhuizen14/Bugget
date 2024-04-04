@@ -32,8 +32,9 @@ class TransactionsRow extends SupabaseDataRow {
   String? get accountName => getField<String>('account_name');
   set accountName(String? value) => setField<String>('account_name', value);
 
-  String? get institution => getField<String>('institution');
-  set institution(String? value) => setField<String>('institution', value);
+  String? get institutionName => getField<String>('institution_name');
+  set institutionName(String? value) =>
+      setField<String>('institution_name', value);
 
   String get transactionId => getField<String>('transaction_id')!;
   set transactionId(String value) => setField<String>('transaction_id', value);
@@ -65,4 +66,7 @@ class TransactionsRow extends SupabaseDataRow {
 
   DateTime? get updatedAt => getField<DateTime>('updated_at');
   set updatedAt(DateTime? value) => setField<DateTime>('updated_at', value);
+
+  String? get userId => getField<String>('user_id');
+  set userId(String? value) => setField<String>('user_id', value);
 }

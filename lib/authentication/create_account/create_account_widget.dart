@@ -5,9 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'create_account_model.dart';
 export 'create_account_model.dart';
 
@@ -15,7 +13,7 @@ class CreateAccountWidget extends StatefulWidget {
   const CreateAccountWidget({super.key});
 
   @override
-  _CreateAccountWidgetState createState() => _CreateAccountWidgetState();
+  State<CreateAccountWidget> createState() => _CreateAccountWidgetState();
 }
 
 class _CreateAccountWidgetState extends State<CreateAccountWidget> {
@@ -54,17 +52,6 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'CreateAccount',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -152,13 +139,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                               fontFamily: 'Outfit',
                                               color: const Color(0xFFF8FBFC),
                                               fontSize: 32.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .displaySmallFamily),
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey('Outfit'),
                                             ),
                                       ),
                                     ),
@@ -176,13 +161,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                 fontFamily: 'Outfit',
                                                 color: const Color(0xFFEDEFF1),
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmallFamily),
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Outfit'),
                                               ),
                                         ),
                                       ),
@@ -212,13 +195,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .btnText,
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmallFamily),
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Outfit'),
                                               ),
                                           alignLabelWithHint: false,
                                           hintStyle: FlutterFlowTheme.of(
@@ -230,13 +211,11 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                     FlutterFlowTheme.of(context)
                                                         .btnText,
                                                 fontSize: 14.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.normal,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .bodySmallFamily),
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Outfit'),
                                               ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
@@ -309,14 +288,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                   FlutterFlowTheme.of(context)
                                                       .black,
                                               fontSize: 14.0,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.normal,
-                                              useGoogleFonts: GoogleFonts
-                                                      .asMap()
-                                                  .containsKey(
-                                                      FlutterFlowTheme.of(
-                                                              context)
-                                                          .bodyMediumFamily),
+                                              useGoogleFonts:
+                                                  GoogleFonts.asMap()
+                                                      .containsKey('Outfit'),
                                             ),
+                                        minLines: null,
                                         validator: _model
                                             .emailAddressController1Validator
                                             .asValidator(context),
@@ -359,14 +337,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                                     context)
                                                                 .btnText,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
@@ -378,14 +355,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                                     context)
                                                                 .btnText,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
@@ -462,24 +438,25 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                         )
                                                       : null,
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Outfit',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .black,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
                                                               .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                                                  'Outfit'),
+                                                    ),
+                                                minLines: null,
                                                 validator: _model
                                                     .emailAddressController2Validator
                                                     .asValidator(context),
@@ -521,14 +498,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                                     context)
                                                                 .btnText,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                                   hintStyle: FlutterFlowTheme
                                                           .of(context)
@@ -540,14 +516,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                                     context)
                                                                 .btnText,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                                   enabledBorder:
                                                       OutlineInputBorder(
@@ -624,24 +599,25 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                     ),
                                                   ),
                                                 ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Outfit',
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
+                                                style: FlutterFlowTheme.of(
+                                                        context)
+                                                    .bodyMedium
+                                                    .override(
+                                                      fontFamily: 'Outfit',
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
                                                               .btnText,
-                                                          fontSize: 14.0,
-                                                          fontWeight:
-                                                              FontWeight.normal,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
+                                                      fontSize: 14.0,
+                                                      letterSpacing: 0.0,
+                                                      fontWeight:
+                                                          FontWeight.normal,
+                                                      useGoogleFonts:
+                                                          GoogleFonts.asMap()
                                                               .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily),
-                                                        ),
+                                                                  'Outfit'),
+                                                    ),
+                                                minLines: null,
                                                 validator: _model
                                                     .passwordControllerValidator
                                                     .asValidator(context),
@@ -679,14 +655,13 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                                     context)
                                                                 .btnText,
                                                         fontSize: 14.0,
+                                                        letterSpacing: 0.0,
                                                         fontWeight:
                                                             FontWeight.normal,
-                                                        useGoogleFonts: GoogleFonts
-                                                                .asMap()
-                                                            .containsKey(
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodySmallFamily),
+                                                        useGoogleFonts:
+                                                            GoogleFonts.asMap()
+                                                                .containsKey(
+                                                                    'Outfit'),
                                                       ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(
@@ -761,14 +736,14 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                           context)
                                                       .btnText,
                                                   fontSize: 14.0,
+                                                  letterSpacing: 0.0,
                                                   fontWeight: FontWeight.normal,
-                                                  useGoogleFonts: GoogleFonts
-                                                          .asMap()
-                                                      .containsKey(
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMediumFamily),
+                                                  useGoogleFonts:
+                                                      GoogleFonts.asMap()
+                                                          .containsKey(
+                                                              'Outfit'),
                                                 ),
+                                            minLines: null,
                                             validator: _model
                                                 .passwordConfirmControllerValidator
                                                 .asValidator(context),
@@ -856,14 +831,14 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                           fontFamily: 'Outfit',
                                                           color: Colors.white,
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Outfit'),
                                                         ),
                                                     elevation: 3.0,
                                                     borderSide: BorderSide(
@@ -902,6 +877,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                   color: FlutterFlowTheme.of(
                                                           context)
                                                       .btnText,
+                                                  letterSpacing: 0.0,
                                                   useGoogleFonts: GoogleFonts
                                                           .asMap()
                                                       .containsKey(
@@ -942,6 +918,7 @@ class _CreateAccountWidgetState extends State<CreateAccountWidget> {
                                                             FlutterFlowTheme.of(
                                                                     context)
                                                                 .btnText,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(

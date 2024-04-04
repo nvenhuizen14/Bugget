@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:provider/provider.dart';
 import 'budget_list_tile_model.dart';
 export 'budget_list_tile_model.dart';
 
@@ -32,7 +31,7 @@ class BudgetListTileWidget extends StatefulWidget {
   final String budgetGroup;
 
   @override
-  _BudgetListTileWidgetState createState() => _BudgetListTileWidgetState();
+  State<BudgetListTileWidget> createState() => _BudgetListTileWidgetState();
 }
 
 class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
@@ -92,8 +91,6 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(-1.0, 0.0),
       child: SizedBox(
@@ -138,6 +135,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                             fontFamily:
                                 FlutterFlowTheme.of(context).titleSmallFamily,
                             color: Colors.white,
+                            letterSpacing: 0.0,
                             useGoogleFonts: GoogleFonts.asMap().containsKey(
                                 FlutterFlowTheme.of(context).titleSmallFamily),
                           ),
@@ -194,7 +192,10 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                             BoxShadow(
                               blurRadius: 4.0,
                               color: FlutterFlowTheme.of(context).background,
-                              offset: const Offset(0.0, 2.0),
+                              offset: const Offset(
+                                0.0,
+                                2.0,
+                              ),
                               spreadRadius: 6.0,
                             )
                           ],
@@ -237,6 +238,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .titleSmallFamily,
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
@@ -271,6 +273,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                         color: FlutterFlowTheme.of(context)
                                             .secondaryText,
                                         fontSize: 18.0,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
@@ -304,6 +307,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .btnText,
+                                              letterSpacing: 0.0,
                                               fontWeight: FontWeight.w200,
                                               useGoogleFonts: GoogleFonts
                                                       .asMap()
@@ -342,13 +346,11 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                                     FlutterFlowTheme.of(context)
                                                         .secondaryText,
                                                 fontSize: 16.0,
+                                                letterSpacing: 0.0,
                                                 fontWeight: FontWeight.w200,
-                                                useGoogleFonts: GoogleFonts
-                                                        .asMap()
-                                                    .containsKey(
-                                                        FlutterFlowTheme.of(
-                                                                context)
-                                                            .titleMediumFamily),
+                                                useGoogleFonts:
+                                                    GoogleFonts.asMap()
+                                                        .containsKey('Nunito'),
                                               ),
                                         )),
                                       ),
@@ -381,8 +383,18 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                       '23%',
                                     ).maybeHandleOverflow(maxChars: 50),
                                     textAlign: TextAlign.center,
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyLarge,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily,
+                                          letterSpacing: 0.0,
+                                          useGoogleFonts: GoogleFonts.asMap()
+                                              .containsKey(
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLargeFamily),
+                                        ),
                                   ),
                                   barRadius: const Radius.circular(14.0),
                                   padding: EdgeInsets.zero,

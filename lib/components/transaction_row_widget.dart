@@ -5,7 +5,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'transaction_row_model.dart';
 export 'transaction_row_model.dart';
@@ -45,7 +44,7 @@ class TransactionRowWidget extends StatefulWidget {
   final double parameter13;
 
   @override
-  _TransactionRowWidgetState createState() => _TransactionRowWidgetState();
+  State<TransactionRowWidget> createState() => _TransactionRowWidgetState();
 }
 
 class _TransactionRowWidgetState extends State<TransactionRowWidget> {
@@ -74,8 +73,6 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Stack(
       children: [
         Padding(
@@ -116,27 +113,28 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                     context: context,
                                     builder: (context) {
                                       return WebViewAware(
-                                          child: Padding(
-                                        padding:
-                                            MediaQuery.viewInsetsOf(context),
-                                        child: SizedBox(
-                                          height: MediaQuery.sizeOf(context)
-                                                  .height *
-                                              0.6,
-                                          child: TransactionDetailsWidget(
-                                            date: widget.parameter2!,
-                                            description: widget.parameter3,
-                                            category: widget.parameter4,
-                                            group: widget.parameter5,
-                                            amount: widget.parameter6,
-                                            account: widget.parameter7!,
-                                            merchantName: widget.parameter8!,
-                                            currentTransaction:
-                                                widget.parameter9!,
-                                            columnView: widget.parameter10,
+                                        child: Padding(
+                                          padding:
+                                              MediaQuery.viewInsetsOf(context),
+                                          child: SizedBox(
+                                            height: MediaQuery.sizeOf(context)
+                                                    .height *
+                                                0.6,
+                                            child: TransactionDetailsWidget(
+                                              date: widget.parameter2!,
+                                              description: widget.parameter3,
+                                              category: widget.parameter4,
+                                              group: widget.parameter5,
+                                              amount: widget.parameter6,
+                                              account: widget.parameter7!,
+                                              merchantName: widget.parameter8!,
+                                              currentTransaction:
+                                                  widget.parameter9!,
+                                              columnView: widget.parameter10,
+                                            ),
                                           ),
                                         ),
-                                      ));
+                                      );
                                     },
                                   ).then((value) => safeSetState(() {}));
                                 },
@@ -162,6 +160,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                         fontFamily: FlutterFlowTheme.of(context)
                                             .titleSmallFamily,
                                         color: Colors.white,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
@@ -204,6 +203,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                           .bodyMediumFamily,
                                       color:
                                           FlutterFlowTheme.of(context).btnText,
+                                      letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
@@ -230,6 +230,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                             .bodyMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .btnText,
+                                        letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
@@ -261,6 +262,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                             .bodyMediumFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .btnText,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)

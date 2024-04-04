@@ -1,1 +1,1 @@
-export 'spending_widget.dart' show SpendingWidget;
+export 'column_chart.dart' show ColumnChart;

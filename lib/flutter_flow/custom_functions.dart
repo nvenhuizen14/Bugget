@@ -15,14 +15,6 @@ import '/backend/schema/enums/enums.dart';
 import '/backend/supabase/supabase.dart';
 import '/auth/supabase_auth/auth_util.dart';
 
-String newUniqueKey() {
-  // create a unique key using this formula intxint%int+'id' = string
-  final int x = math.Random().nextInt(1000000);
-  final int y = math.Random().nextInt(1000000);
-  final int z = math.Random().nextInt(1000000);
-  return '$x$y%$z' + 'id';
-}
-
 DateTime? todayminus14days() {
   // today - 14 days
   // find date range for today - 14 days

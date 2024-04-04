@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
 import 'nav_bar_floting_model.dart';
 export 'nav_bar_floting_model.dart';
 
@@ -12,7 +11,7 @@ class NavBarFlotingWidget extends StatefulWidget {
   const NavBarFlotingWidget({super.key});
 
   @override
-  _NavBarFlotingWidgetState createState() => _NavBarFlotingWidgetState();
+  State<NavBarFlotingWidget> createState() => _NavBarFlotingWidgetState();
 }
 
 class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
@@ -41,8 +40,6 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Container(
@@ -53,7 +50,10 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
             BoxShadow(
               blurRadius: 12.0,
               color: Color(0x33000000),
-              offset: Offset(0.0, 5.0),
+              offset: Offset(
+                0.0,
+                5.0,
+              ),
             )
           ],
           borderRadius: BorderRadius.circular(40.0),
@@ -73,7 +73,10 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                   BoxShadow(
                     blurRadius: 6.0,
                     color: FlutterFlowTheme.of(context).secondaryBackground,
-                    offset: const Offset(0.0, 2.0),
+                    offset: const Offset(
+                      0.0,
+                      2.0,
+                    ),
                     spreadRadius: 2.0,
                   )
                 ],

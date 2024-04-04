@@ -27,8 +27,6 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
   // Model for NavBarFloting component.
   late NavBarFlotingModel navBarFlotingModel;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     accountCardModels = FlutterFlowDynamicModels(() => AccountCardModel());
@@ -44,8 +42,4 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
     transactionRowModels.dispose();
     navBarFlotingModel.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

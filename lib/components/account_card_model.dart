@@ -10,15 +10,9 @@ class AccountCardModel extends FlutterFlowModel<AccountCardWidget> {
 
   Color? borderColor = const Color(0x2B95A1AC);
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {}
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

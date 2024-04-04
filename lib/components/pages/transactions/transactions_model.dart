@@ -50,8 +50,6 @@ class TransactionsModel extends FlutterFlowModel<TransactionsWidget> {
   void clearTransactionDateRangeCacheKey(String? uniqueKey) =>
       _transactionDateRangeManager.clearRequest(uniqueKey);
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     transactionRowModels =
@@ -70,9 +68,6 @@ class TransactionsModel extends FlutterFlowModel<TransactionsWidget> {
     clearTransactionDateRangeCache();
   }
 
-  /// Action blocks are added here.
-
+  /// Action blocks.
   Future transactionDetails(BuildContext context) async {}
-
-  /// Additional helper methods are added here.
 }

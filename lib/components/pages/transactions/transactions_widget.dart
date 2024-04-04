@@ -6,9 +6,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -21,7 +19,7 @@ class TransactionsWidget extends StatefulWidget {
   const TransactionsWidget({super.key});
 
   @override
-  _TransactionsWidgetState createState() => _TransactionsWidgetState();
+  State<TransactionsWidget> createState() => _TransactionsWidgetState();
 }
 
 class _TransactionsWidgetState extends State<TransactionsWidget>
@@ -72,15 +70,6 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
     context.watch<FFAppState>();
 
     return Title(
@@ -112,7 +101,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                     icon: FaIcon(
                       FontAwesomeIcons.robot,
                       color: FlutterFlowTheme.of(context).btnText,
-                      size: 35.0,
+                      size: 30.0,
                     ),
                     onPressed: () async {
                       logFirebaseEvent('TRANSACTIONS_PAGE_robot_ICN_ON_TAP');
@@ -135,6 +124,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                               FlutterFlowTheme.of(context).headlineMediumFamily,
                           color: FlutterFlowTheme.of(context).btnText,
                           fontSize: 22.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context)
                                   .headlineMediumFamily),
@@ -225,6 +215,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                                             .titleSmallFamily,
                                         color: FlutterFlowTheme.of(context)
                                             .grayIcon,
+                                        letterSpacing: 0.0,
                                         useGoogleFonts: GoogleFonts.asMap()
                                             .containsKey(
                                                 FlutterFlowTheme.of(context)
@@ -301,6 +292,7 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                                           .titleSmallFamily,
                                       color:
                                           FlutterFlowTheme.of(context).grayIcon,
+                                      letterSpacing: 0.0,
                                       useGoogleFonts: GoogleFonts.asMap()
                                           .containsKey(
                                               FlutterFlowTheme.of(context)
@@ -344,7 +336,10 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                             BoxShadow(
                               blurRadius: 4.0,
                               color: Color(0x33000000),
-                              offset: Offset(0.0, 2.0),
+                              offset: Offset(
+                                0.0,
+                                2.0,
+                              ),
                             )
                           ],
                           borderRadius: BorderRadius.circular(10.0),
@@ -355,10 +350,6 @@ class _TransactionsWidgetState extends State<TransactionsWidget>
                         ),
                         child: FutureBuilder<List<TransactionsRow>>(
                           future: _model.transactionDateRange(
-                            uniqueQueryKey: valueOrDefault<String>(
-                              functions.newUniqueKey(),
-                              '123456',
-                            ),
                             requestFn: () => TransactionsTable().queryRows(
                               queryFn: (q) => q
                                   .gte(

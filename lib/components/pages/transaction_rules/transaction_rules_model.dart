@@ -3,7 +3,6 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
 import 'transaction_rules_widget.dart' show TransactionRulesWidget;
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
 
 class TransactionRulesModel extends FlutterFlowModel<TransactionRulesWidget> {
@@ -69,12 +68,8 @@ class TransactionRulesModel extends FlutterFlowModel<TransactionRulesWidget> {
   FormFieldController<String>? dropDownValueController2;
   InstantTimer? instantTimer;
 
-  /// Initialization and disposal methods.
-
   @override
-  void initState(BuildContext context) {
-    dataTableShowLogs = false; // Disables noisy DataTable2 debug statements.
-  }
+  void initState(BuildContext context) {}
 
   @override
   void dispose() {
@@ -91,8 +86,4 @@ class TransactionRulesModel extends FlutterFlowModel<TransactionRulesWidget> {
 
     instantTimer?.cancel();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

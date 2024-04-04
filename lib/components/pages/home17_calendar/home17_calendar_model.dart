@@ -17,8 +17,6 @@ class Home17CalendarModel extends FlutterFlowModel<Home17CalendarWidget> {
   // State field(s) for Calendar widget.
   DateTimeRange? calendarSelectedDay2;
 
-  /// Initialization and disposal methods.
-
   @override
   void initState(BuildContext context) {
     calendarSelectedDay1 = DateTimeRange(
@@ -36,8 +34,4 @@ class Home17CalendarModel extends FlutterFlowModel<Home17CalendarWidget> {
     unfocusNode.dispose();
     tabBarController?.dispose();
   }
-
-  /// Action blocks are added here.
-
-  /// Additional helper methods are added here.
 }

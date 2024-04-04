@@ -1,4 +1,6 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/backend.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/components/budget_list_tile_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
@@ -6,14 +8,13 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_web_view.dart';
+import '/custom_code/widgets/index.dart' as custom_widgets;
 import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'dashboard_model.dart';
 export 'dashboard_model.dart';
 
@@ -21,7 +22,7 @@ class DashboardWidget extends StatefulWidget {
   const DashboardWidget({super.key});
 
   @override
-  _DashboardWidgetState createState() => _DashboardWidgetState();
+  State<DashboardWidget> createState() => _DashboardWidgetState();
 }
 
 class _DashboardWidgetState extends State<DashboardWidget> {
@@ -40,6 +41,38 @@ class _DashboardWidgetState extends State<DashboardWidget> {
       logFirebaseEvent('DASHBOARD_PAGE_Dashboard_ON_INIT_STATE');
       logFirebaseEvent('Dashboard_backend_call');
       _model.catAmt = await GetCategoryAmountThisMonthCall.call();
+      logFirebaseEvent('Dashboard_update_page_state');
+      setState(() {
+        _model.addToChartData(ChartDataStruct(
+          xTitle: 'Mon',
+          yValue1: 30,
+          yValue2: 15,
+        ));
+      });
+      logFirebaseEvent('Dashboard_update_page_state');
+      setState(() {
+        _model.addToChartData(ChartDataStruct(
+          xTitle: 'Tue',
+          yValue1: 45,
+          yValue2: 30,
+        ));
+      });
+      logFirebaseEvent('Dashboard_update_page_state');
+      setState(() {
+        _model.addToChartData(ChartDataStruct(
+          xTitle: 'Wed',
+          yValue1: 60,
+          yValue2: 45,
+        ));
+      });
+      logFirebaseEvent('Dashboard_update_page_state');
+      setState(() {
+        _model.addToChartData(ChartDataStruct(
+          xTitle: 'Thur',
+          yValue1: 35,
+          yValue2: 20,
+        ));
+      });
     });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
@@ -54,17 +87,6 @@ class _DashboardWidgetState extends State<DashboardWidget> {
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'Dashboard',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -91,7 +113,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                     icon: Icon(
                       Icons.menu_sharp,
                       color: FlutterFlowTheme.of(context).btnText,
-                      size: 35.0,
+                      size: 30.0,
                     ),
                     onPressed: () async {
                       logFirebaseEvent('DASHBOARD_PAGE_menu_sharp_ICN_ON_TAP');
@@ -109,6 +131,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                               FlutterFlowTheme.of(context).headlineMediumFamily,
                           color: FlutterFlowTheme.of(context).btnText,
                           fontSize: 22.0,
+                          letterSpacing: 0.0,
                           useGoogleFonts: GoogleFonts.asMap().containsKey(
                               FlutterFlowTheme.of(context)
                                   .headlineMediumFamily),
@@ -175,6 +198,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                   .headlineMediumFamily,
                                           color: FlutterFlowTheme.of(context)
                                               .primary,
+                                          letterSpacing: 0.0,
                                           useGoogleFonts: GoogleFonts.asMap()
                                               .containsKey(
                                                   FlutterFlowTheme.of(context)
@@ -215,7 +239,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       Text(
                                         'Budget Overview',
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineSmall,
+                                            .headlineSmall
+                                            .override(
+                                              fontFamily:
+                                                  FlutterFlowTheme.of(context)
+                                                      .headlineSmallFamily,
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: GoogleFonts
+                                                      .asMap()
+                                                  .containsKey(
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .headlineSmallFamily),
+                                            ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
@@ -223,7 +259,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                         child: Text(
                                           'A summary of your financial situation.',
                                           style: FlutterFlowTheme.of(context)
-                                              .labelMedium,
+                                              .labelMedium
+                                              .override(
+                                                fontFamily:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMediumFamily,
+                                                letterSpacing: 0.0,
+                                                useGoogleFonts: GoogleFonts
+                                                        .asMap()
+                                                    .containsKey(
+                                                        FlutterFlowTheme.of(
+                                                                context)
+                                                            .labelMediumFamily),
+                                              ),
                                         ),
                                       ),
                                       Padding(
@@ -277,7 +325,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily),
+                                                                ),
                                                       ),
                                                       Row(
                                                         mainAxisSize:
@@ -296,7 +356,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 '\$3,000',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .displaySmall,
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .displaySmallFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                    ),
                                                               ),
                                                             ),
                                                           ),
@@ -337,6 +408,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -424,7 +497,19 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .labelMedium,
+                                                                .labelMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelMediumFamily),
+                                                                ),
                                                       ),
                                                       Row(
                                                         mainAxisSize:
@@ -443,7 +528,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 '\$2,500',
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .displaySmall,
+                                                                    .displaySmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .displaySmallFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).displaySmallFamily),
+                                                                    ),
                                                               ),
                                                             ),
                                                           ),
@@ -484,6 +580,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .secondary,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -554,43 +652,66 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                     children: [
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 12.0, 0.0, 0.0),
-                                        child: SingleChildScrollView(
-                                          primary: false,
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'Recent Transactions',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .headlineSmall,
-                                                ),
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 4.0, 0.0, 0.0),
+                                              child: Text(
+                                                'Recent Transactions',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .headlineSmall
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .headlineSmallFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .headlineSmallFamily),
+                                                        ),
                                               ),
-                                              Padding(
-                                                padding: const EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        16.0, 4.0, 0.0, 0.0),
-                                                child: Text(
-                                                  'A summary of your recent financial activity.',
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .labelMedium,
-                                                ),
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      16.0, 4.0, 0.0, 0.0),
+                                              child: Text(
+                                                'A summary of your recent financial activity.',
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
+                                                        ),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ),
                                       Padding(
                                         padding: const EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 65.0, 0.0, 0.0),
+                                            0.0, 65.0, 0.0, 10.0),
                                         child: FutureBuilder<
                                             List<TransactionsRow>>(
                                           future: TransactionsTable().queryRows(
@@ -625,6 +746,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 snapshot.data!;
                                             return ListView.builder(
                                               padding: EdgeInsets.zero,
+                                              primary: false,
                                               scrollDirection: Axis.vertical,
                                               itemCount:
                                                   listViewTransactionsRowList
@@ -697,6 +819,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: Colors
                                                                             .white,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         useGoogleFonts:
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
@@ -715,7 +839,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                         .description!,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
-                                                                        .bodyLarge,
+                                                                        .bodyLarge
+                                                                        .override(
+                                                                          fontFamily:
+                                                                              FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                          letterSpacing:
+                                                                              0.0,
+                                                                          useGoogleFonts:
+                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                        ),
                                                                   ),
                                                                 ),
                                                               ),
@@ -738,7 +870,18 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .labelSmall,
+                                                                    .labelSmall
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .labelSmallFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).labelSmallFamily),
+                                                                    ),
                                                               ),
                                                             ],
                                                           ),
@@ -816,7 +959,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                               'Top 5 Categories',
                                               style:
                                                   FlutterFlowTheme.of(context)
-                                                      .headlineSmall,
+                                                      .headlineSmall
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .headlineSmallFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .headlineSmallFamily),
+                                                      ),
                                             ),
                                             Padding(
                                               padding: const EdgeInsetsDirectional
@@ -825,7 +981,20 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 'Track where most of you\'re money is going',
                                                 style:
                                                     FlutterFlowTheme.of(context)
-                                                        .labelMedium,
+                                                        .labelMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .labelMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .labelMediumFamily),
+                                                        ),
                                               ),
                                             ),
                                             Padding(
@@ -853,6 +1022,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                     0.0, 0.0),
                                                 child: ListView(
                                                   padding: EdgeInsets.zero,
+                                                  primary: false,
                                                   scrollDirection:
                                                       Axis.vertical,
                                                   children: [
@@ -936,6 +1106,8 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                                 FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                             color:
                                                                                 Colors.white,
+                                                                            letterSpacing:
+                                                                                0.0,
                                                                             useGoogleFonts:
                                                                                 GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                           ),
@@ -953,7 +1125,12 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           Text(
                                                                         'List Item',
                                                                         style: FlutterFlowTheme.of(context)
-                                                                            .bodyLarge,
+                                                                            .bodyLarge
+                                                                            .override(
+                                                                              fontFamily: FlutterFlowTheme.of(context).bodyLargeFamily,
+                                                                              letterSpacing: 0.0,
+                                                                              useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            ),
                                                                       ),
                                                                     ),
                                                                   ),
@@ -979,7 +1156,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                             child:
                                                                                 Text(
                                                                               'Spent',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium,
+                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                                                                                    fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
+                                                                                    letterSpacing: 0.0,
+                                                                                    useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                                  ),
                                                                             ),
                                                                           ),
                                                                         ),
@@ -990,8 +1171,11 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                                           child:
                                                                               AutoSizeText(
                                                                             '\$10.00',
-                                                                            style:
-                                                                                FlutterFlowTheme.of(context).labelSmall,
+                                                                            style: FlutterFlowTheme.of(context).labelSmall.override(
+                                                                                  fontFamily: FlutterFlowTheme.of(context).labelSmallFamily,
+                                                                                  letterSpacing: 0.0,
+                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelSmallFamily),
+                                                                                ),
                                                                           ),
                                                                         ),
                                                                       ],
@@ -1077,6 +1261,7 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                                 crossAxisCount: 2,
                                                 childAspectRatio: 1.0,
                                               ),
+                                              primary: false,
                                               scrollDirection: Axis.vertical,
                                               itemCount:
                                                   gridViewBudgetingRowList
@@ -1180,12 +1365,15 @@ class _DashboardWidgetState extends State<DashboardWidget> {
                                       .secondaryBackground,
                                   borderRadius: BorderRadius.circular(12.0),
                                 ),
-                                child: const FlutterFlowWebView(
-                                  content: 'https://flutter.dev',
-                                  bypass: false,
-                                  height: 500.0,
-                                  verticalScroll: true,
-                                  horizontalScroll: true,
+                                child: SizedBox(
+                                  width: 320.0,
+                                  height: 400.0,
+                                  child: custom_widgets.ColumnChart(
+                                    width: 320.0,
+                                    height: 400.0,
+                                    chartData: _model.chartData,
+                                    chartTitle: 'Gold n Silver 2024',
+                                  ),
                                 ),
                               ),
                             ),

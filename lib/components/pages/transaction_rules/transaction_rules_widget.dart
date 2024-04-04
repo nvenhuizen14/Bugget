@@ -8,14 +8,10 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import '/flutter_flow/instant_timer.dart';
-import 'package:aligned_dialog/aligned_dialog.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:webviewx_plus/webviewx_plus.dart';
 import 'transaction_rules_model.dart';
 export 'transaction_rules_model.dart';
@@ -24,7 +20,7 @@ class TransactionRulesWidget extends StatefulWidget {
   const TransactionRulesWidget({super.key});
 
   @override
-  _TransactionRulesWidgetState createState() => _TransactionRulesWidgetState();
+  State<TransactionRulesWidget> createState() => _TransactionRulesWidgetState();
 }
 
 class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
@@ -66,17 +62,6 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
 
   @override
   Widget build(BuildContext context) {
-    if (isiOS) {
-      SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
-          statusBarBrightness: Theme.of(context).brightness,
-          systemStatusBarContrastEnforced: true,
-        ),
-      );
-    }
-
-    context.watch<FFAppState>();
-
     return Title(
         title: 'transaction_rules',
         color: FlutterFlowTheme.of(context).primary.withAlpha(0XFF),
@@ -113,6 +98,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                           FlutterFlowTheme.of(context).headlineMediumFamily,
                       color: FlutterFlowTheme.of(context).btnText,
                       fontSize: 22.0,
+                      letterSpacing: 0.0,
                       useGoogleFonts: GoogleFonts.asMap().containsKey(
                           FlutterFlowTheme.of(context).headlineMediumFamily),
                     ),
@@ -194,7 +180,18 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                               'Last Trained:',
                                                               style: FlutterFlowTheme
                                                                       .of(context)
-                                                                  .bodyMedium,
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily,
+                                                                    letterSpacing:
+                                                                        0.0,
+                                                                    useGoogleFonts: GoogleFonts
+                                                                            .asMap()
+                                                                        .containsKey(
+                                                                            FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                  ),
                                                             ),
                                                             Padding(
                                                               padding:
@@ -219,7 +216,18 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 ),
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
-                                                                    .bodyMedium,
+                                                                    .bodyMedium
+                                                                    .override(
+                                                                      fontFamily:
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily,
+                                                                      letterSpacing:
+                                                                          0.0,
+                                                                      useGoogleFonts: GoogleFonts
+                                                                              .asMap()
+                                                                          .containsKey(
+                                                                              FlutterFlowTheme.of(context).bodyMediumFamily),
+                                                                    ),
                                                               ),
                                                             ),
                                                           ],
@@ -257,6 +265,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                     color: FlutterFlowTheme.of(
                                                                             context)
                                                                         .btnText,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
@@ -293,6 +303,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                             FlutterFlowTheme.of(context).bodyMediumFamily,
                                                                         color: FlutterFlowTheme.of(context)
                                                                             .btnText,
+                                                                        letterSpacing:
+                                                                            0.0,
                                                                         useGoogleFonts:
                                                                             GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
                                                                       ),
@@ -332,284 +344,6 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             8.0),
-                                                  ),
-                                                  child: FutureBuilder<
-                                                      List<UserRulesRow>>(
-                                                    future: UserRulesTable()
-                                                        .queryRows(
-                                                      queryFn: (q) => q,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                SpinKitDualRing(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .tertiary400,
-                                                              size: 50.0,
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<UserRulesRow>
-                                                          dataTableUserRulesRowList =
-                                                          snapshot.data!;
-                                                      return SingleChildScrollView(
-                                                        scrollDirection:
-                                                            Axis.horizontal,
-                                                        child: SizedBox(
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  2.0,
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  0.4,
-                                                          child: DataTable2(
-                                                            columns: [
-                                                              DataColumn2(
-                                                                label:
-                                                                    DefaultTextStyle
-                                                                        .merge(
-                                                                  softWrap:
-                                                                      true,
-                                                                  child: Text(
-                                                                    'Description Rule',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).btnText,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                fixedWidth:
-                                                                    MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.38,
-                                                              ),
-                                                              DataColumn2(
-                                                                label:
-                                                                    DefaultTextStyle
-                                                                        .merge(
-                                                                  softWrap:
-                                                                      true,
-                                                                  child: Text(
-                                                                    'Amount Min',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).btnText,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                fixedWidth:
-                                                                    MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.28,
-                                                              ),
-                                                              DataColumn2(
-                                                                label:
-                                                                    DefaultTextStyle
-                                                                        .merge(
-                                                                  softWrap:
-                                                                      true,
-                                                                  child: Text(
-                                                                    'Amount Max',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBtnText,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                fixedWidth:
-                                                                    MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.28,
-                                                              ),
-                                                              DataColumn2(
-                                                                label:
-                                                                    DefaultTextStyle
-                                                                        .merge(
-                                                                  softWrap:
-                                                                      true,
-                                                                  child: Text(
-                                                                    'Account Name',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).primaryBtnText,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                fixedWidth:
-                                                                    MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.35,
-                                                              ),
-                                                              DataColumn2(
-                                                                label:
-                                                                    DefaultTextStyle
-                                                                        .merge(
-                                                                  softWrap:
-                                                                      true,
-                                                                  child: Text(
-                                                                    'Category',
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .labelLarge
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              FlutterFlowTheme.of(context).labelLargeFamily,
-                                                                          color:
-                                                                              FlutterFlowTheme.of(context).btnText,
-                                                                          useGoogleFonts:
-                                                                              GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).labelLargeFamily),
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                                fixedWidth:
-                                                                    MediaQuery.sizeOf(context)
-                                                                            .width *
-                                                                        0.25,
-                                                              ),
-                                                            ],
-                                                            rows:
-                                                                dataTableUserRulesRowList
-                                                                    .mapIndexed((dataTableIndex,
-                                                                            dataTableUserRulesRow) =>
-                                                                        [
-                                                                          Text(
-                                                                            valueOrDefault<String>(
-                                                                              dataTableUserRulesRow.descriptionRule,
-                                                                              'null',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            valueOrDefault<String>(
-                                                                              formatNumber(
-                                                                                dataTableUserRulesRow.amountMin,
-                                                                                formatType: FormatType.decimal,
-                                                                                decimalType: DecimalType.automatic,
-                                                                                currency: '\$',
-                                                                              ),
-                                                                              'null',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).btnText,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            valueOrDefault<String>(
-                                                                              formatNumber(
-                                                                                dataTableUserRulesRow.amountMax,
-                                                                                formatType: FormatType.decimal,
-                                                                                decimalType: DecimalType.automatic,
-                                                                                currency: '\$',
-                                                                              ),
-                                                                              'null',
-                                                                            ),
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).primaryBtnText,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            dataTableUserRulesRow.accountNameRule!,
-                                                                            maxLines:
-                                                                                2,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).gray200,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
-                                                                          ),
-                                                                          Text(
-                                                                            dataTableUserRulesRow.categoryRule!,
-                                                                            style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                  fontFamily: FlutterFlowTheme.of(context).bodyMediumFamily,
-                                                                                  color: FlutterFlowTheme.of(context).btnText,
-                                                                                  useGoogleFonts: GoogleFonts.asMap().containsKey(FlutterFlowTheme.of(context).bodyMediumFamily),
-                                                                                ),
-                                                                          ),
-                                                                        ]
-                                                                            .map((c) => DataCell(
-                                                                                c))
-                                                                            .toList())
-                                                                    .map((e) =>
-                                                                        DataRow(
-                                                                            cells:
-                                                                                e))
-                                                                    .toList(),
-                                                            headingRowColor:
-                                                                MaterialStateProperty
-                                                                    .all(
-                                                              const Color(0x2E000000),
-                                                            ),
-                                                            headingRowHeight:
-                                                                56.0,
-                                                            dataRowColor:
-                                                                MaterialStateProperty
-                                                                    .all(
-                                                              const Color(0x431D2428),
-                                                            ),
-                                                            dataRowHeight: 56.0,
-                                                            border: TableBorder(
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          20.0),
-                                                            ),
-                                                            dividerThickness:
-                                                                1.0,
-                                                            showBottomBorder:
-                                                                true,
-                                                            minWidth: 49.0,
-                                                          ),
-                                                        ),
-                                                      );
-                                                    },
                                                   ),
                                                 ),
                                               ),
@@ -686,6 +420,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                   context)
                                                               .titleSmallFamily,
                                                       color: Colors.white,
+                                                      letterSpacing: 0.0,
                                                       useGoogleFonts: GoogleFonts
                                                               .asMap()
                                                           .containsKey(
@@ -751,7 +486,19 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
-                                                              .bodyMedium,
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
                                                     ),
                                                   ),
                                                 ),
@@ -783,7 +530,19 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                       ),
                                                     ),
                                                   ),
@@ -801,7 +560,20 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                   'Results:',
                                                   style: FlutterFlowTheme.of(
                                                           context)
-                                                      .bodyMedium,
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMediumFamily,
+                                                        letterSpacing: 0.0,
+                                                        useGoogleFonts: GoogleFonts
+                                                                .asMap()
+                                                            .containsKey(
+                                                                FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily),
+                                                      ),
                                                 ),
                                               ),
                                               if ((_model.trainingResults
@@ -823,7 +595,20 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
-                                                        .bodyMedium,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMediumFamily,
+                                                          letterSpacing: 0.0,
+                                                          useGoogleFonts: GoogleFonts
+                                                                  .asMap()
+                                                              .containsKey(
+                                                                  FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily),
+                                                        ),
                                                   ),
                                                 ),
                                             ],
@@ -865,7 +650,17 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                       'Create rules to help the AI categorize your transactions',
                                       textAlign: TextAlign.center,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMediumFamily,
+                                            letterSpacing: 0.0,
+                                            useGoogleFonts: GoogleFonts.asMap()
+                                                .containsKey(
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMediumFamily),
+                                          ),
                                     ),
                                   ),
                                 ),
@@ -951,6 +746,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 context)
                                                             .titleSmallFamily,
                                                     color: _model.descTextColor,
+                                                    letterSpacing: 0.0,
                                                     useGoogleFonts: GoogleFonts
                                                             .asMap()
                                                         .containsKey(
@@ -1046,6 +842,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 .titleSmallFamily,
                                                         color: _model
                                                             .amoMinTextColor,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1138,6 +935,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 .titleSmallFamily,
                                                         color: _model
                                                             .amoMaxTextColor,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1230,6 +1028,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 .titleSmallFamily,
                                                         color: _model
                                                             .accouTextColor,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1299,6 +1098,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                         context)
                                                                     .bodyMediumFamily,
                                                                 fontSize: 20.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -1334,6 +1135,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                           .textController1,
                                                       focusNode: _model
                                                           .textFieldFocusNode1,
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
@@ -1353,14 +1155,15 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                       .grayIcon,
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily),
+                                                                          'Space Grotesk'),
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
@@ -1426,15 +1229,17 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                         context)
                                                                     .btnText,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                        'Space Grotesk'),
                                                               ),
+                                                      minLines: null,
                                                       validator: _model
                                                           .textController1Validator
                                                           .asValidator(context),
@@ -1466,6 +1271,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                       context)
                                                                   .bodyMediumFamily,
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -1504,6 +1310,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                               : 18.0,
                                                           18.0,
                                                         ),
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1530,6 +1337,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                   400.0
                                                               ? 15.0
                                                               : 18.0,
+                                                          letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -1565,9 +1373,11 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                           .textController2,
                                                       focusNode: _model
                                                           .textFieldFocusNode2,
+                                                      autofocus: false,
                                                       obscureText: false,
                                                       decoration:
                                                           InputDecoration(
+                                                        isDense: false,
                                                         labelText: 'Amount Min',
                                                         hintText: 'ie . 5',
                                                         hintStyle:
@@ -1582,14 +1392,15 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                       .grayIcon,
                                                                   fontSize:
                                                                       16.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyLargeFamily),
+                                                                          'Space Grotesk'),
                                                                 ),
                                                         enabledBorder:
                                                             OutlineInputBorder(
@@ -1655,17 +1466,19 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                         context)
                                                                     .btnText,
                                                                 fontSize: 14.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .normal,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
-                                                                        FlutterFlowTheme.of(context)
-                                                                            .bodyMediumFamily),
+                                                                        'Space Grotesk'),
                                                               ),
                                                       textAlign:
                                                           TextAlign.center,
+                                                      minLines: null,
                                                       keyboardType:
                                                           const TextInputType
                                                               .numberWithOptions(
@@ -1700,6 +1513,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                       context)
                                                                   .bodyMediumFamily,
                                                           fontSize: 18.0,
+                                                          letterSpacing: 0.0,
                                                           useGoogleFonts: GoogleFonts
                                                                   .asMap()
                                                               .containsKey(
@@ -1725,6 +1539,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                     context)
                                                                 .bodyMediumFamily,
                                                         fontSize: 18.0,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -1756,6 +1571,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                             .textController3,
                                                         focusNode: _model
                                                             .textFieldFocusNode3,
+                                                        autofocus: false,
                                                         obscureText: false,
                                                         decoration:
                                                             InputDecoration(
@@ -1774,13 +1590,15 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                         .grayIcon,
                                                                     fontSize:
                                                                         16.0,
+                                                                    letterSpacing:
+                                                                        0.0,
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .normal,
                                                                     useGoogleFonts: GoogleFonts
                                                                             .asMap()
                                                                         .containsKey(
-                                                                            FlutterFlowTheme.of(context).bodyLargeFamily),
+                                                                            'Space Grotesk'),
                                                                   ),
                                                           enabledBorder:
                                                               OutlineInputBorder(
@@ -1847,17 +1665,19 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                       .btnText,
                                                                   fontSize:
                                                                       14.0,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   fontWeight:
                                                                       FontWeight
                                                                           .normal,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
+                                                                          'Space Grotesk'),
                                                                 ),
                                                         textAlign:
                                                             TextAlign.center,
+                                                        minLines: null,
                                                         keyboardType:
                                                             const TextInputType
                                                                 .numberWithOptions(
@@ -1904,6 +1724,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                         context)
                                                                     .bodyMediumFamily,
                                                                 fontSize: 18.0,
+                                                                letterSpacing:
+                                                                    0.0,
                                                                 useGoogleFonts: GoogleFonts
                                                                         .asMap()
                                                                     .containsKey(
@@ -1991,7 +1813,19 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                         textStyle:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .bodyMedium,
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .bodyMediumFamily,
+                                                                  letterSpacing:
+                                                                      0.0,
+                                                                  useGoogleFonts: GoogleFonts
+                                                                          .asMap()
+                                                                      .containsKey(
+                                                                          FlutterFlowTheme.of(context)
+                                                                              .bodyMediumFamily),
+                                                                ),
                                                         hintText:
                                                             'Please select account...',
                                                         icon: Icon(
@@ -2056,6 +1890,7 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                 700.0
                                                             ? 16.0
                                                             : 24.0,
+                                                        letterSpacing: 0.0,
                                                         useGoogleFonts: GoogleFonts
                                                                 .asMap()
                                                             .containsKey(
@@ -2155,6 +1990,8 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                                   color: FlutterFlowTheme.of(
                                                                           context)
                                                                       .grayIcon,
+                                                                  letterSpacing:
+                                                                      0.0,
                                                                   useGoogleFonts: GoogleFonts
                                                                           .asMap()
                                                                       .containsKey(
@@ -2210,17 +2047,17 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                 logFirebaseEvent(
                                                     'Button_backend_call');
                                                 await UserRulesTable().insert({
-                                                  'description_rule': _model
+                                                  'keyword': _model
                                                       .textController1.text,
-                                                  'amount_min': int.tryParse(
+                                                  'amount_min': double.tryParse(
                                                       _model.textController2
                                                           .text),
-                                                  'amount_max': int.tryParse(
+                                                  'amount_max': double.tryParse(
                                                       _model.textController3
                                                           .text),
-                                                  'account_name_rule':
+                                                  'account_name':
                                                       _model.dropDownValue1,
-                                                  'category_rule':
+                                                  'category':
                                                       _model.dropDownValue2,
                                                 });
                                                 logFirebaseEvent(
@@ -2245,53 +2082,50 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                 });
                                                 logFirebaseEvent(
                                                     'Button_alert_dialog');
-                                                showAlignedDialog(
+                                                showDialog(
                                                   context: context,
-                                                  isGlobal: true,
-                                                  avoidOverflow: false,
-                                                  targetAnchor:
-                                                      const AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
-                                                  followerAnchor:
-                                                      const AlignmentDirectional(
-                                                              0.0, 0.0)
-                                                          .resolve(
-                                                              Directionality.of(
-                                                                  context)),
                                                   builder: (dialogContext) {
-                                                    return Material(
-                                                      color: Colors.transparent,
+                                                    return Dialog(
+                                                      elevation: 0,
+                                                      insetPadding:
+                                                          EdgeInsets.zero,
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      alignment:
+                                                          const AlignmentDirectional(
+                                                                  0.0, 0.0)
+                                                              .resolve(
+                                                                  Directionality.of(
+                                                                      context)),
                                                       child: WebViewAware(
-                                                          child:
-                                                              GestureDetector(
-                                                        onTap: () => _model
-                                                                .unfocusNode
-                                                                .canRequestFocus
-                                                            ? FocusScope.of(
-                                                                    context)
-                                                                .requestFocus(_model
-                                                                    .unfocusNode)
-                                                            : FocusScope.of(
-                                                                    context)
-                                                                .unfocus(),
-                                                        child: SizedBox(
-                                                          height:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .height *
-                                                                  0.2,
-                                                          width:
-                                                              MediaQuery.sizeOf(
-                                                                          context)
-                                                                      .width *
-                                                                  0.5,
-                                                          child:
-                                                              const TransRuleNotifWidget(),
+                                                        child: GestureDetector(
+                                                          onTap: () => _model
+                                                                  .unfocusNode
+                                                                  .canRequestFocus
+                                                              ? FocusScope.of(
+                                                                      context)
+                                                                  .requestFocus(
+                                                                      _model
+                                                                          .unfocusNode)
+                                                              : FocusScope.of(
+                                                                      context)
+                                                                  .unfocus(),
+                                                          child: SizedBox(
+                                                            height: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .height *
+                                                                0.2,
+                                                            width: MediaQuery
+                                                                        .sizeOf(
+                                                                            context)
+                                                                    .width *
+                                                                0.5,
+                                                            child:
+                                                                const TransRuleNotifWidget(),
+                                                          ),
                                                         ),
-                                                      )),
+                                                      ),
                                                     );
                                                   },
                                                 ).then(
@@ -2333,14 +2167,14 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                                               'Space Grotesk',
                                                           color: Colors.white,
                                                           fontSize: 16.0,
+                                                          letterSpacing: 0.0,
                                                           fontWeight:
                                                               FontWeight.w500,
-                                                          useGoogleFonts: GoogleFonts
-                                                                  .asMap()
-                                                              .containsKey(
-                                                                  FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .titleMediumFamily),
+                                                          useGoogleFonts:
+                                                              GoogleFonts
+                                                                      .asMap()
+                                                                  .containsKey(
+                                                                      'Space Grotesk'),
                                                         ),
                                                 elevation: 2.0,
                                                 borderRadius:
@@ -2366,7 +2200,15 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                       labelColor: FlutterFlowTheme.of(context).primaryText,
                       unselectedLabelColor:
                           FlutterFlowTheme.of(context).secondaryText,
-                      labelStyle: FlutterFlowTheme.of(context).titleMedium,
+                      labelStyle: FlutterFlowTheme.of(context)
+                          .titleMedium
+                          .override(
+                            fontFamily:
+                                FlutterFlowTheme.of(context).titleMediumFamily,
+                            letterSpacing: 0.0,
+                            useGoogleFonts: GoogleFonts.asMap().containsKey(
+                                FlutterFlowTheme.of(context).titleMediumFamily),
+                          ),
                       unselectedLabelStyle: const TextStyle(),
                       indicatorColor: FlutterFlowTheme.of(context).primary,
                       tabs: const [
@@ -2386,6 +2228,9 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                         ),
                       ],
                       controller: _model.tabBarController,
+                      onTap: (i) async {
+                        [() async {}, () async {}][i]();
+                      },
                     ),
                   ),
                 ],
