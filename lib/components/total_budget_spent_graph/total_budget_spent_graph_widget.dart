@@ -37,7 +37,7 @@ class _TotalBudgetSpentGraphWidgetState
     super.initState();
     _model = createModel(context, () => TotalBudgetSpentGraphModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import '/backend/backend.dart';
 import '/backend/schema/structs/index.dart';
@@ -9,13 +8,14 @@ import '/backend/schema/structs/index.dart';
 import '/auth/base_auth_user_provider.dart';
 
 import '/index.dart';
-import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 export 'package:go_router/go_router.dart';
 export 'serialization_util.dart';
 
 const kTransitionInfoKey = '__transition_info__';
+
+GlobalKey<NavigatorState> appNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppStateNotifier extends ChangeNotifier {
   AppStateNotifier._();
@@ -75,6 +75,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
       initialLocation: '/',
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
+      navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) => appStateNotifier.loggedIn
           ? entryPage ?? const BudgetsWidget()
           : const SignInWidget(),
@@ -99,7 +100,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
             FFRoute(
               name: 'Accounts',
               path: 'accounts',
-              requireAuth: true,
               builder: (context, params) => const AccountsWidget(),
             ),
             FFRoute(
@@ -115,10 +115,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               builder: (context, params) => const TransactionsWidget(),
             ),
             FFRoute(
-              name: 'Home17Calendar',
-              path: 'home17Calendar',
+              name: 'Calendar',
+              path: 'calendar',
               requireAuth: true,
-              builder: (context, params) => const Home17CalendarWidget(),
+              builder: (context, params) => const CalendarWidget(),
             ),
             FFRoute(
               name: 'Dashboard',
@@ -131,6 +131,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               path: 'transactionRules',
               requireAuth: true,
               builder: (context, params) => const TransactionRulesWidget(),
+            ),
+            FFRoute(
+              name: 'Categories',
+              path: 'categories',
+              requireAuth: true,
+              builder: (context, params) => const CategoriesWidget(),
+            ),
+            FFRoute(
+              name: 'DateDetailsPage',
+              path: 'dateDetailsPage',
+              requireAuth: true,
+              builder: (context, params) => DateDetailsPageWidget(
+                selectedDate: params.getParam(
+                  'selectedDate',
+                  ParamType.DateTime,
+                ),
+              ),
+            ),
+            FFRoute(
+              name: 'hjk',
+              path: 'hjk',
+              requireAuth: true,
+              builder: (context, params) => const HjkWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -209,7 +232,7 @@ extension _GoRouterStateExtensions on GoRouterState {
       extra != null ? extra as Map<String, dynamic> : {};
   Map<String, dynamic> get allParams => <String, dynamic>{}
     ..addAll(pathParameters)
-    ..addAll(queryParameters)
+    ..addAll(uri.queryParameters)
     ..addAll(extraMap);
   TransitionInfo get transitionInfo => extraMap.containsKey(kTransitionInfoKey)
       ? extraMap[kTransitionInfoKey] as TransitionInfo
@@ -228,7 +251,7 @@ class FFParameters {
   // present is the special extra parameter reserved for the transition info.
   bool get isEmpty =>
       state.allParams.isEmpty ||
-      (state.extraMap.length == 1 &&
+      (state.allParams.length == 1 &&
           state.extraMap.containsKey(kTransitionInfoKey));
   bool isAsyncParam(MapEntry<String, dynamic> param) =>
       asyncParams.containsKey(param.key) && param.value is String;
@@ -249,11 +272,11 @@ class FFParameters {
 
   dynamic getParam<T>(
     String paramName,
-    ParamType type, [
+    ParamType type, {
     bool isList = false,
     List<String>? collectionNamePath,
     StructBuilder<T>? structBuilder,
-  ]) {
+  }) {
     if (futureParamValues.containsKey(paramName)) {
       return futureParamValues[paramName];
     }
@@ -304,7 +327,7 @@ class FFRoute {
           }
 
           if (requireAuth && !appStateNotifier.loggedIn) {
-            appStateNotifier.setRedirectLocationIfUnset(state.location);
+            appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
             return '/signIn';
           }
           return null;
@@ -319,14 +342,11 @@ class FFRoute {
                 )
               : builder(context, ffParams);
           final child = appStateNotifier.loading
-              ? Center(
-                  child: SizedBox(
-                    width: 50.0,
-                    height: 50.0,
-                    child: SpinKitDualRing(
-                      color: FlutterFlowTheme.of(context).tertiary400,
-                      size: 50.0,
-                    ),
+              ? Container(
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    'assets/images/splashscreen.png',
+                    fit: BoxFit.fitHeight,
                   ),
                 )
               : page;
@@ -373,7 +393,8 @@ class TransitionInfo {
 
   static TransitionInfo appDefault() => const TransitionInfo(
         hasTransition: true,
-        transitionType: PageTransitionType.fade,
+        transitionType: PageTransitionType.scale,
+        alignment: Alignment.bottomCenter,
         duration: Duration(milliseconds: 300),
       );
 }
@@ -386,7 +407,7 @@ class RootPageContext {
   static bool isInactiveRootPage(BuildContext context) {
     final rootPageContext = context.read<RootPageContext?>();
     final isRootPage = rootPageContext?.isRootPage ?? false;
-    final location = GoRouter.of(context).location;
+    final location = GoRouterState.of(context).uri.toString();
     return isRootPage &&
         location != '/' &&
         location != rootPageContext?.errorRoute;
@@ -396,4 +417,14 @@ class RootPageContext {
         value: RootPageContext(true, errorRoute),
         child: child,
       );
+}
+
+extension GoRouterLocationExtension on GoRouter {
+  String getCurrentLocation() {
+    final RouteMatch lastMatch = routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : routerDelegate.currentConfiguration;
+    return matchList.uri.toString();
+  }
 }

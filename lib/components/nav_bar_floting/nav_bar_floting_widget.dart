@@ -28,7 +28,7 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
     super.initState();
     _model = createModel(context, () => NavBarFlotingModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -157,8 +157,12 @@ class _NavBarFlotingWidgetState extends State<NavBarFlotingWidget> {
                           color: Colors.white,
                           size: 30.0,
                         ),
-                        onPressed: () {
-                          print('IconButton pressed ...');
+                        onPressed: () async {
+                          logFirebaseEvent(
+                              'NAV_BAR_FLOTING_COMP_add_ICN_ON_TAP');
+                          logFirebaseEvent('IconButton_navigate_to');
+
+                          context.pushNamed('hjk');
                         },
                       ),
                     ),

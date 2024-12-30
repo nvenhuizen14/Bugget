@@ -28,6 +28,13 @@ class TransactionCategoryViewRow extends SupabaseDataRow {
   int? get categoryId => getField<int>('category_id');
   set categoryId(int? value) => setField<int>('category_id', value);
 
+  bool? get subscriptionStatus => getField<bool>('subscription_status');
+  set subscriptionStatus(bool? value) =>
+      setField<bool>('subscription_status', value);
+
   int? get groupId => getField<int>('group_id');
   set groupId(int? value) => setField<int>('group_id', value);
+
+  String? get userId => getField<String>('user_id');
+  set userId(String? value) => setField<String>('user_id', value);
 }

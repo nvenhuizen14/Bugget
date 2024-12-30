@@ -3,13 +3,14 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import '/flutter_flow/flutter_flow_util.dart';
 
-const _kGemeniApiKey = 'AIzaSyDWf8jW84K3u0sJAuqSYZriwRCVp3ES3Dc';
+const _kGeminiApiKey = 'AIzaSyDWf8jW84K3u0sJAuqSYZriwRCVp3ES3Dc';
 
 Future<String?> geminiGenerateText(
   BuildContext context,
   String prompt,
 ) async {
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: _kGemeniApiKey);
+  final model =
+      GenerativeModel(model: 'gemini-1.5-pro', apiKey: _kGeminiApiKey);
   final content = [Content.text(prompt)];
 
   try {
@@ -28,7 +29,8 @@ Future<String?> geminiCountTokens(
   BuildContext context,
   String prompt,
 ) async {
-  final model = GenerativeModel(model: 'gemini-pro', apiKey: _kGemeniApiKey);
+  final model =
+      GenerativeModel(model: 'gemini-1.5-pro', apiKey: _kGeminiApiKey);
   final content = [Content.text(prompt)];
 
   try {
@@ -65,7 +67,7 @@ Future<String?> geminiTextFromImage(
   );
 
   final model =
-      GenerativeModel(model: 'gemini-pro-vision', apiKey: _kGemeniApiKey);
+      GenerativeModel(model: 'gemini-1.5-flash', apiKey: _kGeminiApiKey);
   final imageBytes = uploadImageBytes != null
       ? uploadImageBytes.bytes
       : await loadImageBytesFromUrl(imageNetworkUrl!);

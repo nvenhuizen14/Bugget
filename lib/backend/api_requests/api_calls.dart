@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/foundation.dart';
+
 import '/flutter_flow/flutter_flow_util.dart';
 import 'api_manager.dart';
 
@@ -7,355 +9,342 @@ export 'api_manager.dart' show ApiCallResponse;
 
 const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 
-/// Start Supabase Group Code
+/// Start Plaid Group Code
 
-class SupabaseGroup {
-  static String baseUrl = 'https://eqtwspinslicgwdcosnd.supabase.co/rest/v1';
+class PlaidGroup {
+  static String getBaseUrl() => 'https://production.plaid.com';
   static Map<String, String> headers = {
-    'apikey':
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-    'Authorization':
-        'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
+    'Content-Type': 'application/json',
+    'PLAID-CLIENT-ID': '624b01822f47aa001ab532a8',
+    'PLAID-SECRET': '7b3c6a9c07a072a581c13ec2b2fe24',
   };
-  static SELECTALLFROMTransactioncategoryCall
-      sELECTALLFROMTransactioncategoryCall =
-      SELECTALLFROMTransactioncategoryCall();
-  static TransactionCategoryForeginKeytransactionGroupCall
-      transactionCategoryForeginKeytransactionGroupCall =
-      TransactionCategoryForeginKeytransactionGroupCall();
-  static BudgetingCall budgetingCall = BudgetingCall();
-  static SELECTALLFROMTransactionGroupCall sELECTALLFROMTransactionGroupCall =
-      SELECTALLFROMTransactionGroupCall();
+  static CreateTokenCall createTokenCall = CreateTokenCall();
 }
 
-class SELECTALLFROMTransactioncategoryCall {
+class CreateTokenCall {
   Future<ApiCallResponse> call({
-    String? foreignKey = '',
-    String? someColumn = '',
-    String? otherTable = '',
+    String? userId = 'khjkyh5g4',
   }) async {
+    final baseUrl = PlaidGroup.getBaseUrl();
+
+    final ffApiRequestBody = '''
+{
+  "user": {
+    "client_user_id": "$userId"
+  },
+  "client_name": "Bugget",
+  "country_codes": ["US"],
+  "products": ["transactions"],
+  "language": "en",
+  "redirect_uri": "https://bugget.flutterflow.app/accounts"
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'SELECT ALL FROM transactioncategory',
-      apiUrl: '${SupabaseGroup.baseUrl}/transaction_category',
-      callType: ApiCallType.GET,
-      headers: {
-        'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-      },
-      params: {
-        'select': "*",
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: true,
-      alwaysAllowBody: false,
-    );
-  }
-
-  List<String>? categoryNames(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  List<String>? categoryTypes(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].type''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-  List? categoryShow(dynamic response) => getJsonField(
-        response,
-        r'''$[:].show''',
-        true,
-      ) as List?;
-  List<int>? categoryId(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  List<int>? categoryRelatedGroupID(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].group_id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  List<String>? categoryName1(dynamic response) => (getJsonField(
-        response,
-        r'''$[0].name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class TransactionCategoryForeginKeytransactionGroupCall {
-  Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'transactionCategoryForeginKeytransactionGroup',
-      apiUrl:
-          '${SupabaseGroup.baseUrl}/transaction_category?select=group_id,transaction_group(name)',
-      callType: ApiCallType.GET,
-      headers: {
-        'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  List<int>? groupid(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].group_id''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<int>(x))
-          .withoutNulls
-          .toList();
-  List? transactionGroup(dynamic response) => getJsonField(
-        response,
-        r'''$[:].transaction_group''',
-        true,
-      ) as List?;
-  List<String>? transactionGroupName(dynamic response) => (getJsonField(
-        response,
-        r'''$[:].transaction_group.name''',
-        true,
-      ) as List?)
-          ?.withoutNulls
-          .map((x) => castToType<String>(x))
-          .withoutNulls
-          .toList();
-}
-
-class BudgetingCall {
-  Future<ApiCallResponse> call({
-    String? group = 'null',
-  }) async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'budgeting',
-      apiUrl: '${SupabaseGroup.baseUrl}/budgeting',
-      callType: ApiCallType.GET,
-      headers: {
-        'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-        'Content-Type': 'application/json',
-      },
-      params: {
-        'group': group,
-      },
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  List? budgetItem(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_item''',
-        true,
-      ) as List?;
-  List? group(dynamic response) => getJsonField(
-        response,
-        r'''$[:].group''',
-        true,
-      ) as List?;
-  List? recurring(dynamic response) => getJsonField(
-        response,
-        r'''$[:].recurring''',
-        true,
-      ) as List?;
-  List? budgetLimit(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_limit''',
-        true,
-      ) as List?;
-  List? budgetActual(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_actual''',
-        true,
-      ) as List?;
-  List? budgetRemaining(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_remaining''',
-        true,
-      ) as List?;
-  List? budgetPercent(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_percentage''',
-        true,
-      ) as List?;
-  List? transactionCount(dynamic response) => getJsonField(
-        response,
-        r'''$[:].transaction_count''',
-        true,
-      ) as List?;
-  List? startDate(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_start_date''',
-        true,
-      ) as List?;
-  List? endDate(dynamic response) => getJsonField(
-        response,
-        r'''$[:].budget_end_date''',
-        true,
-      ) as List?;
-}
-
-class SELECTALLFROMTransactionGroupCall {
-  Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'SELECT ALL FROM transaction group',
-      apiUrl: '${SupabaseGroup.baseUrl}/transaction_group',
-      callType: ApiCallType.GET,
-      headers: {
-        'apikey':
-            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-        'Authorization':
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY4NTgwMTcxMSwiZXhwIjoyMDAxMzc3NzExfQ.YlD2SlJYryBQPjkEdGDqLkz91pUwWBsdD7Sko8xuQB0',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-
-  List? id(dynamic response) => getJsonField(
-        response,
-        r'''$[:].id''',
-        true,
-      ) as List?;
-  List? name(dynamic response) => getJsonField(
-        response,
-        r'''$[:].name''',
-        true,
-      ) as List?;
-  List? createdAt(dynamic response) => getJsonField(
-        response,
-        r'''$[:].created_at''',
-        true,
-      ) as List?;
-}
-
-/// End Supabase Group Code
-
-class AllTransactionsCopyCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'All Transactions Copy',
-      apiUrl: 'http://localhost:8055/items/Transactions?limit=20',
-      callType: ApiCallType.GET,
-      headers: {
-        'Authorization': 'Bearer 29mnn9VHbnUq5eNXfHHLXqmvkqAMKth1',
-      },
-      params: {},
-      returnBody: true,
-      encodeBodyUtf8: false,
-      decodeUtf8: false,
-      cache: false,
-      alwaysAllowBody: false,
-    );
-  }
-}
-
-class TrainModelCall {
-  static Future<ApiCallResponse> call() async {
-    return ApiManager.instance.makeApiCall(
-      callName: 'Train Model',
-      apiUrl: 'https://buggetml.nvsolutionss.com/train',
+      callName: 'Create Token',
+      apiUrl: '$baseUrl/link/token/create',
       callType: ApiCallType.POST,
-      headers: {},
+      headers: {
+        'Content-Type': 'application/json',
+        'PLAID-CLIENT-ID': '624b01822f47aa001ab532a8',
+        'PLAID-SECRET': '7b3c6a9c07a072a581c13ec2b2fe24',
+      },
       params: {},
+      body: ffApiRequestBody,
       bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
 
-  static dynamic accuracy(dynamic response) => getJsonField(
+  String? linkToken(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.accuracy''',
-      );
-  static dynamic status(dynamic response) => getJsonField(
+        r'''$.link_token''',
+      ));
+  String? expiration(dynamic response) => castToType<String>(getJsonField(
         response,
-        r'''$.status''',
-      );
+        r'''$.expiration''',
+      ));
+  String? requestID(dynamic response) => castToType<String>(getJsonField(
+        response,
+        r'''$.request_id''',
+      ));
 }
 
-class GetCategoryAmountThisMonthCall {
+/// End Plaid Group Code
+
+class LinkTokenCreateoneCall {
   static Future<ApiCallResponse> call({
-    String? labels = '',
-    String? data = '',
+    String? plaidClientId = '624b01822f47aa001ab532a8',
+    String? plaidSecret = '7b3c6a9c07a072a581c13ec2b2fe24',
+    String? universalOrAppLink = 'https://bugget.flutterflow.app',
   }) async {
+    final ffApiRequestBody = '''
+{
+  "client_id": "$plaidClientId",
+  "secret": "$plaidSecret",
+  "client_name": "Bugget",
+  "country_codes": [
+    "US"
+  ],
+  "redirect_uri": "$universalOrAppLink",
+  "webhook": "https://n8n.nvsolutionss.com/webhook/d5d13be4-b9a1-4435-acff-5562adbfea9c",
+  "language": "en",
+  "user": {
+    "client_user_id": "a0732f17-5f13-4659-b7dc-57047a8866ed",
+    "email_address": "nvenhuizen14@nvsolutions.online"
+  },
+  "products": [
+    "transactions"
+  ],
+  "hosted_link": {
+    "delivery_method": "email",
+    "completion_redirect_uri": "https://bugget.flutterflow.app",
+    "is_mobile_app": true,
+    "url_lifetime_seconds": 900
+  }
+}''';
     return ApiManager.instance.makeApiCall(
-      callName: 'getCategoryAmountThisMonth',
-      apiUrl:
-          'https://n8n.nvsolutionss.com/webhook/7c213390-3ef0-42ff-add7-59aacb5b8bf8',
-      callType: ApiCallType.GET,
-      headers: {},
-      params: {
-        'labels': labels,
-        'data': data,
+      callName: 'linkTokenCreateone',
+      apiUrl: 'https://production.plaid.com/link/token/create',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
       },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
       returnBody: true,
       encodeBodyUtf8: false,
       decodeUtf8: false,
       cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class TransactionsCall {
+  static Future<ApiCallResponse> call({
+    String? userid1 = '1',
+    String? userid2 = '2',
+    String? date1 = '06/25/1998',
+  }) async {
+    return ApiManager.instance.makeApiCall(
+      callName: 'transactions',
+      apiUrl:
+          'https://eqtwspinslicgwdcosnd.supabase.co/rest/v1/transactions?select=*',
+      callType: ApiCallType.GET,
+      headers: {
+        'apikey':
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU4MDE3MTEsImV4cCI6MjAwMTM3NzcxMX0.fQ16tSq_Vm4zYGHGoHR1uHt7p8WXXxNVqEKSAt2_htM',
+        'Authorization':
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVxdHdzcGluc2xpY2d3ZGNvc25kIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODU4MDE3MTEsImV4cCI6MjAwMTM3NzcxMX0.fQ16tSq_Vm4zYGHGoHR1uHt7p8WXXxNVqEKSAt2_htM',
+      },
+      params: {},
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
       alwaysAllowBody: false,
     );
   }
 
-  static List? all(dynamic response) => getJsonField(
+  static List<String>? description(dynamic response) => (getJsonField(
         response,
-        r'''$''',
+        r'''$[:].description''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? category(dynamic response) => getJsonField(
+        response,
+        r'''$[:].category''',
         true,
       ) as List?;
-  static List? labels(dynamic response) => getJsonField(
+  static List? groupName(dynamic response) => getJsonField(
         response,
-        r'''$[:].labels''',
+        r'''$[:].group_name''',
         true,
       ) as List?;
-  static List? data(dynamic response) => getJsonField(
+  static List<double>? amount(dynamic response) => (getJsonField(
         response,
-        r'''$[:].data''',
+        r'''$[:].amount''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<double>(x))
+          .withoutNulls
+          .toList();
+  static List? institution(dynamic response) => getJsonField(
+        response,
+        r'''$[:].institution_name''',
         true,
       ) as List?;
+  static List<String>? transactionid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].transaction_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? accountid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].account_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? dateadded(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].date_added''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? createdat(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].created_at''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List? transactionjson(dynamic response) => getJsonField(
+        response,
+        r'''$[:].transaction_json''',
+        true,
+      ) as List?;
+  static List? pending(dynamic response) => getJsonField(
+        response,
+        r'''$[:].pending''',
+        true,
+      ) as List?;
+  static List? merchantname(dynamic response) => getJsonField(
+        response,
+        r'''$[:].merchant_name''',
+        true,
+      ) as List?;
+  static List? categoryid(dynamic response) => getJsonField(
+        response,
+        r'''$[:].category_id''',
+        true,
+      ) as List?;
+  static List<bool>? template(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].template''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<bool>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? updatedat(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].updated_at''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? userid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].user_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? itemid(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].item_id''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+  static List<String>? accountname(dynamic response) => (getJsonField(
+        response,
+        r'''$[:].account_name''',
+        true,
+      ) as List?)
+          ?.withoutNulls
+          .map((x) => castToType<String>(x))
+          .withoutNulls
+          .toList();
+}
+
+class BackendCreateTokenCall {
+  static Future<ApiCallResponse> call({
+    String? userId = 'kjgklhg',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "client_user_id": "$userId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'BackendCreateToken',
+      apiUrl:
+          'https://worker-spring-queen-5a96.nvenhuizen14.workers.dev/fetchLinkToken',
+      callType: ApiCallType.POST,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
+}
+
+class BackendExchangeTokenCall {
+  static Future<ApiCallResponse> call({
+    String? publicToken = '',
+    String? userId = '',
+  }) async {
+    final ffApiRequestBody = '''
+{
+  "public_token": "$publicToken",
+  "client_user_id": "$userId"
+}''';
+    return ApiManager.instance.makeApiCall(
+      callName: 'BackendExchangeToken',
+      apiUrl:
+          'https://worker-spring-queen-5a96.nvenhuizen14.workers.dev/publicToken',
+      callType: ApiCallType.POST,
+      headers: {},
+      params: {},
+      body: ffApiRequestBody,
+      bodyType: BodyType.JSON,
+      returnBody: true,
+      encodeBodyUtf8: false,
+      decodeUtf8: false,
+      cache: false,
+      isStreamingApi: false,
+      alwaysAllowBody: false,
+    );
+  }
 }
 
 class ApiPagingParams {
@@ -374,11 +363,21 @@ class ApiPagingParams {
       'PagingParams(nextPageNumber: $nextPageNumber, numItems: $numItems, lastResponse: $lastResponse,)';
 }
 
+String _toEncodable(dynamic item) {
+  if (item is DocumentReference) {
+    return item.path;
+  }
+  return item;
+}
+
 String _serializeList(List? list) {
   list ??= <String>[];
   try {
-    return json.encode(list);
+    return json.encode(list, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("List serialization failed. Returning empty list.");
+    }
     return '[]';
   }
 }
@@ -386,8 +385,11 @@ String _serializeList(List? list) {
 String _serializeJson(dynamic jsonVar, [bool isList = false]) {
   jsonVar ??= (isList ? [] : {});
   try {
-    return json.encode(jsonVar);
+    return json.encode(jsonVar, toEncodable: _toEncodable);
   } catch (_) {
+    if (kDebugMode) {
+      print("Json serialization failed. Returning empty json.");
+    }
     return isList ? '[]' : '{}';
   }
 }

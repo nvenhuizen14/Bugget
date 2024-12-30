@@ -14,8 +14,8 @@ class UserRulesRow extends SupabaseDataRow {
   @override
   SupabaseTable get table => UserRulesTable();
 
-  String? get keyword => getField<String>('keyword');
-  set keyword(String? value) => setField<String>('keyword', value);
+  List<String> get keyword => getListField<String>('keyword');
+  set keyword(List<String>? value) => setListField<String>('keyword', value);
 
   double? get amountMin => getField<double>('amount_min');
   set amountMin(double? value) => setField<double>('amount_min', value);
@@ -34,4 +34,8 @@ class UserRulesRow extends SupabaseDataRow {
 
   String? get userId => getField<String>('user_id');
   set userId(String? value) => setField<String>('user_id', value);
+
+  String? get keywordTextVector => getField<String>('keyword_text_vector');
+  set keywordTextVector(String? value) =>
+      setField<String>('keyword_text_vector', value);
 }

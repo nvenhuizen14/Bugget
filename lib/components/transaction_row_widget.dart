@@ -61,7 +61,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
     super.initState();
     _model = createModel(context, () => TransactionRowModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -189,7 +189,7 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                    'Md',
+                                    "Md",
                                     widget.parameter11,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
@@ -220,7 +220,9 @@ class _TransactionRowWidgetState extends State<TransactionRowWidget> {
                                   valueOrDefault<String>(
                                     widget.parameter12,
                                     'null',
-                                  ).maybeHandleOverflow(maxChars: 60),
+                                  ).maybeHandleOverflow(
+                                    maxChars: 60,
+                                  ),
                                   textAlign: TextAlign.start,
                                   maxLines: 1,
                                   style: FlutterFlowTheme.of(context)

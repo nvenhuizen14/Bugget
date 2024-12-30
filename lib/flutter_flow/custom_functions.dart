@@ -54,12 +54,12 @@ DateTimeRange? thisWeek() {
   return DateTimeRange(start: todayMinus7Days, end: today);
 }
 
-DateTime? findMonthly(DateTime? startDate) {
-  // find one month from startDate
-  if (startDate == null) return null;
-  final oneMonthLater =
-      DateTime(startDate.year, startDate.month + 1, startDate.day);
-  return oneMonthLater;
+DateTimeRange? findCurrentMonthsDateRange() {
+  // Find the range of days in the current month
+  final now = DateTime.now();
+  final start = DateTime(now.year, now.month, 1);
+  final end = DateTime(now.year, now.month + 1, 0);
+  return DateTimeRange(start: start, end: end);
 }
 
 double? screenWidth(double? fractionOfScreenWidth) {
@@ -123,4 +123,114 @@ String? setState(
   // setState(() {     var stateVariableQuickChartUrl = quickChartUrl;
   var stateVariableQuickChartUrl = quickChartUrl;
   return quickChartUrl;
+}
+
+bool isInSameMonth(
+  DateTime? datetimeToExtractMonthFrom1,
+  DateTime? datetimeToExtractMonthFrom2,
+) {
+  // Extract the months from two datetimes and test if they are the same
+  if (datetimeToExtractMonthFrom1 == null ||
+      datetimeToExtractMonthFrom2 == null) {
+    return false;
+  }
+  return datetimeToExtractMonthFrom1.month ==
+          datetimeToExtractMonthFrom2.month &&
+      datetimeToExtractMonthFrom1.year == datetimeToExtractMonthFrom2.year;
+}
+
+List<CalendarDayStruct> getCalendarMonth(DateTime inputDate) {
+  List<CalendarDayStruct> calendar = [];
+
+  // Start by finding the first day of the current month
+  DateTime firstOfMonth = DateTime(inputDate.year, inputDate.month, 1);
+
+  // Find the last day of the current month
+  DateTime lastOfMonth = DateTime(inputDate.year, inputDate.month + 1, 0);
+
+  // Find the first Monday on or before the first of the month
+  DateTime startCalendar =
+      firstOfMonth.subtract(Duration(days: firstOfMonth.weekday - 1));
+
+  // Find the last Sunday after the end of the month
+  DateTime endCalendar = lastOfMonth.weekday == 7
+      ? lastOfMonth
+      : lastOfMonth.add(Duration(days: 7 - lastOfMonth.weekday));
+
+  // Populate the calendar
+  for (DateTime date = startCalendar;
+      date.isBefore(endCalendar.add(Duration(days: 1)));
+      date = date.add(Duration(days: 1))) {
+    bool isPreviousMonth = date.isBefore(firstOfMonth);
+    bool isNextMonth = date.isAfter(lastOfMonth);
+
+    CalendarDayStruct dayStruct = CalendarDayStruct(
+        calendarDate: date,
+        isPreviousMonth: isPreviousMonth,
+        isNextMonth: isNextMonth);
+
+    calendar.add(dayStruct);
+  }
+
+  return calendar;
+}
+
+DateTime getNextMonthDateTime(DateTime inputDate) {
+  int year = inputDate.year;
+  int month = inputDate.month;
+
+  if (month == 12) {
+    year++;
+    month = 1;
+  } else {
+    month++;
+  }
+  return DateTime(year, month);
+}
+
+DateTime getLastMonthDateTime(DateTime inputDate) {
+  int year = inputDate.year;
+  int month = inputDate.month;
+
+  if (month == 1) {
+    year--;
+    month = 12;
+  } else {
+    month--;
+  }
+  return DateTime(year, month);
+}
+
+List<DateTime> generateTimeSegments(
+  DateTime selectedDate,
+  int zoomLevel,
+) {
+  List<DateTime> timeSegments = [];
+  int interval;
+
+  // Set interval based on zoom level
+  switch (zoomLevel) {
+    case 1:
+      interval = 60; // 1-hour intervals
+      break;
+    case 2:
+      interval = 30; // 30-minute intervals
+      break;
+    case 3:
+      interval = 15; // 15-minute intervals
+      break;
+    case 4:
+      interval = 5; // 5-minute intervals
+      break;
+    default:
+      interval = 15; // Default to 15-minute intervals
+  }
+
+  for (int hour = 0; hour < 24; hour++) {
+    for (int minute = 0; minute < 60; minute += interval) {
+      timeSegments.add(DateTime(selectedDate.year, selectedDate.month,
+          selectedDate.day, hour, minute));
+    }
+  }
+  return timeSegments;
 }

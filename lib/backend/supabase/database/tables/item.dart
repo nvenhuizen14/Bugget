@@ -63,10 +63,9 @@ class ItemRow extends SupabaseDataRow {
   set lastWebhookSentAt(DateTime? value) =>
       setField<DateTime>('last_webhook_sent_at', value);
 
-  DateTime? get lastWebhookCodeSent =>
-      getField<DateTime>('last_webhook_code_sent');
-  set lastWebhookCodeSent(DateTime? value) =>
-      setField<DateTime>('last_webhook_code_sent', value);
+  String? get lastWebhookCodeSent => getField<String>('last_webhook_code_sent');
+  set lastWebhookCodeSent(String? value) =>
+      setField<String>('last_webhook_code_sent', value);
 
   String? get accessToken => getField<String>('access_token');
   set accessToken(String? value) => setField<String>('access_token', value);
@@ -74,6 +73,13 @@ class ItemRow extends SupabaseDataRow {
   String? get publicToken => getField<String>('public_token');
   set publicToken(String? value) => setField<String>('public_token', value);
 
-  String? get cursor => getField<String>('cursor');
-  set cursor(String? value) => setField<String>('cursor', value);
+  String? get nextCursor => getField<String>('next_cursor');
+  set nextCursor(String? value) => setField<String>('next_cursor', value);
+
+  String? get originalCursor => getField<String>('original_cursor');
+  set originalCursor(String? value) =>
+      setField<String>('original_cursor', value);
+
+  bool get firstSync => getField<bool>('firstSync')!;
+  set firstSync(bool value) => setField<bool>('firstSync', value);
 }

@@ -5,6 +5,7 @@ import 'package:integration_test/integration_test.dart';
 import 'package:bugget/flutter_flow/flutter_flow_drop_down.dart';
 import 'package:bugget/flutter_flow/flutter_flow_icon_button.dart';
 import 'package:bugget/flutter_flow/flutter_flow_widgets.dart';
+import 'package:bugget/flutter_flow/flutter_flow_theme.dart';
 import 'package:bugget/index.dart';
 import 'package:bugget/main.dart';
 import 'package:bugget/flutter_flow/flutter_flow_util.dart';
@@ -15,21 +16,30 @@ import 'package:bugget/backend/firebase/firebase_config.dart';
 import 'package:bugget/backend/supabase/supabase.dart';
 import 'package:bugget/auth/supabase_auth/auth_util.dart';
 
+import 'package:bugget/backend/supabase/supabase.dart';
+
 void main() async {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('test card scroll', (WidgetTester tester) async {
-    _overrideOnError();
+  setUpAll(() async {
     await initFirebase();
     await SupaFlow.initialize();
-    await authManager.signOut();
 
+    await FlutterFlowTheme.initialize();
+  });
+
+  setUp(() async {
+    await authManager.signOut();
     FFAppState.reset();
     final appState = FFAppState();
     await appState.initializePersistedState();
+  });
+
+  testWidgets('test card scroll', (WidgetTester tester) async {
+    _overrideOnError();
 
     await tester.pumpWidget(ChangeNotifierProvider(
-      create: (context) => appState,
+      create: (context) => FFAppState(),
       child: MyApp(),
     ));
 
@@ -37,10 +47,12 @@ void main() async {
     await tester.scrollUntilVisible(
       find.byKey(ValueKey('12')),
       100.0,
-      scrollable: find.descendant(
-        of: find.byKey(ValueKey('12')),
-        matching: find.byType(Scrollable),
-      ),
+      scrollable: find
+          .descendant(
+            of: find.byKey(ValueKey('12')),
+            matching: find.byType(Scrollable),
+          )
+          .first,
     );
   });
 }

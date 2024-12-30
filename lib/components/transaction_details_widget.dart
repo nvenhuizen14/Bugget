@@ -1,7 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/components/pickers/accountpicker/accountpicker_widget.dart';
+import '/components/pickers/category_widget/category_widget_widget.dart';
 import '/components/pickers/grouppicker/grouppicker_widget.dart';
-import '/components/pickers/picker_widget/picker_widget_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -60,7 +60,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
     super.initState();
     _model = createModel(context, () => TransactionDetailsModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -118,7 +118,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                               child: Text(
                                 valueOrDefault<String>(
                                   dateTimeFormat(
-                                    'yMMMd',
+                                    "yMMMd",
                                     widget.date,
                                     locale: FFLocalizations.of(context)
                                         .languageCode,
@@ -157,7 +157,9 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                   valueOrDefault<String>(
                                     widget.description,
                                     'null',
-                                  ).maybeHandleOverflow(maxChars: 60),
+                                  ).maybeHandleOverflow(
+                                    maxChars: 60,
+                                  ),
                                   textAlign: TextAlign.start,
                                   maxLines: 3,
                                   style: FlutterFlowTheme.of(context)
@@ -249,6 +251,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                           showModalBottomSheet(
                                             isScrollControlled: true,
                                             backgroundColor: Colors.transparent,
+                                            useSafeArea: true,
                                             context: context,
                                             builder: (context) {
                                               return WebViewAware(
@@ -261,7 +264,7 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                                 context)
                                                             .height *
                                                         0.6,
-                                                    child: PickerWidgetWidget(
+                                                    child: CategoryWidgetWidget(
                                                       currentTransaction: widget
                                                           .currentTransaction!,
                                                       currentCategory:
@@ -280,9 +283,8 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
                                           logFirebaseEvent(
                                               'Container_update_component_state');
-                                          setState(() {
-                                            _model.columnView = _model.catgeory;
-                                          });
+                                          _model.columnView = _model.catgeory;
+                                          _model.updatePage(() {});
                                         },
                                         child: Container(
                                           width: double.infinity,
@@ -415,17 +417,16 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
                                           logFirebaseEvent(
                                               'Container_update_component_state');
-                                          setState(() {
-                                            _model
-                                                .updateCurrentTransactionAtIndex(
-                                              valueOrDefault<int>(
-                                                widget.currentTransaction
-                                                    ?.categoryId,
-                                                164,
-                                              ),
-                                              (_) => widget.currentTransaction!,
-                                            );
-                                          });
+                                          _model
+                                              .updateCurrentTransactionAtIndex(
+                                            valueOrDefault<int>(
+                                              widget.currentTransaction
+                                                  ?.categoryId,
+                                              164,
+                                            ),
+                                            (_) => widget.currentTransaction!,
+                                          );
+                                          safeSetState(() {});
                                         },
                                         child: ClipRRect(
                                           borderRadius:
@@ -632,17 +633,16 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
 
                                           logFirebaseEvent(
                                               'Container_update_component_state');
-                                          setState(() {
-                                            _model
-                                                .updateCurrentTransactionAtIndex(
-                                              valueOrDefault<int>(
-                                                widget.currentTransaction
-                                                    ?.categoryId,
-                                                164,
-                                              ),
-                                              (_) => widget.currentTransaction!,
-                                            );
-                                          });
+                                          _model
+                                              .updateCurrentTransactionAtIndex(
+                                            valueOrDefault<int>(
+                                              widget.currentTransaction
+                                                  ?.categoryId,
+                                              164,
+                                            ),
+                                            (_) => widget.currentTransaction!,
+                                          );
+                                          safeSetState(() {});
                                         },
                                         child: Container(
                                           width:
@@ -684,7 +684,8 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                                                     child: AutoSizeText(
                                                       widget.account
                                                           .maybeHandleOverflow(
-                                                              maxChars: 30),
+                                                        maxChars: 30,
+                                                      ),
                                                       textAlign:
                                                           TextAlign.start,
                                                       maxLines: 1,

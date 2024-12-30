@@ -45,62 +45,64 @@ String _serializeDocumentReference(DocumentReference ref) {
 
 String? serializeParam(
   dynamic param,
-  ParamType paramType, [
+  ParamType paramType, {
   bool isList = false,
-]) {
+}) {
   try {
     if (param == null) {
       return null;
     }
     if (isList) {
       final serializedValues = (param as Iterable)
-          .map((p) => serializeParam(p, paramType, false))
+          .map((p) => serializeParam(p, paramType, isList: false))
           .where((p) => p != null)
           .map((p) => p!)
           .toList();
       return json.encode(serializedValues);
     }
+    String? data;
     switch (paramType) {
       case ParamType.int:
-        return param.toString();
+        data = param.toString();
       case ParamType.double:
-        return param.toString();
+        data = param.toString();
       case ParamType.String:
-        return param;
+        data = param;
       case ParamType.bool:
-        return param ? 'true' : 'false';
+        data = param ? 'true' : 'false';
       case ParamType.DateTime:
-        return (param as DateTime).millisecondsSinceEpoch.toString();
+        data = (param as DateTime).millisecondsSinceEpoch.toString();
       case ParamType.DateTimeRange:
-        return dateTimeRangeToString(param as DateTimeRange);
+        data = dateTimeRangeToString(param as DateTimeRange);
       case ParamType.LatLng:
-        return (param as LatLng).serialize();
+        data = (param as LatLng).serialize();
       case ParamType.Color:
-        return (param as Color).toCssString();
+        data = (param as Color).toCssString();
       case ParamType.FFPlace:
-        return placeToString(param as FFPlace);
+        data = placeToString(param as FFPlace);
       case ParamType.FFUploadedFile:
-        return uploadedFileToString(param as FFUploadedFile);
+        data = uploadedFileToString(param as FFUploadedFile);
       case ParamType.JSON:
-        return json.encode(param);
+        data = json.encode(param);
       case ParamType.DocumentReference:
-        return _serializeDocumentReference(param as DocumentReference);
+        data = _serializeDocumentReference(param as DocumentReference);
       case ParamType.Document:
         final reference = (param as FirestoreRecord).reference;
-        return _serializeDocumentReference(reference);
+        data = _serializeDocumentReference(reference);
 
       case ParamType.DataStruct:
-        return param is BaseStruct ? param.serialize() : null;
+        data = param is BaseStruct ? param.serialize() : null;
 
       case ParamType.Enum:
-        return (param is Enum) ? param.serialize() : null;
+        data = (param is Enum) ? param.serialize() : null;
 
       case ParamType.SupabaseRow:
         return json.encode((param as SupabaseDataRow).data);
 
       default:
-        return null;
+        data = null;
     }
+    return data;
   } catch (e) {
     print('Error serializing parameter: $e');
     return null;
@@ -184,6 +186,7 @@ enum ParamType {
   FFPlace,
   FFUploadedFile,
   JSON,
+
   Document,
   DocumentReference,
   DataStruct,
@@ -259,32 +262,44 @@ dynamic deserializeParam<T>(
             return BudgetingRow(data);
           case ItemRow:
             return ItemRow(data);
+          case MonthlyIncomeExpenseRow:
+            return MonthlyIncomeExpenseRow(data);
           case UserCombinedRow:
             return UserCombinedRow(data);
           case DocumentsRow:
             return DocumentsRow(data);
           case UserRulesRow:
             return UserRulesRow(data);
+          case PastDueEventsRow:
+            return PastDueEventsRow(data);
           case GroupBudgetViewRow:
             return GroupBudgetViewRow(data);
-          case UserRow:
-            return UserRow(data);
           case InstitutionRow:
             return InstitutionRow(data);
+          case EventRow:
+            return EventRow(data);
+          case GroupUserViewRow:
+            return GroupUserViewRow(data);
+          case ParentChildMonthlyIncomeExpenseRow:
+            return ParentChildMonthlyIncomeExpenseRow(data);
           case AccountRow:
             return AccountRow(data);
           case BudgetRow:
             return BudgetRow(data);
-          case PlaidRequestsRow:
-            return PlaidRequestsRow(data);
           case WeeklySpendingRow:
             return WeeklySpendingRow(data);
+          case PlaidWebhooksRow:
+            return PlaidWebhooksRow(data);
+          case UsersRow:
+            return UsersRow(data);
           case DailySpendingRow:
             return DailySpendingRow(data);
           case GroupSummaryRow:
             return GroupSummaryRow(data);
           case TopTransactionGroupsRow:
             return TopTransactionGroupsRow(data);
+          case UpcomingEventsRow:
+            return UpcomingEventsRow(data);
           case TransactionCategoryRow:
             return TransactionCategoryRow(data);
           case TransactionGroupRow:

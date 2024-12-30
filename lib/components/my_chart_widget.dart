@@ -25,7 +25,7 @@ class _MyChartWidgetState extends State<MyChartWidget> {
     super.initState();
     _model = createModel(context, () => MyChartModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

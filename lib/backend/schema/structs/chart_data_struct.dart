@@ -3,9 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class ChartDataStruct extends FFFirebaseStruct {
@@ -23,20 +21,25 @@ class ChartDataStruct extends FFFirebaseStruct {
   String? _xTitle;
   String get xTitle => _xTitle ?? '';
   set xTitle(String? val) => _xTitle = val;
+
   bool hasXTitle() => _xTitle != null;
 
   // "yValue1" field.
   int? _yValue1;
   int get yValue1 => _yValue1 ?? 0;
   set yValue1(int? val) => _yValue1 = val;
-  void incrementYValue1(int amount) => _yValue1 = yValue1 + amount;
+
+  void incrementYValue1(int amount) => yValue1 = yValue1 + amount;
+
   bool hasYValue1() => _yValue1 != null;
 
   // "yValue2" field.
   int? _yValue2;
   int get yValue2 => _yValue2 ?? 0;
   set yValue2(int? val) => _yValue2 = val;
-  void incrementYValue2(int amount) => _yValue2 = yValue2 + amount;
+
+  void incrementYValue2(int amount) => yValue2 = yValue2 + amount;
+
   bool hasYValue2() => _yValue2 != null;
 
   static ChartDataStruct fromMap(Map<String, dynamic> data) => ChartDataStruct(

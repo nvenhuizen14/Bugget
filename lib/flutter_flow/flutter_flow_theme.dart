@@ -177,14 +177,14 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF550F04);
-  late Color secondary = const Color(0xFF30686E);
-  late Color tertiary = const Color(0xFFEBD032);
-  late Color alternate = const Color(0xFFF1184C);
-  late Color primaryText = const Color(0xFF8F9E95);
-  late Color secondaryText = const Color(0xFFFFFFFF);
-  late Color primaryBackground = const Color(0xFF0B1A40);
-  late Color secondaryBackground = const Color(0xFF30686E);
+  late Color primary = const Color(0xFFC83206);
+  late Color secondary = const Color(0xFF315A72);
+  late Color tertiary = const Color(0xFF637584);
+  late Color alternate = const Color(0xFFA3D3E2);
+  late Color primaryText = const Color(0xFF637584);
+  late Color secondaryText = const Color(0xFF91B5BF);
+  late Color primaryBackground = const Color(0xFF232529);
+  late Color secondaryBackground = const Color(0xFF315A72);
   late Color accent1 = const Color(0xFF5BB8DB);
   late Color accent2 = const Color(0xFF512933);
   late Color accent3 = const Color(0xFF0D579A);
@@ -195,7 +195,7 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color info = const Color(0xFF1C4494);
 
   late Color primaryBtnText = const Color(0xFFFFFFFF);
-  late Color lineColor = const Color(0xFFE0E3E7);
+  late Color lineColor = const Color(0xFF22282F);
   late Color black = const Color(0xFF000000);
   late Color dukeBlue = const Color(0xFF0000A5);
   late Color navyBlue = const Color(0xFF00005C);
@@ -203,12 +203,12 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color navyBlue2 = const Color(0xFF00008B);
   late Color backgroundComponents = const Color(0xFF1D2428);
   late Color grayIcon = const Color(0xFF95A1AC);
-  late Color gray200 = const Color(0xFFDBE2E7);
+  late Color gray200 = const Color(0xFF22282F);
   late Color gray600 = const Color(0xFF262D34);
   late Color black600 = const Color(0xFF090F13);
   late Color tertiary400 = const Color(0xFF39D2C0);
   late Color textColor = const Color(0xFF1E2429);
-  late Color overlay = const Color(0xB3FFFFFF);
+  late Color overlay = const Color(0xB314181B);
   late Color btnText = const Color(0xFFFFFFFF);
   late Color customColor3 = const Color(0xFFDF3F3F);
   late Color customColor4 = const Color(0xFF090F13);
@@ -601,15 +601,15 @@ class DarkModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF550F04);
-  late Color secondary = const Color(0xFF30686E);
-  late Color tertiary = const Color(0xFFEBD032);
-  late Color alternate = const Color(0xFFF1184C);
-  late Color primaryText = const Color(0xFF8F9E95);
-  late Color secondaryText = const Color(0xFFFFFFFF);
-  late Color primaryBackground = const Color(0xFF0B1A40);
-  late Color secondaryBackground = const Color(0xFF30686E);
-  late Color accent1 = const Color(0xFF5BB8DB);
+  late Color primary = const Color(0xFFC83206);
+  late Color secondary = const Color(0xFF315A72);
+  late Color tertiary = const Color(0xFF637584);
+  late Color alternate = const Color(0xFFA3D3E2);
+  late Color primaryText = const Color(0xFF637584);
+  late Color secondaryText = const Color(0xFF91B5BF);
+  late Color primaryBackground = const Color(0xFF232529);
+  late Color secondaryBackground = const Color(0xFF315A72);
+  late Color accent1 = const Color(0x2439D2C0);
   late Color accent2 = const Color(0xFF512933);
   late Color accent3 = const Color(0xFF0D579A);
   late Color accent4 = const Color(0xFF4B6770);
@@ -658,6 +658,7 @@ extension TextStyleHelper on TextStyle {
     bool useGoogleFonts = true,
     TextDecoration? decoration,
     double? lineHeight,
+    List<Shadow>? shadows,
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
@@ -669,6 +670,7 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle ?? this.fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             )
           : copyWith(
               fontFamily: fontFamily,
@@ -679,5 +681,6 @@ extension TextStyleHelper on TextStyle {
               fontStyle: fontStyle,
               decoration: decoration,
               height: lineHeight,
+              shadows: shadows,
             );
 }

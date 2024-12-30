@@ -1,9 +1,14 @@
 import 'package:collection/collection.dart';
 
-enum Transactiongroups {
-  group1,
-  group2,
-  group3,
+enum TransactionType {
+  Income,
+  Expense,
+  Investment,
+}
+
+enum EventType {
+  Upcoming,
+  PastDue,
 }
 
 extension FFEnumExtensions<T extends Enum> on T {
@@ -17,8 +22,10 @@ extension FFEnumListExtensions<T extends Enum> on Iterable<T> {
 
 T? deserializeEnum<T>(String? value) {
   switch (T) {
-    case (Transactiongroups):
-      return Transactiongroups.values.deserialize(value) as T?;
+    case (TransactionType):
+      return TransactionType.values.deserialize(value) as T?;
+    case (EventType):
+      return EventType.values.deserialize(value) as T?;
     default:
       return null;
   }

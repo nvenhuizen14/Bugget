@@ -38,28 +38,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
     with TickerProviderStateMixin {
   late BudgetListTileModel _model;
 
-  final animationsMap = {
-    'cardOnActionTriggerAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onActionTrigger,
-      applyInitialState: true,
-      effects: [
-        MoveEffect(
-          curve: Curves.easeOut,
-          delay: 0.ms,
-          duration: 600.ms,
-          begin: const Offset(0.0, 0.0),
-          end: const Offset(-180.0, 0.0),
-        ),
-        MoveEffect(
-          curve: Curves.easeIn,
-          delay: 2000.ms,
-          duration: 600.ms,
-          begin: const Offset(0.0, 0.0),
-          end: const Offset(180.0, 0.0),
-        ),
-      ],
-    ),
-  };
+  final animationsMap = <String, AnimationInfo>{};
 
   @override
   void setState(VoidCallback callback) {
@@ -72,6 +51,28 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
     super.initState();
     _model = createModel(context, () => BudgetListTileModel());
 
+    animationsMap.addAll({
+      'cardOnActionTriggerAnimation': AnimationInfo(
+        trigger: AnimationTrigger.onActionTrigger,
+        applyInitialState: true,
+        effectsBuilder: () => [
+          MoveEffect(
+            curve: Curves.easeOut,
+            delay: 0.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(-180.0, 0.0),
+          ),
+          MoveEffect(
+            curve: Curves.easeIn,
+            delay: 2000.0.ms,
+            duration: 600.0.ms,
+            begin: const Offset(0.0, 0.0),
+            end: const Offset(180.0, 0.0),
+          ),
+        ],
+      ),
+    });
     setupAnimations(
       animationsMap.values.where((anim) =>
           anim.trigger == AnimationTrigger.onActionTrigger ||
@@ -79,7 +80,7 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
       this,
     );
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -381,7 +382,9 @@ class _BudgetListTileWidgetState extends State<BudgetListTileWidget>
                                         formatType: FormatType.percent,
                                       ),
                                       '23%',
-                                    ).maybeHandleOverflow(maxChars: 50),
+                                    ).maybeHandleOverflow(
+                                      maxChars: 50,
+                                    ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
                                         .bodyLarge

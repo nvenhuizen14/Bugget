@@ -3,9 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class RulesStruct extends FFFirebaseStruct {
@@ -31,45 +29,55 @@ class RulesStruct extends FFFirebaseStruct {
   String? _keyword;
   String get keyword => _keyword ?? '';
   set keyword(String? val) => _keyword = val;
+
   bool hasKeyword() => _keyword != null;
 
   // "amount_min" field.
   double? _amountMin;
   double get amountMin => _amountMin ?? 0.0;
   set amountMin(double? val) => _amountMin = val;
-  void incrementAmountMin(double amount) => _amountMin = amountMin + amount;
+
+  void incrementAmountMin(double amount) => amountMin = amountMin + amount;
+
   bool hasAmountMin() => _amountMin != null;
 
   // "amount_max" field.
   double? _amountMax;
   double get amountMax => _amountMax ?? 0.0;
   set amountMax(double? val) => _amountMax = val;
-  void incrementAmountMax(double amount) => _amountMax = amountMax + amount;
+
+  void incrementAmountMax(double amount) => amountMax = amountMax + amount;
+
   bool hasAmountMax() => _amountMax != null;
 
   // "account_name" field.
   String? _accountName;
   String get accountName => _accountName ?? '';
   set accountName(String? val) => _accountName = val;
+
   bool hasAccountName() => _accountName != null;
 
   // "category" field.
   String? _category;
   String get category => _category ?? '';
   set category(String? val) => _category = val;
+
   bool hasCategory() => _category != null;
 
   // "user_id" field.
   String? _userId;
   String get userId => _userId ?? '';
   set userId(String? val) => _userId = val;
+
   bool hasUserId() => _userId != null;
 
   // "id" field.
   int? _id;
   int get id => _id ?? 0;
   set id(int? val) => _id = val;
-  void incrementId(int amount) => _id = id + amount;
+
+  void incrementId(int amount) => id = id + amount;
+
   bool hasId() => _id != null;
 
   static RulesStruct fromMap(Map<String, dynamic> data) => RulesStruct(

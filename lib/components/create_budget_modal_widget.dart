@@ -51,15 +51,14 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
     SchedulerBinding.instance.addPostFrameCallback((_) async {
       logFirebaseEvent('CREATE_BUDGET_MODAL_CreateBudgetModal_ON');
       logFirebaseEvent('CreateBudgetModal_update_component_state');
-      setState(() {
-        _model.budgetlimit = valueOrDefault<double>(
-          _model.budgetlimit,
-          1.0,
-        );
-      });
+      _model.budgetlimit = valueOrDefault<double>(
+        _model.budgetlimit,
+        1.0,
+      );
+      safeSetState(() {});
     });
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -187,6 +186,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                             List<TransactionCategoryRow>
                                 containerTransactionCategoryRowList =
                                 snapshot.data!;
+
                             return ClipRRect(
                               borderRadius: BorderRadius.circular(20.0),
                               child: Container(
@@ -320,8 +320,8 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                           containerTransactionCategoryRowList
                                                               .take(1)
                                                               .toList()
-                                                              .first
-                                                              .name,
+                                                              .firstOrNull
+                                                              ?.name,
                                                           'category',
                                                         ),
                                                       ),
@@ -335,9 +335,9 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                                   ))
                                                               .toList(),
                                                       onChanged: (val) =>
-                                                          setState(() => _model
-                                                                  .dropDownValue =
-                                                              val),
+                                                          safeSetState(() =>
+                                                              _model.dropDownValue =
+                                                                  val),
                                                       width: 200.0,
                                                       height: 40.0,
                                                       searchHintTextStyle:
@@ -512,14 +512,14 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                                                       value: _model
                                                           .sliderValue ??= 0.0,
                                                       label: _model.sliderValue
-                                                          .toString(),
+                                                          ?.toStringAsFixed(2),
                                                       divisions: 40,
                                                       onChanged: (newValue) {
                                                         newValue = double.parse(
                                                             newValue
                                                                 .toStringAsFixed(
                                                                     2));
-                                                        setState(() =>
+                                                        safeSetState(() =>
                                                             _model.sliderValue =
                                                                 newValue);
                                                       },
@@ -574,9 +574,8 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                             });
                           }
                           logFirebaseEvent('Button_update_component_state');
-                          setState(() {
-                            _model.budgetStartDate = widget.startDate;
-                          });
+                          _model.budgetStartDate = widget.startDate;
+                          safeSetState(() {});
                         },
                         text: 'Start Date',
                         icon: const Icon(
@@ -634,7 +633,7 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                             'yearly'
                           ],
                           onChanged: (val) =>
-                              setState(() => _model.dropDown2Value = val),
+                              safeSetState(() => _model.dropDown2Value = val),
                           width: 175.0,
                           height: 40.0,
                           searchHintTextStyle: FlutterFlowTheme.of(context)
@@ -722,11 +721,12 @@ class _CreateBudgetModalWidgetState extends State<CreateBudgetModalWidget> {
                               random_data.randomInteger(1000, 10000),
                               1000,
                             ),
+                            'group': '',
                           });
                           logFirebaseEvent('Button_bottom_sheet');
                           Navigator.pop(context);
 
-                          setState(() {});
+                          safeSetState(() {});
                         },
                         text: 'Create Budget',
                         options: FFButtonOptions(

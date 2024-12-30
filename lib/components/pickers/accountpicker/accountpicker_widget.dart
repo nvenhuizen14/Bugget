@@ -36,7 +36,7 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
     super.initState();
     _model = createModel(context, () => AccountpickerModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -107,6 +107,7 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                     );
                   }
                   List<AccountRow> listViewAccountRowList = snapshot.data!;
+
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
@@ -131,7 +132,7 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                               data: {
                                 'account_name': 'null',
                               },
-                              matchingRows: (rows) => rows.eq(
+                              matchingRows: (rows) => rows.eqOrNull(
                                 'transaction_id',
                                 valueOrDefault<String>(
                                   widget.currentTransaction?.transactionId,
@@ -142,17 +143,16 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                             );
                             logFirebaseEvent(
                                 'Container_update_component_state');
-                            _model.updatePage(() {
-                              _model.currenTransaction =
-                                  widget.currentTransaction;
-                              _model.currentAccount = _model.currentAccount;
-                            });
+                            _model.currenTransaction =
+                                widget.currentTransaction;
+                            _model.currentAccount = _model.currentAccount;
+                            _model.updatePage(() {});
                             logFirebaseEvent('Container_bottom_sheet');
                             Navigator.pop(context, _model.currentAccount);
                             logFirebaseEvent('Container_bottom_sheet');
                             Navigator.pop(context);
 
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
@@ -189,7 +189,9 @@ class _AccountpickerWidgetState extends State<AccountpickerWidget> {
                                       valueOrDefault<String>(
                                         listViewAccountRow.name,
                                         'null',
-                                      ).maybeHandleOverflow(maxChars: 35),
+                                      ).maybeHandleOverflow(
+                                        maxChars: 35,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyLarge
                                           .override(

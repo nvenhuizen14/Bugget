@@ -3,9 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '/backend/schema/util/firestore_util.dart';
-import '/backend/schema/util/schema_util.dart';
 
-import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 
 class BudgetStruct extends FFFirebaseStruct {
@@ -23,19 +21,23 @@ class BudgetStruct extends FFFirebaseStruct {
   String? _group;
   String get group => _group ?? 'null';
   set group(String? val) => _group = val;
+
   bool hasGroup() => _group != null;
 
   // "limit" field.
   double? _limit;
   double get limit => _limit ?? 0.0;
   set limit(double? val) => _limit = val;
-  void incrementLimit(double amount) => _limit = limit + amount;
+
+  void incrementLimit(double amount) => limit = limit + amount;
+
   bool hasLimit() => _limit != null;
 
   // "item" field.
   String? _item;
   String get item => _item ?? '';
   set item(String? val) => _item = val;
+
   bool hasItem() => _item != null;
 
   static BudgetStruct fromMap(Map<String, dynamic> data) => BudgetStruct(

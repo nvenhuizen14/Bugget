@@ -28,7 +28,7 @@ class _RecentTransactionsWidgetState extends State<RecentTransactionsWidget> {
     super.initState();
     _model = createModel(context, () => RecentTransactionsModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

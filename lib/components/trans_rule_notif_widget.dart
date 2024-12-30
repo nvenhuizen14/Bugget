@@ -26,7 +26,7 @@ class _TransRuleNotifWidgetState extends State<TransRuleNotifWidget> {
     super.initState();
     _model = createModel(context, () => TransRuleNotifModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override

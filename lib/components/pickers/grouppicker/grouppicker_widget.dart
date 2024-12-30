@@ -35,7 +35,7 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
     super.initState();
     _model = createModel(context, () => GrouppickerModel());
 
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
   @override
@@ -107,6 +107,7 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                   }
                   List<TransactionGroupRow> listViewTransactionGroupRowList =
                       snapshot.data!;
+
                   return ListView.builder(
                     padding: EdgeInsets.zero,
                     scrollDirection: Axis.vertical,
@@ -130,7 +131,7 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                               data: {
                                 'group_name': listViewTransactionGroupRow.name,
                               },
-                              matchingRows: (rows) => rows.eq(
+                              matchingRows: (rows) => rows.eqOrNull(
                                 'transaction_id',
                                 valueOrDefault<String>(
                                   widget.currentTransaction?.transactionId,
@@ -141,18 +142,17 @@ class _GrouppickerWidgetState extends State<GrouppickerWidget> {
                             );
                             logFirebaseEvent(
                                 'Container_update_component_state');
-                            _model.updatePage(() {
-                              _model.currenTransaction =
-                                  widget.currentTransaction;
-                              _model.currentGroup =
-                                  listViewTransactionGroupRow.name;
-                            });
+                            _model.currenTransaction =
+                                widget.currentTransaction;
+                            _model.currentGroup =
+                                listViewTransactionGroupRow.name;
+                            _model.updatePage(() {});
                             logFirebaseEvent('Container_bottom_sheet');
                             Navigator.pop(context);
                             logFirebaseEvent('Container_bottom_sheet');
                             Navigator.pop(context);
 
-                            setState(() {});
+                            safeSetState(() {});
                           },
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
