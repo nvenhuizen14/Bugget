@@ -154,6 +154,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier, [Widget? entryPage]) =>
               path: 'hjk',
               requireAuth: true,
               builder: (context, params) => const HjkWidget(),
+            ),
+            FFRoute(
+              name: 'EnvelopesCopy',
+              path: 'envelopesCopy',
+              requireAuth: true,
+              builder: (context, params) => const EnvelopesCopyWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

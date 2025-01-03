@@ -13,3 +13,4 @@ export '/pages/categories/categories_widget.dart' show CategoriesWidget;
 export '/pages/date_details_page/date_details_page_widget.dart'
     show DateDetailsPageWidget;
 export '/hjk/hjk_widget.dart' show HjkWidget;
+export '/envelopes_copy/envelopes_copy_widget.dart' show EnvelopesCopyWidget;

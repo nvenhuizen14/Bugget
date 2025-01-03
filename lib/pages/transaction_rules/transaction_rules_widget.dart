@@ -1742,126 +1742,123 @@ class _TransactionRulesWidgetState extends State<TransactionRulesWidget>
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           children: [
-                                            if (_model.accountName)
-                                              Expanded(
-                                                child: Align(
-                                                  alignment:
-                                                      const AlignmentDirectional(
-                                                          0.22, 0.67),
-                                                  child: FutureBuilder<
-                                                      List<AccountRow>>(
-                                                    future: AccountTable()
-                                                        .queryRows(
-                                                      queryFn: (q) => q,
-                                                    ),
-                                                    builder:
-                                                        (context, snapshot) {
-                                                      // Customize what your widget looks like when it's loading.
-                                                      if (!snapshot.hasData) {
-                                                        return Center(
-                                                          child: SizedBox(
-                                                            width: 50.0,
-                                                            height: 50.0,
-                                                            child:
-                                                                SpinKitDualRing(
-                                                              color: FlutterFlowTheme
-                                                                      .of(context)
-                                                                  .tertiary400,
-                                                              size: 50.0,
-                                                            ),
-                                                          ),
-                                                        );
-                                                      }
-                                                      List<AccountRow>
-                                                          dropDownAccountRowList =
-                                                          snapshot.data!;
-
-                                                      return FlutterFlowDropDown<
-                                                          String>(
-                                                        controller: _model
-                                                                .dropDownValueController1 ??=
-                                                            FormFieldController<
-                                                                String>(
-                                                          _model.dropDownValue1 ??=
-                                                              valueOrDefault<
-                                                                  String>(
-                                                            dropDownAccountRowList
-                                                                .firstOrNull
-                                                                ?.name,
-                                                            'name',
-                                                          ),
-                                                        ),
-                                                        options:
-                                                            dropDownAccountRowList
-                                                                .map((e) =>
-                                                                    valueOrDefault<
-                                                                        String>(
-                                                                      e.name,
-                                                                      'null',
-                                                                    ))
-                                                                .toList(),
-                                                        onChanged: (val) =>
-                                                            safeSetState(() =>
-                                                                _model.dropDownValue1 =
-                                                                    val),
-                                                        width:
-                                                            MediaQuery.sizeOf(
-                                                                        context)
-                                                                    .width *
-                                                                0.75,
-                                                        height: 50.0,
-                                                        textStyle:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .bodyMedium
-                                                                .override(
-                                                                  fontFamily: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMediumFamily,
-                                                                  letterSpacing:
-                                                                      0.0,
-                                                                  useGoogleFonts: GoogleFonts
-                                                                          .asMap()
-                                                                      .containsKey(
-                                                                          FlutterFlowTheme.of(context)
-                                                                              .bodyMediumFamily),
-                                                                ),
-                                                        hintText:
-                                                            'Please select account...',
-                                                        icon: Icon(
-                                                          Icons
-                                                              .keyboard_arrow_down_rounded,
-                                                          color: FlutterFlowTheme
-                                                                  .of(context)
-                                                              .secondaryText,
-                                                          size: 24.0,
-                                                        ),
-                                                        fillColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .black,
-                                                        elevation: 2.0,
-                                                        borderColor:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .alternate,
-                                                        borderWidth: 2.0,
-                                                        borderRadius: 8.0,
-                                                        margin:
-                                                            const EdgeInsetsDirectional
-                                                                .fromSTEB(
-                                                                    16.0,
-                                                                    4.0,
-                                                                    16.0,
-                                                                    4.0),
-                                                        hidesUnderline: true,
-                                                        isSearchable: false,
-                                                        isMultiSelect: false,
-                                                      );
-                                                    },
+                                            Expanded(
+                                              child: Align(
+                                                alignment: const AlignmentDirectional(
+                                                    0.22, 0.67),
+                                                child: FutureBuilder<
+                                                    List<AccountRow>>(
+                                                  future:
+                                                      AccountTable().queryRows(
+                                                    queryFn: (q) => q,
                                                   ),
+                                                  builder: (context, snapshot) {
+                                                    // Customize what your widget looks like when it's loading.
+                                                    if (!snapshot.hasData) {
+                                                      return Center(
+                                                        child: SizedBox(
+                                                          width: 50.0,
+                                                          height: 50.0,
+                                                          child:
+                                                              SpinKitDualRing(
+                                                            color: FlutterFlowTheme
+                                                                    .of(context)
+                                                                .tertiary400,
+                                                            size: 50.0,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                    List<AccountRow>
+                                                        dropDownAccountRowList =
+                                                        snapshot.data!;
+
+                                                    return FlutterFlowDropDown<
+                                                        String>(
+                                                      controller: _model
+                                                              .dropDownValueController1 ??=
+                                                          FormFieldController<
+                                                              String>(
+                                                        _model.dropDownValue1 ??=
+                                                            valueOrDefault<
+                                                                String>(
+                                                          dropDownAccountRowList
+                                                              .firstOrNull
+                                                              ?.name,
+                                                          'name',
+                                                        ),
+                                                      ),
+                                                      options:
+                                                          dropDownAccountRowList
+                                                              .map((e) =>
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                    e.name,
+                                                                    'null',
+                                                                  ))
+                                                              .toList(),
+                                                      onChanged: (val) =>
+                                                          safeSetState(() =>
+                                                              _model.dropDownValue1 =
+                                                                  val),
+                                                      width: MediaQuery.sizeOf(
+                                                                  context)
+                                                              .width *
+                                                          0.75,
+                                                      height: 50.0,
+                                                      textStyle:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily: FlutterFlowTheme.of(
+                                                                        context)
+                                                                    .bodyMediumFamily,
+                                                                letterSpacing:
+                                                                    0.0,
+                                                                useGoogleFonts: GoogleFonts
+                                                                        .asMap()
+                                                                    .containsKey(
+                                                                        FlutterFlowTheme.of(context)
+                                                                            .bodyMediumFamily),
+                                                              ),
+                                                      hintText:
+                                                          'Please select account...',
+                                                      icon: Icon(
+                                                        Icons
+                                                            .keyboard_arrow_down_rounded,
+                                                        color:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .secondaryText,
+                                                        size: 24.0,
+                                                      ),
+                                                      fillColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .black,
+                                                      elevation: 2.0,
+                                                      borderColor:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .alternate,
+                                                      borderWidth: 2.0,
+                                                      borderRadius: 8.0,
+                                                      margin:
+                                                          const EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  16.0,
+                                                                  4.0,
+                                                                  16.0,
+                                                                  4.0),
+                                                      hidesUnderline: true,
+                                                      isSearchable: false,
+                                                      isMultiSelect: false,
+                                                    );
+                                                  },
                                                 ),
                                               ),
+                                            ),
                                           ],
                                         ),
                                       ),
