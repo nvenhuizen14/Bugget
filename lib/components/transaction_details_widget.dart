@@ -92,12 +92,10 @@ class _TransactionDetailsWidgetState extends State<TransactionDetailsWidget> {
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
                       colors: [
-                        FlutterFlowTheme.of(context).black600,
-                        FlutterFlowTheme.of(context).gray600,
-                        const Color(0xB314181B),
-                        FlutterFlowTheme.of(context).oxfordBlue
+                        FlutterFlowTheme.of(context).primaryBackground,
+                        const Color(0xFF26475E)
                       ],
-                      stops: const [0.2, 0.3, 0.5, 0.6],
+                      stops: const [0.2, 1.0],
                       begin: const AlignmentDirectional(1.0, -0.64),
                       end: const AlignmentDirectional(-1.0, 0.64),
                     ),

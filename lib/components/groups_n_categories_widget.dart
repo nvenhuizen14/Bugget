@@ -210,7 +210,7 @@ class _GroupsNCategoriesWidgetState extends State<GroupsNCategoriesWidget> {
                                             borderWidth: 1.0,
                                             buttonSize: 40.0,
                                             icon: Icon(
-                                              Icons.settings_sharp,
+                                              Icons.info_outline,
                                               color:
                                                   FlutterFlowTheme.of(context)
                                                       .primaryBackground,
@@ -219,7 +219,7 @@ class _GroupsNCategoriesWidgetState extends State<GroupsNCategoriesWidget> {
                                             showLoadingIndicator: true,
                                             onPressed: () async {
                                               logFirebaseEvent(
-                                                  'GROUPS_N_CATEGORIES_settings_sharp_ICN_O');
+                                                  'GROUPS_N_CATEGORIES_info_outline_ICN_ON_');
                                               logFirebaseEvent(
                                                   'IconButton_backend_call');
                                               _model.groupCategories =

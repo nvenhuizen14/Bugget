@@ -4,6 +4,8 @@ import '/components/account_card/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'accounts_widget.dart' show AccountsWidget;
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart'
+    show TutorialCoachMark;
 import 'package:flutter/material.dart';
 
 class AccountsModel extends FlutterFlowModel<AccountsWidget> {
@@ -19,6 +21,7 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
 
   ///  State fields for stateful widgets in this page.
 
+  TutorialCoachMark? accountsController;
   // Models for accountCard dynamic component.
   late FlutterFlowDynamicModels<AccountCardModel> accountCardModels;
   // Stores action output result for [Backend Call - API (Create Token)] action in Button widget.
@@ -36,6 +39,7 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
 
   @override
   void dispose() {
+    accountsController?.finish();
     accountCardModels.dispose();
     navBarFlotingModel.dispose();
   }
