@@ -531,6 +531,9 @@ class _AccountsWidgetState extends State<AccountsWidget> {
                                                           16.0),
                                                   hoverColor: const Color(0x7930686E),
                                                 ),
+                                              ).addWalkthrough(
+                                                button68pfkw8y,
+                                                _model.accountsController,
                                               ),
                                             ),
                                           ),
