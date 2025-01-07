@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_import, annotate_overrides
+
 import '/backend/supabase/supabase.dart';
 import '/components/account_card_widget.dart';
 import '/components/nav_bar_floting/nav_bar_floting_widget.dart';
@@ -5,6 +7,7 @@ import '/components/transaction_row_widget.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'accounts_widget.dart' show AccountsWidget;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class AccountsModel extends FlutterFlowModel<AccountsWidget> {
   ///  Local state fields for this page.
@@ -29,7 +32,6 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
 
   /// Initialization and disposal methods.
 
-  @override
   void initState(BuildContext context) {
     accountCardModels = FlutterFlowDynamicModels(() => AccountCardModel());
     transactionRowModels =
@@ -37,7 +39,6 @@ class AccountsModel extends FlutterFlowModel<AccountsWidget> {
     navBarFlotingModel = createModel(context, () => NavBarFlotingModel());
   }
 
-  @override
   void dispose() {
     unfocusNode.dispose();
     accountCardModels.dispose();

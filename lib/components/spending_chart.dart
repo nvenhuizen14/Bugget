@@ -4,7 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 class SpendingChart extends StatelessWidget {
   final List<Map<String, dynamic>> data;
 
-  SpendingChart({required this.data});
+  const SpendingChart({super.key, required this.data});
 
   List<BarChartGroupData> _getBarGroups() {
     return data.map((item) {
@@ -18,7 +18,7 @@ class SpendingChart extends StatelessWidget {
           BarChartRodData(
             toY: spending,
             width: 15,
-            gradient: LinearGradient(colors: [const Color.fromARGB(255, 12, 25, 36), Color.fromARGB(255, 10, 141, 80)]), // Using gradient for colors
+            gradient: const LinearGradient(colors: [Color.fromARGB(255, 12, 25, 36), Color.fromARGB(255, 10, 141, 80)]), // Using gradient for colors
           ),
         ],
       );
@@ -32,7 +32,7 @@ class SpendingChart extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Padding(
+        const Padding(
           padding: EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             'Top 5 Transaction Groups',
@@ -44,7 +44,7 @@ class SpendingChart extends StatelessWidget {
             BarChartData(
               barGroups: barGroups,
               titlesData: FlTitlesData(
-                topTitles: AxisTitles(
+                topTitles: const AxisTitles(
                   sideTitles: SideTitles(showTitles: false),
                 ),
                 show: true,
@@ -52,7 +52,7 @@ class SpendingChart extends StatelessWidget {
                   sideTitles: SideTitles(
                     showTitles: true,
                     getTitlesWidget: (double value, TitleMeta meta) {
-                      return Text('${meta.formattedValue}');
+                      return Text(meta.formattedValue);
                     },
                   ),
                 ),
@@ -65,7 +65,7 @@ class SpendingChart extends StatelessWidget {
                           (element) => element['group_name'].hashCode == value,
                           orElse: () => {'group_name': 'Unknown'},
                         )['group_name'],
-                        style: TextStyle(fontSize: 9), // Smaller font size for bottom titles
+                        style: const TextStyle(fontSize: 9), // Smaller font size for bottom titles
                       );
                     },
                   ),

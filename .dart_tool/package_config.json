@@ -878,6 +878,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "url_strategy",
+      "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/url_strategy-0.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "uuid",
       "rootUri": "file:///C:/Users/nvenh/AppData/Local/Pub/Cache/hosted/pub.dev/uuid-3.0.7",
       "packageUri": "lib/",
@@ -968,7 +974,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2023-12-25T20:41:06.510454Z",
+  "generated": "2023-12-26T11:27:04.349113Z",
   "generator": "pub",
   "generatorVersion": "3.2.3"
 }
